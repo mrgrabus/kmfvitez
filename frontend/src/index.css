@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'Rpl';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../public/fonts/RPL-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: 'ps';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../public/fonts/ProductSansRegular.ttf'); 
+}

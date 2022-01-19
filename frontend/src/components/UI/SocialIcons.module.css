@@ -1,0 +1,19 @@
+.div{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+.iconItem{
+    margin: 8px 0px;
+    font-size: 25px;
+}
+.tw:hover{
+    color: #00acee;
+}
+.ig:hover{
+    color: #fbad50;
+}
+.fb:hover{
+    color: #3b5998;
+}

@@ -1,20 +1,16 @@
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import BgImg from "./BgImg";
+import NavigationBar from "./NavigationBar";
+import SocialIcons from "../UI/SocialIcons";
+import Carousel from "../UI/Carousel";
 
 const Header = () => {
   return (
-    <Container fluid>
-      <Container>
-        <Navbar bg="dark" variant="dark">
-          <Container>
-            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar>
-      </Container>
+    <Container fluid className="ps-0 pe-0 position-relative">
+      <Carousel/>
+      <BgImg/>
+      <NavigationBar/>
+      <SocialIcons/> 
     </Container>
   );
 };

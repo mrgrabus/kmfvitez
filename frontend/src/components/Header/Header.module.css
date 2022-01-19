@@ -1,0 +1,11 @@
+.navbg{
+    position: absolute;
+}
+.nav{
+    top: 0;
+    position: absolute;
+}
+.si{
+    position: absolute;
+    transform: translateY(-50%);
+}

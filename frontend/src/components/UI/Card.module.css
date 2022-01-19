@@ -1,0 +1,113 @@
+.gameCard {
+  position: relative;
+  z-index: 15;
+  width: 450px;
+  background-color: #ffffff;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  overflow: hidden;
+}
+
+.headerClass {
+  height: 55px;
+  width: 100%;
+  background-color: #095b48;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.time {
+  display: flex;
+  color: #ffffff;
+  align-items: center;
+}
+.dateNumber {
+  font-family: Rpl;
+  font-size: 45px;
+  padding: 0px 10px 0px 20px;
+  margin: 0;
+}
+.dayWrapper {
+  margin: 0;
+  padding: 0;
+}
+.day {
+  line-height: 0.8;
+  font-family: rpl;
+  margin: 0;
+  padding: 0;
+  font-size: 22px;
+}
+.month {
+  line-height: 1;
+  font-size: 16px;
+  padding: 0;
+  font-family: ps;
+}
+.teamsLogos {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  align-items: center;
+}
+.clock{
+    font-size: 20px;
+    margin-right: 20px;
+}
+.tekmaDetails {
+  text-align: center;
+  color: #c2c2c2;
+}
+.tekmaDetails p {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+.tekmaDetails p:nth-child(2) {
+  color: #303030;
+  font-weight: bold;
+  font-size: 48px;
+}
+.teamNames {
+  margin-top: 10px;
+  padding: 0 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.teamNames p:nth-child(2) {
+  color: #c2c2c2;
+  padding: 10px;
+  font-size: 38px;
+}
+.teamNames p:nth-child(1) {
+  font-size: 20px;
+}
+.teamNames p:nth-child(3) {
+  font-size: 20px;
+}
+.terenContainer {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+button{
+    font-family: ps;
+    background-color: #095B48;
+    border: none;
+    border-radius: 10px !important;
+    padding: 10px 50px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
