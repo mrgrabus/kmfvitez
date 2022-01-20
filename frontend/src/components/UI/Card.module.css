@@ -101,7 +101,7 @@
   justify-content: center;
   margin-bottom: 20px;
 }
-button{
+.buttonContainer button{
     font-family: ps;
     background-color: #095B48;
     border: none;

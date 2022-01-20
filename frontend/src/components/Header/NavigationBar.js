@@ -1,37 +1,61 @@
 import { Container, Navbar, Nav } from "react-bootstrap";
+import { Link, NavLink } from 'react-router-dom';
 import styles from "./NavigationBar.module.css";
 import grb from "../../assets/Img/kmf_grb.png";
+import { useEffect, useRef, useState } from "react";
 
 const NavigationBar = () => {
+  const [navBackground, setNavBackground] = useState(false);
+  const navRef = useRef();
+  navRef.current = navBackground;
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 10;
+      if (navRef.current !== show) {
+        setNavBackground(show);
+      }
+    };
+    document.addEventListener("scroll", handleScroll);
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <Navbar
       collapseOnSelect
       expand="lg"
-      bg="transparent"
       variant="dark"
-      className="fixed-top"
+      fixed="top"
+      style={{
+        transition: "1s ease",
+        backgroundColor: navBackground ? "black" : "transparent",
+      }}
     >
       <Container>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className={`d-flex justify-content-space-evenly ${styles.nav}`}>
-            <Nav.Link href="#home" className={styles.navLink}>
+            <NavLink to="/home" className={(navData) => navData.isActive ? styles.Active : styles.navLink }>
               Home
-            </Nav.Link>
-            <Nav.Link href="#players" className={styles.navLink}>
+            </NavLink>
+            <NavLink to="/players" className={(navData) => navData.isActive ? styles.Active : styles.navLink }>
               Players
-            </Nav.Link>
-            <Nav.Link href="#logo" className={styles.navLink}>
+            </NavLink>
+            {!navBackground && <NavLink to="/home" className={(navData) => navData.isActive ? styles.navLink : styles.navLink }>
               <a>
                 <img src={grb} alt="kmfvitez"></img>
               </a>
-            </Nav.Link>
-            <Nav.Link href="#shop" className={styles.navLink}>
+            </NavLink>}
+           {navBackground && <NavLink to="/home" className={(navData) => navData.isActive ? styles.navLink : styles.navLink }>
+              KMF VITEZ
+            </NavLink>}
+            <NavLink to="/shop" className={(navData) => navData.isActive ? styles.Active : styles.navLink }>
               Shop
-            </Nav.Link>
-            <Nav.Link href="#contact" className={styles.navLink}>
+            </NavLink>
+            <NavLink to="/contact" className={(navData) => navData.isActive ? styles.Active : styles.navLink }>
               Contact
-            </Nav.Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

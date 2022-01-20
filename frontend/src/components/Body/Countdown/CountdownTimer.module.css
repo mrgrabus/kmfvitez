@@ -1,0 +1,36 @@
+.countdown {
+  margin-top: 90px !important;
+  border-radius: 10px;
+  height: 80px;
+  background-color: rgb(255, 255, 255);
+}
+.cdTimer {
+  text-align: center;
+}
+.cd-timer p {
+  line-height: 0.3;
+  padding: 0 ;
+  margin: 0 !important;
+}
+.cdContent {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cdLogo {
+  padding-left: 20px;
+  padding-top: 6px;
+}
+.cdNametag p {
+  padding-top: 18px;
+  font-size: 30px;
+}
+.demo {
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-family: rpl;
+  font-size: 40px;
+}

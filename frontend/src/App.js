@@ -1,8 +1,17 @@
-import Header from './components/Header/Header'
+import { Route, Routes } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Players from './pages/Players';
 
 function App() {
   return (
-    <Header />
+    <>
+      <Routes>
+        <Route path="*" element={<Home />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/players" element={<Players />}></Route>
+      </Routes>
+    </>
   );
 }
 

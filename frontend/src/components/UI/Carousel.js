@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 
 import SwiperCore, { EffectCoverflow, Pagination } from "swiper";
 
-SwiperCore.use([EffectCoverflow, Pagination]);
+SwiperCore.use([EffectCoverflow]);
 
 const Carousel = () => {
   return (
@@ -18,6 +18,7 @@ const Carousel = () => {
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
+        loop={false}
         centeredSlides={true}
         slidesPerView={3}
         coverflowEffect={{
@@ -27,12 +28,12 @@ const Carousel = () => {
           modifier: 2,
           slideShadows: true,
         }}
-        pagination={false}
         className="mySwiper"
       >
         <SwiperSlide>
           <Card />
         </SwiperSlide>
+
         <SwiperSlide>
           <Card />
         </SwiperSlide>
