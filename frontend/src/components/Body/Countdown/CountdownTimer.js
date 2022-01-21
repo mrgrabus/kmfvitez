@@ -17,9 +17,10 @@ const CountdownTimer = () => {
           <p>KMF Vitez</p>
         </div>
         <div className={styles.cdTimer}>
-          <p>NEXT MATCH</p>
+          <p className={styles.nm}>NEXT MATCH</p>
           <p className={styles.demo}>
             <Countdown date={"02/05/2022"} />
+            <p className={styles.d}>Mon / Day / Hour / Sec</p>
           </p>
         </div>
         <div className={styles.cdNametag}>

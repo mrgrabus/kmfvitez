@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
-import SwiperCore, { EffectCoverflow, Pagination } from "swiper";
+import SwiperCore, { EffectCoverflow } from "swiper";
 
 SwiperCore.use([EffectCoverflow]);
 

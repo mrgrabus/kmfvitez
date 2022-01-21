@@ -1,0 +1,29 @@
+.itemName {
+    position: absolute;
+    color: #fff;
+    display: flex;
+    text-align: center;
+  }
+  .name {
+    display: inline-flex;
+  }
+  .imageHolder {
+    position: relative;
+    z-index: -1;
+  }
+  .imageHolder img {
+    width: 100%;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+  }
+  .imageHolder img:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+  }
+  .layer {
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(#ffffff00, #ffffffef);
+  }
+  

@@ -3,14 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import fks from "../../assets/Grbovi/FK_Sarajevo 1.png";
 import kmf from "../../assets/Grbovi/KMF Grb.png";
-import { useState } from "react";
-import Modal from "./Modal";
-import { Button } from "react-bootstrap";
+
 const Card = (props) => {
-  const [modalOn, setModalOn] = useState(false);
-  const btnClickHandler = () => {
-    setModalOn(true);
-  };
   return (
     <>
       <div className={styles.gameCard}>

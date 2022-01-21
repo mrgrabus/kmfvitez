@@ -1,0 +1,38 @@
+.div{
+    margin-top: 100px;
+    z-index: 50;
+    position: relative;
+    height: 100px;
+    width: 100%;
+}
+.news {
+  margin-top: 90px !important;
+}
+
+.news-card-2 {
+  height: 400px;
+  /* background-image: url("img/news/img2.png"); */
+  background-position: center;
+  background-size: cover;
+}
+#recipeCarousel {
+  padding: 0 !important;
+}
+@media (max-width: 767px) {
+  .carousel-inner .carousel-item > div {
+    display: none;
+  }
+  .carousel-inner .carousel-item > div:first-child {
+    display: block;
+  }
+}
+.carousel-inner .carousel-item {
+  transition: -webkit-transform 3s ease;
+  transition: transform 3s ease;
+  transition: transform 3s ease, -webkit-transform 3s ease;
+}
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}

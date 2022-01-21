@@ -1,0 +1,35 @@
+.history {
+  margin-top: 30px !important;
+}
+.historyBg {
+  position: relative;
+  object-fit: cover;
+  width: 100%;
+}
+.historySlika {
+  position: relative;
+  width: 100%;
+}
+.historyContent {
+  position: absolute;
+  padding: 0 80px;
+  top: 20%;
+  text-align: center;
+  color: white;
+  font-family: rpl;
+  z-index: 1000;
+  position: absolute;
+}
+.historyContent p {
+  font-size: 20px;
+  font-family: ps;
+}
+.historyContent button {
+  width: 250px;
+  height: 50px;
+  font-size: 20px;
+  color: #7d7d7d;
+  font-family: ps;
+  font-weight: 700;
+  border-radius: 30px;
+}

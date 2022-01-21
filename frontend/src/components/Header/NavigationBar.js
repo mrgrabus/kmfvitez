@@ -1,5 +1,5 @@
 import { Container, Navbar, Nav } from "react-bootstrap";
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import styles from "./NavigationBar.module.css";
 import grb from "../../assets/Img/kmf_grb.png";
 import { useEffect, useRef, useState } from "react";
@@ -36,24 +36,58 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className={`d-flex justify-content-space-evenly ${styles.nav}`}>
-            <NavLink to="/home" className={(navData) => navData.isActive ? styles.Active : styles.navLink }>
+            <NavLink
+              to="/home"
+              className={(navData) =>
+                navData.isActive ? styles.Active : styles.navLink
+              }
+            >
               Home
             </NavLink>
-            <NavLink to="/players" className={(navData) => navData.isActive ? styles.Active : styles.navLink }>
+            <NavLink
+              to="/players"
+              className={(navData) =>
+                navData.isActive ? styles.Active : styles.navLink
+              }
+            >
               Players
             </NavLink>
-            {!navBackground && <NavLink to="/home" className={(navData) => navData.isActive ? styles.navLink : styles.navLink }>
-              <a>
-                <img src={grb} alt="kmfvitez"></img>
-              </a>
-            </NavLink>}
-           {navBackground && <NavLink to="/home" className={(navData) => navData.isActive ? styles.navLink : styles.navLink }>
-              KMF VITEZ
-            </NavLink>}
-            <NavLink to="/shop" className={(navData) => navData.isActive ? styles.Active : styles.navLink }>
+            {!navBackground && (
+              <NavLink
+                to="/home"
+                className={(navData) =>
+                  navData.isActive ? styles.navLink : styles.navLink
+                }
+              >
+                <a>
+                  <img src={grb} alt="kmfvitez"></img>
+                </a>
+              </NavLink>
+            )}
+            {navBackground && (
+              <NavLink
+                to="/home"
+                className={(navData) =>
+                  navData.isActive ? styles.navLink : styles.navLink
+                }
+              >
+                KMF VITEZ
+              </NavLink>
+            )}
+            <NavLink
+              to="/shop"
+              className={(navData) =>
+                navData.isActive ? styles.Active : styles.navLink
+              }
+            >
               Shop
             </NavLink>
-            <NavLink to="/contact" className={(navData) => navData.isActive ? styles.Active : styles.navLink }>
+            <NavLink
+              to="/contact"
+              className={(navData) =>
+                navData.isActive ? styles.Active : styles.navLink
+              }
+            >
               Contact
             </NavLink>
           </Nav>
