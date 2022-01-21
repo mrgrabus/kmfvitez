@@ -33,7 +33,6 @@ const Carousel = () => {
         <SwiperSlide>
           <Card />
         </SwiperSlide>
-
         <SwiperSlide>
           <Card />
         </SwiperSlide>

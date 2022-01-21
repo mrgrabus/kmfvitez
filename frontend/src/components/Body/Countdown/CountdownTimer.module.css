@@ -1,6 +1,6 @@
 .countdown {
   margin-top: 90px !important;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   height: 80px;
   background-color: rgb(255, 255, 255);
 }

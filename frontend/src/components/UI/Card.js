@@ -23,18 +23,18 @@ const Card = (props) => {
           </div>
         </div>
         <div className={styles.teamsLogos}>
-          <div className="logo">
+          <div>
             <img src={kmf} alt="kmf vitez" />
           </div>
           <div className={styles.tekmaDetails}>
             <p>PRVA LIGA</p>
-            <p className="time">21:00</p>
+            <p className={styles.vrijeme}>21:00</p>
             <p>
               GRADSKA SPORTSKA <br />
               DVORANA VITEZ
             </p>
           </div>
-          <div className="logo">
+          <div>
             <img src={fks} alt="fk sarajevo" />
           </div>
         </div>

@@ -7,7 +7,7 @@ const SocialIcons = () => {
     <div className={`position-absolute top-50 start-0 translate-middle ${styles.div} d-none d-sm-flex`}>
       <FontAwesomeIcon icon={faTwitter}  className={`${styles.iconItem} ${styles.tw}`} />
       <FontAwesomeIcon icon={faInstagram} className={`${styles.iconItem} ${styles.ig}`} />
-      <FontAwesomeIcon icon={faFacebook} className={`${styles.iconItem} ${styles.fb}`} />
+      <a href='https://www.facebook.com/kmfvitez' target="_blank"><FontAwesomeIcon icon={faFacebook} className={`${styles.iconItem} ${styles.fb}`} /></a>
     </div>
   );
 };

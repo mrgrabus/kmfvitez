@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer';
 const Players = () => {
   return (
     <>
-      <Header />
+      <Header type="players" />
       <PlayersContent />
       <Footer />
     </>

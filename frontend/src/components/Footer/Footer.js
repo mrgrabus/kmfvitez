@@ -12,7 +12,7 @@ const Footer = () => {
         </div>
         <div className={styles.crInfo}>
           <p>
-            © Copyright KMF Vitez <span> Official website of KMF Vitez</span>
+            Copyright KMF Vitez <span> | Official website of KMF Vitez</span>
           </p>
           <p>Created by Edin Grabus</p>
         </div>

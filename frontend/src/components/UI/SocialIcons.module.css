@@ -4,6 +4,9 @@
     flex-direction: column;
     color: #fff;
 }
+.div a{
+    color: white;
+}
 .iconItem{
     margin: 8px 0px;
     font-size: 25px;

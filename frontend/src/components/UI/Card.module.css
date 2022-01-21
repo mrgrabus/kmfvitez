@@ -20,9 +20,14 @@
   color: white;
 }
 .time {
+  font-family: ps;
   display: flex;
   color: #ffffff;
   align-items: center;
+}
+.vrijeme{
+  font-family: ps;
+  font-weight: 700;
 }
 .dateNumber {
   font-family: Rpl;

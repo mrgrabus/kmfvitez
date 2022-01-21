@@ -8,6 +8,7 @@
     justify-content: space-between;
 }
 .crInfo p{
+    margin-top: 20px;
     font-weight: 700;
 }
 .crInfo p span{

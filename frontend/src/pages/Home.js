@@ -8,7 +8,7 @@ import History from "../components/Body/History/History";
 const Home = () => {
   return (
     <>
-      <Header />
+      <Header type="home"/>
       <CountdownTimer />
       <News />
       <Sponsors />

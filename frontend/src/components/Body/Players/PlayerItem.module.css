@@ -1,0 +1,26 @@
+.profile{
+    color: white;
+}
+.profile :nth-child(1){
+    margin-bottom: 0px !important;
+    line-height: 0.5;
+    font-family: rpl;
+}
+.profile :nth-child(2){
+    font-family: rpl;
+    font-size: 3em;
+}
+.profile :nth-child(4){
+    width: 70%;
+}
+.number{
+    color: #095B48;
+    position: absolute;
+    bottom: -300px;
+    font-size: 1000px;
+    font-family: rpl;
+    z-index: -1;
+}
+.icon{
+    font-size: 25px;
+}
