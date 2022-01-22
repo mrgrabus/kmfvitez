@@ -1,12 +1,13 @@
 .div{
     margin-top: 100px;
     z-index: 50;
-    position: relative;
-    height: 100px;
     width: 100%;
 }
 .news {
   margin-top: 90px !important;
+}
+.swiper{
+  height: 100%;
 }
 
 .news-card-2 {

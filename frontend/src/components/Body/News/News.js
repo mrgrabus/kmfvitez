@@ -10,7 +10,7 @@ SwiperCore.use([Navigation]);
 
 const News = () => {
   return (
-    <Container fluid className={`${styles.div} ps-0 pe-0`}>
+    <Container fluid className={`${styles.div} position-relative ps-0 pe-0`}>
       <Swiper
         navigation={{
           nextEl: ".swiper-button-next",

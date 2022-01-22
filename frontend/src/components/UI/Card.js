@@ -3,10 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import fks from "../../assets/Grbovi/FK_Sarajevo 1.png";
 import kmf from "../../assets/Grbovi/KMF Grb.png";
+import { useState } from "react";
+import { Button, Modal } from "react-bootstrap";
+import ModalReminder from "./ModalReminder";
 
 const Card = (props) => {
+  const [show, setShow] = useState(false);
+  const reminderModalHandler = () => {
+    setShow(true);
+  };
   return (
     <>
+      <ModalReminder show={show}/>
       <div className={styles.gameCard}>
         <div className={styles.headerClass}>
           <div className={styles.time}>
@@ -18,7 +26,7 @@ const Card = (props) => {
               </p>
             </div>
           </div>
-          <div>
+          <div onClick={reminderModalHandler}>
             <FontAwesomeIcon icon={faClock} className={styles.clock} />
           </div>
         </div>

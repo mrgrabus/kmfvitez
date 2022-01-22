@@ -21,6 +21,7 @@ const Carousel = () => {
         loop={false}
         centeredSlides={true}
         slidesPerView={3}
+        initialSlide={1}
         coverflowEffect={{
           rotate: 5,
           stretch: 20,
