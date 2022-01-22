@@ -2,6 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import styles from "./PlayersContent.module.css";
 import PlayersContentItem from "./PlayersContentItem";
 import CountdownTimer from "../Countdown/CountdownTimer";
+import { Link } from "react-router-dom";
 
 const PlayersContent = () => {
   return (

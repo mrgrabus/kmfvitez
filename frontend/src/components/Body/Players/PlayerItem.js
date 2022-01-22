@@ -3,9 +3,13 @@ import NavigationBar from "../../Header/NavigationBar";
 import hero from "../../../assets/Img/Players/hero.png";
 import styles from "./PlayerItem.module.css";
 import ProfileGallery from "./ProfileGallery";
-import Footer from '../../Footer/Footer';
+import Footer from "../../Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons"
+import {
+  faInstagram,
+  faFacebook,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 const PlayerItem = () => {
   return (
@@ -27,9 +31,18 @@ const PlayerItem = () => {
               sed blandit.
             </p>
             <div>
-              <FontAwesomeIcon icon={faFacebook} className={styles.icon}></FontAwesomeIcon>
-              <FontAwesomeIcon icon={faTwitter} className={styles.icon}></FontAwesomeIcon>
-              <FontAwesomeIcon icon={faInstagram} className={styles.icon}></FontAwesomeIcon>
+              <FontAwesomeIcon
+                icon={faFacebook}
+                className={styles.icon}
+              ></FontAwesomeIcon>
+              <FontAwesomeIcon
+                icon={faTwitter}
+                className={styles.icon}
+              ></FontAwesomeIcon>
+              <FontAwesomeIcon
+                icon={faInstagram}
+                className={styles.icon}
+              ></FontAwesomeIcon>
             </div>
           </div>
         </Container>

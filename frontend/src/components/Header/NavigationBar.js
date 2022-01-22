@@ -10,7 +10,7 @@ const NavigationBar = () => {
   navRef.current = navBackground;
   useEffect(() => {
     const handleScroll = () => {
-      const show = window.scrollY > 10;
+      const show = window.scrollY > 30;
       if (navRef.current !== show) {
         setNavBackground(show);
       }

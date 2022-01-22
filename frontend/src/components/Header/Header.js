@@ -16,11 +16,11 @@ const Header = props => {
       </Container>
     );
   }
-  if(props.type === "players"){
+  else {
     return (
       <Container fluid className="ps-0 pe-0 position-relative">
         <BgImg />
-        <Heading title="PLAYERS"/>
+        <Heading title={props.type}/>
         <NavigationBar />
         <SocialIcons />
       </Container>
