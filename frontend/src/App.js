@@ -5,6 +5,7 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Players from "./pages/Players";
 import Shop from "./pages/Shop";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/players/:playerId" element={<PlayerItem />} />
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
+        <Route path='*' element={<NotFound />}></Route>
       </Routes>
     </>
   );
