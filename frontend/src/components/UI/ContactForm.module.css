@@ -23,6 +23,17 @@
   font-size: 18px !important;
   font-family: ps !important;
   border-bottom: 1px solid #fff !important;
+  color: white !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield !important;
 }
 .formContent {
   margin-bottom: 30px;
