@@ -83,12 +83,12 @@ const NavigationBar = () => {
               Shop
             </NavLink>
             <NavLink
-              to="/contact"
+              to="/news"
               className={(navData) =>
                 navData.isActive ? styles.Active : styles.navLink
               }
             >
-              Contact
+              News
             </NavLink>
           </Nav>
         </Navbar.Collapse>

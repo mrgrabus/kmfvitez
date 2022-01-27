@@ -1,12 +1,12 @@
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Col, Container, Form, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
   faAt,
   faPhone,
-  faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ContactForm.module.css";
+import MainButton from "./MainButton";
 
 const ContactForm = () => {
   return (
@@ -67,13 +67,7 @@ const ContactForm = () => {
                 className={styles.formControl}
               ></input>
             </div>
-            <Button className={styles.btn}>
-              Send
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className={styles.arrowIcon}
-              ></FontAwesomeIcon>
-            </Button>
+            <MainButton txt="Send"/>
           </Col>
         </Row>
       </Form>

@@ -28,8 +28,19 @@ code {
   background-size: 100% auto;
   background-position: center;
 }
+.swiper-button-prev {
+  z-index: 100;
+  background-image: url(./arrow.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  transform: rotate(180deg);
+}
 
 .swiper-button-next::after {
+  display: none;
+}
+.swiper-button-prev::after {
   display: none;
 }
 

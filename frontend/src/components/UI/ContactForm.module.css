@@ -50,17 +50,3 @@ input[type=number] {
   margin-right: 10px;
   margin-top: 5px !important;
 }
-.btn{
-    background-color: rgba(255, 255, 255, 0) !important;
-    color: #095B48 !important;
-    padding: 10px 50px !important;
-    border: 1px solid #095B48 !important;
-    border-radius: 25px !important;
-}
-.btn:hover{
-    background-color: #095B48 !important;
-    color: #fff !important;
-}
-.arrowIcon{
-    margin-left: 15px;
-}

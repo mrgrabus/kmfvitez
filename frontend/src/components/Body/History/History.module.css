@@ -12,7 +12,7 @@
 }
 .historyContent {
   position: absolute;
-  padding: 0 80px;
+  padding: 0 200px;
   top: 20%;
   text-align: center;
   color: white;
@@ -24,7 +24,7 @@
   font-size: 20px;
   font-family: ps;
 }
-.historyContent button {
+/* .historyContent button {
   width: 250px;
   height: 50px;
   font-size: 20px;
@@ -32,4 +32,4 @@
   font-family: ps;
   font-weight: 700;
   border-radius: 30px;
-}
+} */
