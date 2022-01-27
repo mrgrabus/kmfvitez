@@ -10,14 +10,18 @@ import {
   faFacebook,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { useEffect } from "react";
 
 const PlayerItem = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <NavigationBar />
       <div className="position-relative vh-100">
         <Container className="top-50 start-50 translate-middle position-absolute d-flex justify-content-center">
-          <div>
+          <div className={styles.div}>
             <img src={hero} alt="hero"></img>
             <p className={styles.number}>1</p>
           </div>
@@ -30,7 +34,7 @@ const PlayerItem = () => {
               convallis, ligula eget posuere accumsan, justo felis varius dui,
               sed blandit.
             </p>
-            <div>
+            <div className={styles.icons}>
               <FontAwesomeIcon
                 icon={faFacebook}
                 className={styles.icon}

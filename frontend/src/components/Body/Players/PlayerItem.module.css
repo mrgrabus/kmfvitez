@@ -21,6 +21,14 @@
     font-family: rpl;
     z-index: -1;
 }
+.div {
+    height: 100%;
+    position: relative;
+}
 .icon{
     font-size: 25px;
+}
+.wrapper{
+    height: 75%;
+    position: relative;
 }

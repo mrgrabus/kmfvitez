@@ -10,7 +10,9 @@ const PlayersContent = () => {
       <p className={styles.categoryName}>GOALKEEPERS</p>
       <Row className={styles.row}>
         <Col lg={4}>
-          <PlayersContentItem />
+          <Link to="p1">
+            <PlayersContentItem />
+          </Link>
         </Col>
         <Col lg={4}>
           <PlayersContentItem />
