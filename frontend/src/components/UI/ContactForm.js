@@ -52,9 +52,10 @@ const ContactForm = () => {
               <input
                 type="text"
                 placeholder={` Your phone number`}
+                type='number'
                 style={{ all: "unset" }}
                 className={styles.formControl}
-              ></input>
+              />
             </div>
           </Col>
           <Col lg={6}>
