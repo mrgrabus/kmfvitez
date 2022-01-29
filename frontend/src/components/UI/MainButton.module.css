@@ -5,6 +5,7 @@
     border: 1px solid #095B48 !important;
     border-radius: 25px !important;
     font-family: ps;
+    transition: 0.5s all ease-in-out;
 }
 .btn:hover{
     background-color: #095B48 !important;
