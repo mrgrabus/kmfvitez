@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Players from "./pages/Players";
 import Shop from "./pages/Shop";
 import NotFound from "./pages/NotFound";
+import Login from "./components/Login/Login";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
+        <Route path="/login" element={<Login />}></Route>
         <Route path="/players" element={<Players />}></Route>
         <Route path="/players/:playerId" element={<PlayerItem />} />
         <Route path="/news" element={<News />}></Route>
