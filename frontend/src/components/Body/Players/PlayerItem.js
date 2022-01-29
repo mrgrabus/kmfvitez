@@ -10,10 +10,26 @@ import {
   faFacebook,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const PlayerItem = () => {
+const PlayerItem = props => {
+  const { playerId } = useParams();
+  const[data, setData] = useState();
+  const[loader, setLoader] = useState(false);
+  const apiCall = async () => {
+    try {
+      const response = await fetch(`http://192.168.1.130:5000/api/player/${playerId}`);
+      const data = await response.json();
+      setData(data);
+      setLoader(false);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
+    apiCall();
     window.scrollTo(0, 0);
   }, []);
   return (
@@ -23,21 +39,24 @@ const PlayerItem = () => {
         <Container className="top-50 start-50 translate-middle position-absolute d-flex justify-content-center">
           <div className={styles.div}>
             <img src={hero} alt="hero"></img>
-            <p className={styles.number}>1</p>
+            <p className={styles.number}>{data?.id}</p>
           </div>
           <div className={styles.profile}>
             <p>Striker</p>
-            <h1>John Doe</h1>
+            <h1>{data?.firstName} {data?.lastName}</h1>
             <p>Vitez, Bosna i Hercegovina</p>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
               convallis, ligula eget posuere accumsan, justo felis varius dui,
               sed blandit.
             </p>
-            <div className={styles.icons}>
+            <div className={styles.icons}> 
               <FontAwesomeIcon
                 icon={faFacebook}
                 className={styles.icon}
+                onClick={() => {
+                  window.open(data?.facebookLink, '_blank');
+                }}
               ></FontAwesomeIcon>
               <FontAwesomeIcon
                 icon={faTwitter}
@@ -46,6 +65,9 @@ const PlayerItem = () => {
               <FontAwesomeIcon
                 icon={faInstagram}
                 className={styles.icon}
+                onClick={() => {
+                  window.open(data?.instagramLinkg, '_blank');
+                }}
               ></FontAwesomeIcon>
             </div>
           </div>
