@@ -10,10 +10,25 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import { useEffect, useState } from "react";
 
 SwiperCore.use([Navigation, Autoplay]);
 
 const News = () => {
+  const [data, setData] = useState([]);
+  const apiCall = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/news");
+      const data = await response.json();
+      console.log(data);
+      setData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    apiCall();
+  }, []);
   return (
     <Container fluid className={`${styles.div} position-relative ps-0 pe-0`}>
       <Swiper
@@ -24,21 +39,16 @@ const News = () => {
         className={styles.swiper}
         slidesPerView={4}
       >
-        <SwiperSlide>
-          <NewsItem />
-        </SwiperSlide>
-        <SwiperSlide>
-          <NewsItem />
-        </SwiperSlide>
-        <SwiperSlide>
-          <NewsItem />
-        </SwiperSlide>
-        <SwiperSlide>
-          <NewsItem />
-        </SwiperSlide>
-        <SwiperSlide>
-          <NewsItem />
-        </SwiperSlide>
+        {data.length > 0 &&
+          data.map((element) => (
+            <SwiperSlide>
+              <NewsItem
+                title={element.title}
+                text={element.text}
+                image={element.image}
+              />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </Container>
   );

@@ -1,5 +1,4 @@
 .formInfo {
-  margin-top: 50px;
   margin-bottom: 50px;
   width: 70%;
 }
@@ -49,4 +48,7 @@ input[type=number] {
   font-size: 25px !important;
   margin-right: 10px;
   margin-top: 5px !important;
+}
+.bgElement {
+  margin-top: 50px;
 }

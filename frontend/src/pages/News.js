@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 
 const News = () => {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "KMF Vitez | News";
   }, []);
   return (

@@ -3,20 +3,15 @@ import img1 from "../../../assets/Img/News/img1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faClock } from "@fortawesome/free-solid-svg-icons";
 
-const NewsItem = () => {
+const NewsItem = ({title, image}) => {
   return (
     <div className={styles.newsCard}>
       <div className={styles.layer}></div>
       <div className={styles.slika}>
         <img src={img1} alt="news"></img>
       </div>
-      <div class={styles.newsContent}>
-        <h3>Lorem ipsum dolor sit amet.</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur
-          <br />
-          adipiscing elit.
-        </p>
+      <div className={styles.newsContent}>
+        <h3>{title}</h3>
         <div className={styles.buttons}>
           <FontAwesomeIcon
             icon={faBars}

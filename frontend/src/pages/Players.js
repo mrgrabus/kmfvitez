@@ -5,6 +5,7 @@ import { useEffect } from "react";
 
 const Players = () => {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "KMF Vitez | Players";
   }, []);
   return (

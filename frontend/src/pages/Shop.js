@@ -5,6 +5,7 @@ import Products from "../components/Shop/Products";
 
 const Shop = () => {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "KMF Vitez | Shop";
   }, []);
   return (

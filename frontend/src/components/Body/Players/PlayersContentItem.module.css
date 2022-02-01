@@ -16,6 +16,7 @@
   display: inline-flex;
 }
 .imageHolder {
+  margin-bottom: 100px;
   position: relative;
   z-index: 1;
 }

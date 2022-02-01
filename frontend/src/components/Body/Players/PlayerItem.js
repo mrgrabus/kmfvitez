@@ -19,7 +19,7 @@ const PlayerItem = props => {
   const[loader, setLoader] = useState(false);
   const apiCall = async () => {
     try {
-      const response = await fetch(`http://192.168.1.130:5000/api/player/${playerId}`);
+      const response = await fetch(`http://localhost:5000/api/player/${playerId}`);
       const data = await response.json();
       setData(data);
       setLoader(false);

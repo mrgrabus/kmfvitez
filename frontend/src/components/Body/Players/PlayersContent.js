@@ -10,7 +10,7 @@ const PlayersContent = () => {
   const [loader, setLoader] = useState(true);
   const apiCall = async () => {
     try {
-      const response = await fetch("http://192.168.1.130:5000/api/players");
+      const response = await fetch("http://localhost:5000/api/players");
       const data = await response.json();
       setData(data);
       setLoader(false);
@@ -21,8 +21,10 @@ const PlayersContent = () => {
   useEffect(() => {
     apiCall();
   }, []);
-  return (
-    loader ? (<h1>loading</h1>) : (<Container className={styles.wrapper}>
+  return loader ? (
+    <h1>loading</h1>
+  ) : (
+    <Container className={styles.wrapper}>
       <p className={styles.categoryName}>GOALKEEPERS</p>
       <Row className={styles.row}>
         {data.length > 0 &&
@@ -36,32 +38,9 @@ const PlayersContent = () => {
               </Link>
             </Col>
           ))}
-        {/* <Col lg={4}>
-          <Link to="p1">
-            <PlayersContentItem />
-          </Link>
-        </Col>
-        <Col lg={4}>
-          <PlayersContentItem />
-        </Col>
-        <Col lg={4}>
-          <PlayersContentItem />
-        </Col> */}
       </Row>
-      {/* <p className={styles.categoryName}>DEFENDERS</p>
-      <Row className={styles.row}>
-        <Col lg={4}>
-          <PlayersContentItem />
-        </Col>
-        <Col lg={4}>
-          <PlayersContentItem />
-        </Col>
-        <Col lg={4}>
-          <PlayersContentItem />
-        </Col>
-      </Row> */}
       <CountdownTimer />
-    </Container>)
+    </Container>
   );
 };
 
