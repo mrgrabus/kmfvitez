@@ -1,0 +1,36 @@
+.content {
+  background-color: #fff;
+  height: calc(100vh - 80px);
+  padding: 0 !important;
+}
+.btn {
+  all: unset;
+  background-color: #101010;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+.headingDiv{
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.151);
+}
+.heading {
+  margin-top: 25px !important;
+  display: flex;
+  align-items: center;
+}
+.heading p {
+  font-weight: 700;
+  font-size: 18px;
+}
+.heading button {
+  margin-right: 25px;
+}
+.heading button span {
+  margin-left: 12px;
+}
+.title1{
+  margin-left: 50px;
+  margin-bottom: 0;
+}
+

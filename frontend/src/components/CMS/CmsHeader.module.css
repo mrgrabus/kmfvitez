@@ -1,0 +1,37 @@
+.header {
+  background-color: #095b48;
+  height: 80px;
+  position: sticky;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0px 50px !important;
+}
+.grb {
+  width: 70px;
+}
+.title {
+  margin-top: 18px;
+  margin-left: 20px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+.name {
+  font-weight: 400;
+}
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn{
+    all: unset;
+    background-color: #101010;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+}

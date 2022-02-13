@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 SwiperCore.use([Navigation, Autoplay]);
 
@@ -20,7 +21,6 @@ const News = () => {
     try {
       const response = await fetch("http://localhost:5000/api/news");
       const data = await response.json();
-      console.log(data);
       setData(data);
     } catch (error) {
       console.log(error);
@@ -40,15 +40,21 @@ const News = () => {
         slidesPerView={4}
       >
         {data.length > 0 &&
-          data.map((element) => (
-            <SwiperSlide>
-              <NewsItem
-                title={element.title}
-                text={element.text}
-                image={element.image}
-              />
-            </SwiperSlide>
-          ))}
+          data.map((element) =>
+            element.status === "1" ? (
+              <SwiperSlide>
+                <Link to={`/news/${element.id.toString()}`} style={{all: "unset"}}>
+                  <NewsItem
+                    title={element.title}
+                    text={element.text}
+                    image={element.image}
+                  />
+                </Link>
+              </SwiperSlide>
+            ) : (
+              <></>
+            )
+          )}
       </Swiper>
     </Container>
   );

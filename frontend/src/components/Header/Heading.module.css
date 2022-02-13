@@ -5,3 +5,8 @@
     font-size: 135px;
     font-family: rpl;
 }
+.title{
+    font-size: 80px !important;
+    max-width: 40% !important;
+    line-height: .9;
+}

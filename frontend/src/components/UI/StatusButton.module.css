@@ -1,0 +1,28 @@
+.statusPublished {
+  all: unset;
+  border: 2px solid rgb(114, 255, 114);
+  padding: 5px 30px;
+  border-radius: 50px;
+  color: rgb(114, 255, 114);
+}
+.statusDraft {
+  all: unset;
+  border: 2px solid rgb(255, 119, 119);
+  color: rgb(255, 119, 119);
+  padding: 5px 30px;
+  border-radius: 50px;
+}
+.statusScheduled{
+    all: unset;
+    border: 2px solid rgb(255, 246, 119);
+    color: rgb(255, 246, 119);
+    padding: 5px 30px;
+    border-radius: 50px;
+}
+.statusArchived{
+  all: unset;
+  border: 2px solid rgb(80, 80, 80);
+  color: rgb(80, 80, 80);
+  padding: 5px 30px;
+  border-radius: 50px;
+}

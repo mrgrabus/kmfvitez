@@ -5,7 +5,7 @@ import SocialIcons from "../UI/SocialIcons";
 import Carousel from "../UI/Carousel";
 import Heading from "./Heading";
 
-const Header = props => {
+const Header = (props) => {
   if (props.type === "home") {
     return (
       <Container fluid className="ps-0 pe-0 position-relative">
@@ -15,12 +15,19 @@ const Header = props => {
         <SocialIcons />
       </Container>
     );
-  }
-  else {
+  } else if (props.type === "article") {
+    return (
+      <Container fluid className="ps-0 pe-0 position-relative">
+        <BgImg type="article"/>
+        <Heading title={props.title} type="article"/>
+        <NavigationBar />
+      </Container>
+    );
+  } else {
     return (
       <Container fluid className="ps-0 pe-0 position-relative">
         <BgImg />
-        <Heading title={props.type}/>
+        <Heading title={props.type} />
         <NavigationBar />
         <SocialIcons />
       </Container>

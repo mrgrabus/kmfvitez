@@ -7,6 +7,8 @@ import Players from "./pages/Players";
 import Shop from "./pages/Shop";
 import NotFound from "./pages/NotFound";
 import Login from "./components/Login/Login";
+import CmsHome from "./pages/CmsHome";
+import Article from "./components/Body/News/Article";
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
         <Route path="/players" element={<Players />}></Route>
         <Route path="/players/:playerId" element={<PlayerItem />} />
         <Route path="/news" element={<News />}></Route>
+        <Route path="/news/:articleId" element={<Article />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
+        <Route path="/cms" element={<CmsHome />}></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
     </>

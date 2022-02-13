@@ -1,0 +1,28 @@
+.bg {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-image: url("../../../assets/Img/bgImg.png");
+  background-attachment: fixed;
+}
+.div2{
+    position: relative;
+    height: 100vh;
+}
+.div{
+    color: #fff;
+}
+.div h1{
+    font-size: 60px !important;
+    max-width: 40% !important;
+    line-height: .9;
+}
+.leftDiv{
+    background-color: #fff;
+    height: 1500px;
+    width: 65%;
+}

@@ -1,0 +1,40 @@
+.listDiv {
+  margin-bottom: 15px;
+}
+.heading {
+  margin-top: 25px !important;
+  display: flex;
+  align-items: center;
+}
+.title {
+  margin-left: 80px;
+  margin-bottom: 0;
+}
+.timestamp {
+  margin-left: 80px;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  color: #a5a5a5;
+}
+.dropdown {
+  all: unset !important;
+}
+.dropdown:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.dots {
+  width: 100% !important;
+  text-align: center !important;
+  font-size: 25px !important;
+  color: #dddddd;
+}
+.ddtitle {
+  all: unset !important;
+  margin-left: 15px !important;
+  color: #095b48 !important;
+}
+.heading p {
+  font-weight: 700;
+  font-size: 18px;
+}

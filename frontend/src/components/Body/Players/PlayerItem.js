@@ -23,7 +23,6 @@ const PlayerItem = props => {
       const data = await response.json();
       setData(data);
       setLoader(false);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }

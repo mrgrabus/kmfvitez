@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Error404 = () => {
   return (
     <div className={styles.bg}>
-      <img src={astronaut} className={styles.hero}></img>
+      <img src={astronaut} className={`position-absolute top-50 start-50 translate-middle ${styles.hero}`}></img>
       <Link to="/home">
         <Button className={styles.btn}>Go back to safety</Button>
       </Link>
