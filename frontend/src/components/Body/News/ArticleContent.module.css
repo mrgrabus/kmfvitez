@@ -9,20 +9,45 @@
   background-image: url("../../../assets/Img/bgImg.png");
   background-attachment: fixed;
 }
-.div2{
-    position: relative;
-    height: 100vh;
+.div2 {
+  position: relative;
+  height: 100vh;
 }
-.div{
-    color: #fff;
+.div {
+  color: #fff;
 }
-.div h1{
-    font-size: 60px !important;
-    max-width: 40% !important;
-    line-height: .9;
+.div h1 {
+  font-size: 70px !important;
+  max-width: 40% !important;
+  line-height: 0.9;
+  font-family: rpl;
 }
-.leftDiv{
-    background-color: #fff;
-    height: 1500px;
-    width: 65%;
+.leftDiv {
+  background-color: #fff;
+  height: auto;
+  width: 65%;
+}
+.bgTextOverlay {
+  background-image: url("../../../assets/Img/bgImg.png");
+  background-size: cover;
+  background-attachment: fixed;
+  color: transparent;
+  -webkit-background-clip: text;
+  font-family: rpl;
+  font-size: 70px;
+}
+.articleText {
+  font-size: 20px;
+}
+.timestamp {
+  font-size: 20px;
+  color: rgb(168, 168, 168);
+}
+.shareBtn {
+  font-size: 20px !important;
+  all: unset;
+  color: #095b48;
+}
+.shareBtn:hover {
+  color: #000;
 }

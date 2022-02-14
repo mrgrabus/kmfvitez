@@ -16,6 +16,7 @@ const Home = () => {
     <>
       <Header type="home" />
       <CountdownTimer />
+      <div className="mb-5 pb-5"></div>
       <News />
       <Sponsors />
       <History />

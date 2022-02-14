@@ -1,6 +1,7 @@
 import Footer from "../../Footer/Footer";
 import { useEffect } from "react";
 import ArticleContent from "./ArticleContent";
+import News from "./News";
 
 const Article = () => {
   let title = "Neki title";
@@ -12,6 +13,7 @@ const Article = () => {
   return (
     <>
       <ArticleContent />
+      <News />
       <Footer />
     </>
   );
