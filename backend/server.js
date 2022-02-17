@@ -6,7 +6,7 @@ const sgMail = require('@sendgrid/mail');
 var bodyParser = require('body-parser')
 
 //sendgrid api key
-sgMail.setApiKey('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');
+sgMail.setApiKey('vas sendgrid api key');
 
 // const { sequelize } = require('./models')
 
