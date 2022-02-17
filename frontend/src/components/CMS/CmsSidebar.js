@@ -7,8 +7,13 @@ import {
   faArchive,
   faFile,
   faFileSignature,
-  faBlog
+  faBlog,
 } from "@fortawesome/free-solid-svg-icons";
+import pen from "../../assets/Img/pen-gray.svg";
+import filePlus from "../../assets/Img/file-plus.svg";
+import home from "../../assets/Img/home.svg";
+import image from "../../assets/Img/imageframe.svg";
+import trash from "../../assets/Img/trash.svg";
 
 const Sidebar = (props) => {
   return (
@@ -19,34 +24,34 @@ const Sidebar = (props) => {
         <Nav.Item>
           <Nav.Link href="/home" className={`ps-0 ${styles.nlink}`}>
             <div className="d-flex align-items-center">
-              <FontAwesomeIcon icon={faHome} className={styles.icon} />
-              Home
+              <img src={home} alt="home" />
+              Dashboard
             </div>
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link href="/home" className={`ps-0 ${styles.nlink}`}>
             <div className="d-flex align-items-center">
-              <FontAwesomeIcon icon={faFileSignature} className={styles.icon} />
+              <img src={filePlus} alt="fileplus" />
               Create new match
             </div>
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link href="/home" className={`ps-0 ${styles.nlink}`}>
-            <FontAwesomeIcon icon={faBlog} className={styles.icon} />
+            <img src={pen} alt="blog" />
             Blog articles
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link href="/home" className={`ps-0 ${styles.nlink}`}>
-            <FontAwesomeIcon icon={faFile} className={styles.icon} />
+            <img src={image} alt="image" />
             Files
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link href="/home" className={`ps-0 ${styles.nlink}`}>
-            <FontAwesomeIcon icon={faArchive} className={styles.icon} />
+            <img src={trash} alt="trash" />
             Archived matches
           </Nav.Link>
         </Nav.Item>

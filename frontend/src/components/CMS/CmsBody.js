@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import Sidebar from "./CmsSidebar.js";
 import CmsBlogArticles from "./CmsBlogArticles.js";
 
-const Dashboard = (props) => {
+const Articles = (props) => {
   return (
     <Row>
       <Col lg={2} className="ps-0 pe-0">
@@ -16,4 +16,4 @@ const Dashboard = (props) => {
   );
 };
 
-export default Dashboard;
+export default Articles;

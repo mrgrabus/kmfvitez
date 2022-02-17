@@ -1,11 +1,8 @@
 import styles from "./Card.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
 import fks from "../../assets/Grbovi/FK_Sarajevo 1.png";
 import kmf from "../../assets/Grbovi/KMF Grb.png";
-import teren from "../../assets/Img/teren.png";
+import clock from '../../assets/Img/clock.svg'
 import { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
 import ModalReminder from "./ModalReminder";
 
 const Card = (props) => {
@@ -28,7 +25,7 @@ const Card = (props) => {
             </div>
           </div>
           <div onClick={reminderModalHandler}>
-            <FontAwesomeIcon icon={faClock} className={styles.clock} />
+            <img src={clock} alt="clock" className={styles.clock} />
           </div>
         </div>
         <div className={styles.teamsLogos}>
@@ -52,9 +49,6 @@ const Card = (props) => {
           <p>VS</p>
           <p>FK Sarajevo</p>
         </div>
-        {/* <div className={styles.terenContainer}>
-          <img src={teren} />
-        </div> */}
         <div className={styles.buttonContainer}>
           <button>DISCOVER MORE</button>
         </div>

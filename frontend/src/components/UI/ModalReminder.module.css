@@ -1,4 +1,17 @@
 .btn {
+  all: unset;
+  padding: 7px 10px;
+  border-radius: 5px;
   background-color: #095b48 !important;
+  color: #fff;
   margin-left: 10px;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.btn:focus{
+  outline: none !important;
+  box-shadow: none !important;
+}
+.gray{
+  background-color: #797979 !important;
 }

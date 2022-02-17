@@ -19,7 +19,7 @@ const CountdownTimer = () => {
         <div className={styles.cdTimer}>
           <p className={styles.nm}>NEXT MATCH</p>
           <p className={styles.demo}>
-            <Countdown date={"02/05/2022"} />
+            <Countdown date={"03/05/2022"} />
             <p className={styles.d}>Days / Hour / Min / Sec</p>
           </p>
         </div>

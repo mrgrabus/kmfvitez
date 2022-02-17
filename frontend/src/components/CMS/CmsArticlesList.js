@@ -11,7 +11,6 @@ const CmsArticlesList = () => {
     try {
       const response = await fetch("http://localhost:5000/api/news");
       const data = await response.json();
-      console.log(data);
       setData(data);
     } catch (error) {
       console.log(error);
@@ -40,7 +39,7 @@ const CmsArticlesList = () => {
             <div className="d-flex flex-column">
               <p className={styles.title}>{article.title}</p>
               <p className={styles.timestamp}>
-                Posted {article.createdAt} days ago
+                Posted {data?.createdAt} days ago
               </p>
             </div>
           </Col>

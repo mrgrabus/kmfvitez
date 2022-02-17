@@ -10,7 +10,14 @@ const ModalReminder = (props) => {
   };
   const submitHandler = (event) => {
     event.preventDefault();
+    const sendEmail = _ => {
+      fetch(`http://127.0.0.1:5000/send-email?recipient=${mail}`) //query string url
+        .catch(err => console.error(err))
+    }
+    sendEmail();
+    console.log("sve uredu");
   };
+  
   return (
     <>
       {show && (
@@ -33,17 +40,22 @@ const ModalReminder = (props) => {
                   We'll never share your email with anyone else.
                 </Form.Text>
               </Form.Group>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button
-                variant="primary"
-                type="submit"
-                className={styles.btn}
-                onSubmit={submitHandler}
-              >
-                Set Reminder
-              </Button>
+              <div className="d-flex justify-content-between">
+                <Button
+                  className={`${styles.btn} ${styles.gray}`}
+                  onClick={handleClose}
+                >
+                  Close
+                </Button>
+                <Button
+                  variant="primary"
+                  type="submit"
+                  className={styles.btn}
+                  onSubmit={submitHandler}
+                >
+                  Set Reminder
+                </Button>
+              </div>
             </Form>
           </Modal.Body>
         </Modal>

@@ -1,10 +1,12 @@
 const express = require('express')
 const cors = require('cors')
 const http = require('http')
-// const socket = require('socket.io')
-// const connectSocket = require('./middlewares/socket')
+const sgMail = require('@sendgrid/mail');
 
 var bodyParser = require('body-parser')
+
+//sendgrid api key
+sgMail.setApiKey('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');
 
 // const { sequelize } = require('./models')
 
@@ -24,6 +26,25 @@ require('./routes')(app)
 // app.post('/api/auth/login', (req, res, next) => {
 //     console.log(req?.body)
 // })
+
+app.get('/send-email', (req,res) => {
+    
+  //Get Variables from query string in the search bar
+  const { recipient } = req.query; 
+
+  //Sendgrid Data Requirements
+  const msg = {
+      to: recipient, 
+      from: 'edin.grabus.off@gmail.com',
+      subject: 'Obavijest o utakmici KMF Vitez',
+      text: 'Demo',
+  }
+
+  //Send Email
+  sgMail.send(msg)
+  .then((msg) => console.log(msg));
+});
+
 server.listen(process.env.PORT || 5000, () => {
     console.log('SERVER IS UP AND RUNNING')
     // sequelize.sync({
