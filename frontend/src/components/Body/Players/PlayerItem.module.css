@@ -27,7 +27,7 @@
     position: relative;
 }
 .icon{
-    font-size: 25px;
+    padding-right: 10px;
 }
 .wrapper{
     height: 75%;

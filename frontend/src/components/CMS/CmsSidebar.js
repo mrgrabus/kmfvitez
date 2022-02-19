@@ -1,19 +1,13 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
 import styles from "./CmsSidebar.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faArchive,
-  faFile,
-  faFileSignature,
-  faBlog,
-} from "@fortawesome/free-solid-svg-icons";
 import pen from "../../assets/Img/pen-gray.svg";
 import filePlus from "../../assets/Img/file-plus.svg";
 import home from "../../assets/Img/home.svg";
 import image from "../../assets/Img/imageframe.svg";
 import trash from "../../assets/Img/trash.svg";
+import match from "../../assets/Img/match.svg";
+
 
 const Sidebar = (props) => {
   return (
@@ -32,8 +26,8 @@ const Sidebar = (props) => {
         <Nav.Item>
           <Nav.Link href="/home" className={`ps-0 ${styles.nlink}`}>
             <div className="d-flex align-items-center">
-              <img src={filePlus} alt="fileplus" />
-              Create new match
+              <img src={match} alt="match" />
+              Matches
             </div>
           </Nav.Link>
         </Nav.Item>
@@ -52,7 +46,7 @@ const Sidebar = (props) => {
         <Nav.Item>
           <Nav.Link href="/home" className={`ps-0 ${styles.nlink}`}>
             <img src={trash} alt="trash" />
-            Archived matches
+            Archive
           </Nav.Link>
         </Nav.Item>
       </Nav>

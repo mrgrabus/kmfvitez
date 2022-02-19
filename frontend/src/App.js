@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import Login from "./components/Login/Login";
 import CmsArticles from "./pages/CmsArticles";
 import Article from "./components/Body/News/Article";
+import CmsMatches from "./pages/CmsMatches";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/shop" element={<Shop />}></Route>
         <Route path="/cms/blog" element={<CmsArticles />}></Route>
         <Route path="/cms/dashboard" element={<CmsArticles />}></Route>
+        <Route path="/cms/matches" element={<CmsMatches />}></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
     </>

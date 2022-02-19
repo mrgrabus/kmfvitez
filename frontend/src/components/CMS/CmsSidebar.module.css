@@ -11,6 +11,13 @@
 .nlink{
     color: #101010 !important;
     font-size: 18px;
+    padding: 15px 0px !important;
+}
+.Active{
+    color: #101010 !important;
+    font-size: 18px;
+    padding: 15px 0px !important;
+    font-weight: 700;
 }
 .nlink img{
     margin-right: 10px;

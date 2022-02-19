@@ -4,12 +4,10 @@ import hero from "../../../assets/Img/Players/hero.png";
 import styles from "./PlayerItem.module.css";
 import ProfileGallery from "./ProfileGallery";
 import Footer from "../../Footer/Footer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faInstagram,
-  faFacebook,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
+import ig from '../../../assets/Img/ig.svg';
+import tw from '../../../assets/Img/tw.svg';
+import fb from '../../../assets/Img/fb.svg';
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -54,24 +52,15 @@ const PlayerItem = (props) => {
               sed blandit.
             </p>
             <div className={styles.icons}>
-              <FontAwesomeIcon
-                icon={faFacebook}
-                className={styles.icon}
-                onClick={() => {
-                  window.open(data?.facebookLink, "_blank");
-                }}
-              ></FontAwesomeIcon>
-              <FontAwesomeIcon
-                icon={faTwitter}
-                className={styles.icon}
-              ></FontAwesomeIcon>
-              <FontAwesomeIcon
-                icon={faInstagram}
-                className={styles.icon}
-                onClick={() => {
+            <img src={fb} className={styles.icon} onClick={() => {
                   window.open(data?.instagramLinkg, "_blank");
-                }}
-              ></FontAwesomeIcon>
+                }}/>
+              <img src={tw} className={styles.icon} onClick={() => {
+                  window.open(data?.instagramLinkg, "_blank");
+                }}/>
+              <img src={ig} className={styles.icon} onClick={() => {
+                  window.open(data?.instagramLinkg, "_blank");
+                }}/>
             </div>
           </div>
         </Container>
