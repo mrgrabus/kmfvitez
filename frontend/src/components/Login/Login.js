@@ -1,12 +1,19 @@
 import React, { useState } from "react";
+
 import axios from "axios";
 import { Container } from "react-bootstrap";
-import styles from "./Login.module.css";
+import { useNavigate  } from 'react-router-dom' 
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
+import styles from "./Login.module.css";
 import grb from "../../assets/Img/kmf_grb.png";
 
 const Login = () => {
+
+  let navigate = useNavigate();
+
   const [data, setData] = useState([
     {
       name: "Email",
@@ -21,6 +28,7 @@ const Login = () => {
       invalid: false,
     },
   ]);
+  const [errorMessage, setErrorMessage] = useState('')
   const checkDataHandler = () => {
     let allGud = true;
     const localData = [...data];
@@ -31,7 +39,6 @@ const Login = () => {
       }
     });
     if (allGud) {
-      console.log("poslani podaci");
       return sendData();
     }
     return setData(localData);
@@ -43,10 +50,20 @@ const Login = () => {
     setData(localData);
   };
   const sendData = async () => {
-    axios.post("http://localhost:5000/api/auth/login", {
-      email: data[0].value,
-      password: data[1].value,
-    });
+    try{
+      const response =  await axios.post("http://localhost:5000/api/auth/login", {
+        email: data[0].value,
+        password: data[1].value,
+      });
+      if(response.status === 200){
+        localStorage.setItem('userToken', response?.data?.token)
+        setErrorMessage('')
+        navigate('/cms/blog');
+      }
+    }catch(error){
+      setErrorMessage(error?.response?.data?.message || 'Something went wrong')
+    }
+
   };
   return (
     <Container fluid className={`position-relative vh-100 ${styles.bg}`}>
@@ -74,6 +91,7 @@ const Login = () => {
             icon={faArrowRight}
             className={styles.arrowIcon}
           ></FontAwesomeIcon>
+          {errorMessage !== '' && errorMessage}
         </button>
         <p className={styles.passwordreset}>Forgot password?</p>
       </div>

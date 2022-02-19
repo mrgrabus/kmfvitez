@@ -10,7 +10,7 @@ module.exports = {
        description: 'mesar',
        placeOfBirth: 'Travnik',
        createdAt: '2022-01-29 19:07:37',
-       updatedAt: '2022-01-29 19:07:37'
+       updatedAt: '2022-01-29 19:07:37',
     },
     {
       firstName: 'Edin',
@@ -20,7 +20,7 @@ module.exports = {
       description: 'mesar',
       placeOfBirth: 'Travnik',
       createdAt: '2022-01-29 19:07:37',
-      updatedAt: '2022-01-29 19:07:37'
+      updatedAt: '2022-01-29 19:07:37',
    },
    {
     firstName: 'Mirzad',
@@ -30,7 +30,7 @@ module.exports = {
     description: 'mesar',
     placeOfBirth: 'Travnik',
     createdAt: '2022-01-29 19:07:37',
-    updatedAt: '2022-01-29 19:07:37'
+    updatedAt: '2022-01-29 19:07:37',
  },
   ], {});
     /**

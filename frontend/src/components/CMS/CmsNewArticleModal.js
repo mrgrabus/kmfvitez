@@ -1,17 +1,83 @@
 import styles from "./CmsNewArticleModal.module.css";
+import axios from 'axios'
 import { Col, Form, Modal, Row, Button } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import pen from "../../assets/Img/pen-tool.svg";
 import upload from "../../assets/Img/upload.svg";
 
-const CmsNewArticleModal = ({ open, onClose }) => {
+const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
   const [toggle, setToggle] = useState(false);
+  const [data, setData] = useState({
+      image: '' ,
+      text: '',
+      title: ''
+  })
   const toggleState = () => {
     setToggle(!toggle);
   };
+
+  const submitData = async () => {
+    let token = localStorage.getItem('userToken')
+    try{
+      await axios.post(`http://localhost:5000/api/news`,{
+        title: data.title,
+        text: data.text,
+        image: "fsfgsaas",
+        status: 1
+      }, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      onClose()
+    }catch(err){
+        console.log('naki error', err)
+    }
+  }
   const submitHandler = () => {
-    console.log("submit");
+    if(data.text === "" || data.title === "") return
+    submitData()
   };
+
+  const getNewsData = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/news/${newsId}`
+      );
+      const data = await response.json();
+      setData({...data});
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const editData = async () => {
+    let token = localStorage.getItem('userToken')
+    try{
+      await axios.put(`http://localhost:5000/api/news/${newsId}`,{
+        title: data.title,
+        text: data.text,
+        image: "fsfgsaas",
+        status: 1
+      }, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      onClose()
+    }catch(err){
+        console.log('naki error', err)
+    }
+  }
+
+  useEffect(() => {
+    if(edit) {
+      console.log('OPENING MODAL', newsId)
+      getNewsData()
+      
+    }
+  }, [])
+
   if (!open) return null;
   return (
     <>
@@ -71,7 +137,11 @@ const CmsNewArticleModal = ({ open, onClose }) => {
                   <Form.Label className={styles.formLabel}>
                     Article Title
                   </Form.Label>
-                  <Form.Control type="text" placeholder="Title" />
+                  <Form.Control 
+                    type="text" 
+                    placeholder="Title" 
+                    value={data.title}
+                    onChange={(e) => setData({...data, title: e.target.value})} />
                 </Form.Group>
                 <Form.Group
                   className="mb-3"
@@ -80,7 +150,7 @@ const CmsNewArticleModal = ({ open, onClose }) => {
                   <Form.Label className={styles.formLabel}>
                     Article Text
                   </Form.Label>
-                  <Form.Control as="textarea" rows={6} placeholder="Text" />
+                  <Form.Control as="textarea" rows={6} placeholder="Text" value={data.text}  onChange={(e) => setData({...data, text: e.target.value})}/>
                 </Form.Group>
               </Form>
             </Col>
@@ -103,7 +173,10 @@ const CmsNewArticleModal = ({ open, onClose }) => {
             variant="primary"
             type="submit"
             className={styles.btn}
-            onSubmit={submitHandler}
+            onClick={() => {
+              if(edit) return editData()
+              return submitHandler()
+            }}
           >
             Publish
           </Button>

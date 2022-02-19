@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const http = require('http')
 const sgMail = require('@sendgrid/mail');
+const { sequelize } = require('./models')
 
 var bodyParser = require('body-parser')
 
@@ -48,6 +49,6 @@ app.get('/send-email', (req,res) => {
 server.listen(process.env.PORT || 5000, () => {
     console.log('SERVER IS UP AND RUNNING')
     // sequelize.sync({
-    //     //alter: true
+    //     alter: true
     // })
 })
