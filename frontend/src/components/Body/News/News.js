@@ -48,6 +48,7 @@ const News = () => {
                     title={element.title}
                     text={element.text}
                     image={element.image}
+                    date={element.createdAt}
                   />
                 </Link>
               </SwiperSlide>

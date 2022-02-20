@@ -7,7 +7,7 @@ const CmsArticles = () => {
   return (
     <Container fluid className="ps-0 pe-0">
       <CmsHeader />
-      <Row>
+      <Row className="ms-0 me-0">
         <Col lg={2} className="ps-0 pe-0">
           <Sidebar />
         </Col>

@@ -1,6 +1,7 @@
-import { Container } from "react-bootstrap";
-import Dashboard from "../components/CMS/CmsBody";
+import { Col, Container, Row } from "react-bootstrap";
+import CmsDashboard from "../components/CMS/CmsDashboard";
 import CmsHeader from "../components/CMS/CmsHeader";
+import Sidebar from "../components/CMS/CmsSidebar";
 
 const CmsHome = () => {
   return (
@@ -11,7 +12,7 @@ const CmsHome = () => {
           <Sidebar />
         </Col>
         <Col lg={10} className="ps-0 pe-0">
-          <CmsBlogArticles />
+          <CmsDashboard />
         </Col>
       </Row>
     </Container>

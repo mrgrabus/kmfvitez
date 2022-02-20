@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "mirzad123",
+    "password": "admin",
     "database": "kmf_vitez",
     "host": "localhost",
     "dialect": "mysql"

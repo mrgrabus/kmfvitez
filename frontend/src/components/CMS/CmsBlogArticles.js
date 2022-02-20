@@ -23,9 +23,9 @@ const CmsBlogArticles = () => {
           <Col lg={4} className={styles.heading}>
             <p>Status</p>
           </Col>
-          <Col lg={3} className={styles.heading}>
+          <Col lg={3} className={`${styles.heading}`}>
             <button
-              className={styles.btn}
+              className={`${styles.btn}`}
               onClick={() => {
                 setShow(true);
               }}

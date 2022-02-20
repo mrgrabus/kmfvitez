@@ -1,9 +1,10 @@
 import styles from "./NewsItem.module.css";
 import img1 from "../../../assets/Img/News/img1.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faClock } from "@fortawesome/free-solid-svg-icons";
+import moment from "moment";
+import clock from "../../../assets/Img/clock2.svg";
+import rm from "../../../assets/Img/readmore.svg";
 
-const NewsItem = ({title, image}) => {
+const NewsItem = ({ title, image, date }) => {
   return (
     <div className={styles.newsCard}>
       <div className={styles.layer}></div>
@@ -13,16 +14,10 @@ const NewsItem = ({title, image}) => {
       <div className={styles.newsContent}>
         <h3>{title}</h3>
         <div className={styles.buttons}>
-          <FontAwesomeIcon
-            icon={faBars}
-            className={styles.bars}
-          ></FontAwesomeIcon>
+          <img src={rm} alt="clock" />
           <p>Read more...</p>
-          <FontAwesomeIcon
-            icon={faClock}
-            className={styles.clock}
-          ></FontAwesomeIcon>
-          <p>2 hrs ago</p>
+          <img src={clock} alt="clock" />
+          <p>{moment(date).format("MMM Do YY")} </p>
         </div>
       </div>
     </div>

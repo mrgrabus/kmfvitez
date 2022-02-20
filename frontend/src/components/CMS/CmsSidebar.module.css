@@ -13,11 +13,24 @@
     font-size: 18px;
     padding: 15px 0px !important;
 }
+.navLink{
+    all: unset;
+    color: #101010 !important;
+    font-size: 18px;
+    padding: 15px 0px !important;
+}
+.navLink:hover{
+    cursor: pointer;
+}
 .Active{
+    all: unset;
     color: #101010 !important;
     font-size: 18px;
     padding: 15px 0px !important;
     font-weight: 700;
+}
+.Active:hover{
+    cursor: pointer;
 }
 .nlink img{
     margin-right: 10px;

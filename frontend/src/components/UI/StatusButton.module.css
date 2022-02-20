@@ -1,9 +1,9 @@
 .statusPublished {
   all: unset;
-  border: 2px solid rgb(114, 255, 114);
+  border: 2px solid #095B48;
   padding: 5px 30px;
   border-radius: 50px;
-  color: rgb(114, 255, 114);
+  color: #095B48;
 }
 .statusDraft {
   all: unset;
@@ -14,8 +14,8 @@
 }
 .statusScheduled{
     all: unset;
-    border: 2px solid rgb(255, 246, 119);
-    color: rgb(255, 246, 119);
+    border: 2px solid rgb(173, 32, 255);
+    color: rgb(173, 32, 255);
     padding: 5px 30px;
     border-radius: 50px;
 }

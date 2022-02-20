@@ -44,7 +44,12 @@
 .buttons {
   display: flex;
 }
+.buttons :nth-child(3) {
+  padding-left: 10px;
+}
 .buttons p {
+  color: black !important;
   font-size: 17px;
   margin-left: 10px;
+  margin-bottom: 0px !important;
 }

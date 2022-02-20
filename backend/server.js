@@ -9,8 +9,6 @@ var bodyParser = require('body-parser')
 //sendgrid api key
 sgMail.setApiKey('vas sendgrid api key');
 
-// const { sequelize } = require('./models')
-
 const app = express()
 const server = http.createServer(app)
 

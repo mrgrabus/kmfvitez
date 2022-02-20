@@ -2,12 +2,13 @@ import React from "react";
 import { Nav } from "react-bootstrap";
 import styles from "./CmsSidebar.module.css";
 import pen from "../../assets/Img/pen-gray.svg";
-import filePlus from "../../assets/Img/file-plus.svg";
 import home from "../../assets/Img/home.svg";
 import image from "../../assets/Img/imageframe.svg";
 import trash from "../../assets/Img/trash.svg";
 import match from "../../assets/Img/match.svg";
+import players from "../../assets/Img/player.svg";
 
+import { NavLink } from "react-router-dom";
 
 const Sidebar = (props) => {
   return (
@@ -15,40 +16,72 @@ const Sidebar = (props) => {
       <Nav className={`d-none d-md-block bg-light ${styles.sidebar}`}>
         <div className={`sidebar-sticky`}></div>
         <p className={styles.manage}>Manage</p>
-        <Nav.Item>
-          <Nav.Link href="/home" className={`ps-0 ${styles.nlink}`}>
-            <div className="d-flex align-items-center">
-              <img src={home} alt="home" />
-              Dashboard
-            </div>
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link href="/home" className={`ps-0 ${styles.nlink}`}>
-            <div className="d-flex align-items-center">
-              <img src={match} alt="match" />
-              Matches
-            </div>
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link href="/home" className={`ps-0 ${styles.nlink}`}>
-            <img src={pen} alt="blog" />
-            Blog articles
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link href="/home" className={`ps-0 ${styles.nlink}`}>
-            <img src={image} alt="image" />
-            Files
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link href="/home" className={`ps-0 ${styles.nlink}`}>
-            <img src={trash} alt="trash" />
-            Archive
-          </Nav.Link>
-        </Nav.Item>
+        <NavLink
+          to="/cms/dashboard"
+          className={(navData) =>
+            navData.isActive ? styles.Active : styles.navLink
+          }
+        >
+          <div className="d-flex align-items-center ps-0 p-2">
+            <img src={home} alt="match" className="pe-3" />
+            <span className="pt-1">Dashboard</span>
+          </div>
+        </NavLink>
+        <NavLink
+          to="/cms/matches"
+          className={(navData) =>
+            navData.isActive ? styles.Active : styles.navLink
+          }
+        >
+          <div className="d-flex align-items-center ps-0 p-2">
+            <img src={match} alt="match" className="pe-3" />
+            <span className="pt-1">Matches</span>
+          </div>
+        </NavLink>
+        <NavLink
+          to="/cms/blog"
+          className={(navData) =>
+            navData.isActive ? styles.Active : styles.navLink
+          }
+        >
+          <div className="d-flex align-items-center ps-0 p-2">
+            <img src={pen} alt="match" className="pe-3" />
+            <span className="pt-1">Blog Articles</span>
+          </div>
+        </NavLink>
+        <NavLink
+          to="/cms/images"
+          className={(navData) =>
+            navData.isActive ? styles.Active : styles.navLink
+          }
+        >
+          <div className="d-flex align-items-center ps-0 p-2">
+            <img src={image} alt="match" className="pe-3" />
+            <span className="pt-1">Images</span>
+          </div>
+        </NavLink>
+        <NavLink
+          to="/cms/players"
+          className={(navData) =>
+            navData.isActive ? styles.Active : styles.navLink
+          }
+        >
+          <div className="d-flex align-items-center ps-0 p-2">
+            <img src={players} alt="match" className="pe-3" />
+            <span className="pt-1">Players</span>
+          </div>
+        </NavLink>
+        <NavLink
+          to="/cms/archive"
+          className={(navData) =>
+            navData.isActive ? styles.Active : styles.navLink
+          }
+        >
+          <div className="d-flex align-items-center ps-0 p-2">
+            <img src={trash} alt="match" className="pe-3" />
+            <span className="pt-1">Archive</span>
+          </div>
+        </NavLink>
       </Nav>
     </div>
   );

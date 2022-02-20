@@ -5,6 +5,8 @@ import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import styles from "./CmsArticlesList.module.css";
 import StatusButton from "../UI/StatusButton";
 import CmsNewArticleModal from "./CmsNewArticleModal";
+import axios from "axios";
+import moment from "moment";
 
 const CmsArticlesList = () => {
   const [data, setData] = useState([]);
@@ -17,6 +19,19 @@ const CmsArticlesList = () => {
       setData(data);
     } catch (error) {
       console.log(error);
+    }
+  };
+  const deleteData = async () => {
+    let token = localStorage.getItem("userToken");
+    try {
+      await axios.delete(`http://localhost:5000/api/news/${articleToEdit}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      apiCall();
+    } catch (err) {
+      console.log(err);
     }
   };
   useEffect(() => {
@@ -37,15 +52,15 @@ const CmsArticlesList = () => {
   return (
     <div>
       {show && (
-                <CmsNewArticleModal
-                edit
-                newsId={articleToEdit}
-                      open={true}
-                      onClose={() => {
-                        apiCall()
-                        setShow(false);
-                      }}
-                    />
+        <CmsNewArticleModal
+          edit
+          newsId={articleToEdit}
+          open={true}
+          onClose={() => {
+            apiCall();
+            setShow(false);
+          }}
+        />
       )}
       {data.map((article) => (
         <Row className={styles.listDiv}>
@@ -53,12 +68,12 @@ const CmsArticlesList = () => {
             <div className="d-flex flex-column">
               <p className={styles.title}>{article.title}</p>
               <p className={styles.timestamp}>
-                Posted {data?.createdAt} days ago
+                {moment(article?.createdAt).format("MMMM Do YYYY")}
               </p>
             </div>
           </Col>
           <Col lg={4} className={styles.heading}>
-            {article?.status && <StatusButton type={article.status} /> }
+            {article?.status && <StatusButton type={article.status} />}
           </Col>
           <Col lg={3} className={styles.heading}>
             <Dropdown>
@@ -68,11 +83,24 @@ const CmsArticlesList = () => {
               <Dropdown.Menu>
                 <p className={styles.ddtitle}>Manage</p>
                 <Dropdown.Divider />
-                <Dropdown.Item href="#/action-1" onClick={() => {
-                  setShow(!show)
-                  setArticleToEdit(article?.id)
-                  }}>Edit</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Delete</Dropdown.Item>
+                <Dropdown.Item
+                  href="#/edit"
+                  onClick={() => {
+                    setShow(!show);
+                    setArticleToEdit(article?.id);
+                  }}
+                >
+                  Edit
+                </Dropdown.Item>
+                <Dropdown.Item
+                  href="#/delete"
+                  onClick={() => {
+                    setArticleToEdit(article?.id);
+                    deleteData();
+                  }}
+                >
+                  Delete
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Col>

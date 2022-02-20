@@ -1,82 +1,90 @@
 import styles from "./CmsNewArticleModal.module.css";
-import axios from 'axios'
+import axios from "axios";
 import { Col, Form, Modal, Row, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import pen from "../../assets/Img/pen-tool.svg";
 import upload from "../../assets/Img/upload.svg";
 
 const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
-  const [toggle, setToggle] = useState(false);
+  const [selectedRadio, setSelectedRadio] = useState('1')
+  const isRadioSelected = value => {
+    if(selectedRadio === value) return true;
+  }
+  const handleRadioClick = e => {
+    setSelectedRadio(e.target.value)
+  }
   const [data, setData] = useState({
-      image: '' ,
-      text: '',
-      title: ''
-  })
-  const toggleState = () => {
-    setToggle(!toggle);
-  };
+    image: "",
+    text: "",
+    title: "",
+    status: "",
+  });
 
   const submitData = async () => {
-    let token = localStorage.getItem('userToken')
-    try{
-      await axios.post(`http://localhost:5000/api/news`,{
-        title: data.title,
-        text: data.text,
-        image: "fsfgsaas",
-        status: 1
-      }, {
-        headers: {
-          'Authorization': `Bearer ${token}`
+    let token = localStorage.getItem("userToken");
+    try {
+      await axios.post(
+        `http://localhost:5000/api/news`,
+        {
+          title: data.title,
+          text: data.text,
+          image: "fsfgsaas",
+          status: selectedRadio,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-      })
-      onClose()
-    }catch(err){
-        console.log('naki error', err)
+      );
+      onClose();
+    } catch (err) {
+      console.log("naki error", err);
     }
-  }
+  };
   const submitHandler = () => {
-    if(data.text === "" || data.title === "") return
-    submitData()
+    if (data.text === "" || data.title === "") return;
+    submitData();
   };
 
   const getNewsData = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/news/${newsId}`
-      );
+      const response = await fetch(`http://localhost:5000/api/news/${newsId}`);
       const data = await response.json();
-      setData({...data});
+      setData({ ...data });
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   const editData = async () => {
-    let token = localStorage.getItem('userToken')
-    try{
-      await axios.put(`http://localhost:5000/api/news/${newsId}`,{
-        title: data.title,
-        text: data.text,
-        image: "fsfgsaas",
-        status: 1
-      }, {
-        headers: {
-          'Authorization': `Bearer ${token}`
+    let token = localStorage.getItem("userToken");
+    try {
+      await axios.put(
+        `http://localhost:5000/api/news/${newsId}`,
+        {
+          title: data.title,
+          text: data.text,
+          image: "fsfgsaas",
+          status: selectedRadio,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-      })
-      onClose()
-    }catch(err){
-        console.log('naki error', err)
+      );
+      onClose();
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 
   useEffect(() => {
-    if(edit) {
-      console.log('OPENING MODAL', newsId)
-      getNewsData()
-      
+    if (edit) {
+      getNewsData();
     }
-  }, [])
+  }, []);
 
   if (!open) return null;
   return (
@@ -101,20 +109,29 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
                 type="radio"
                 id="switch_left"
                 name="switchToggle"
-                value="Draft"
-                onChange={toggleState}
-                checked={!toggle}
+                value="1"
+                onChange={handleRadioClick}
+                checked={isRadioSelected('1')}
               />
-              <label htmlFor="switch_left">Draft</label>
+              <label htmlFor="switch_left">Publish</label>
               <input
                 type="radio"
                 id="switch_right"
                 name="switchToggle"
-                value="Schedule"
-                onChange={toggleState}
-                checked={!toggle}
+                value="2"
+                onChange={handleRadioClick}
+                checked={isRadioSelected('2')}
               />
-              <label htmlFor="switch_right">Schedule</label>
+              <label htmlFor="switch_right">Draft</label>
+              <input
+                type="radio"
+                id="switch_schedule"
+                name="switchToggle"
+                value="3"
+                onChange={handleRadioClick}
+                checked={isRadioSelected('3')}
+              />
+              <label htmlFor="switch_schedule">Schedule</label>
             </form>
           </div>
         </div>
@@ -137,11 +154,14 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
                   <Form.Label className={styles.formLabel}>
                     Article Title
                   </Form.Label>
-                  <Form.Control 
-                    type="text" 
-                    placeholder="Title" 
+                  <Form.Control
+                    type="text"
+                    placeholder="Title"
                     value={data.title}
-                    onChange={(e) => setData({...data, title: e.target.value})} />
+                    onChange={(e) =>
+                      setData({ ...data, title: e.target.value })
+                    }
+                  />
                 </Form.Group>
                 <Form.Group
                   className="mb-3"
@@ -150,7 +170,13 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
                   <Form.Label className={styles.formLabel}>
                     Article Text
                   </Form.Label>
-                  <Form.Control as="textarea" rows={6} placeholder="Text" value={data.text}  onChange={(e) => setData({...data, text: e.target.value})}/>
+                  <Form.Control
+                    as="textarea"
+                    rows={6}
+                    placeholder="Text"
+                    value={data.text}
+                    onChange={(e) => setData({ ...data, text: e.target.value })}
+                  />
                 </Form.Group>
               </Form>
             </Col>
@@ -174,11 +200,11 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
             type="submit"
             className={styles.btn}
             onClick={() => {
-              if(edit) return editData()
-              return submitHandler()
+              if (edit) return editData();
+              return submitHandler();
             }}
           >
-            Publish
+            Submit
           </Button>
         </div>
       </Modal>
