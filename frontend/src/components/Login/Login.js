@@ -58,7 +58,7 @@ const Login = () => {
       if(response.status === 200){
         localStorage.setItem('userToken', response?.data?.token)
         setErrorMessage('')
-        navigate('/cms/blog');
+        navigate('/cms/dashboard');
       }
     }catch(error){
       setErrorMessage(error?.response?.data?.message || 'Something went wrong')

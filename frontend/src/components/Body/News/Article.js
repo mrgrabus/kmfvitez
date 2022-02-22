@@ -4,11 +4,9 @@ import ArticleContent from "./ArticleContent";
 import News from "./News";
 
 const Article = () => {
-  let title = "Neki title";
-  title = title.toUpperCase();
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = title;
+    document.title = "KMF Vitez | News";
   }, []);
   return (
     <>

@@ -1,12 +1,14 @@
 const Router = require('express').Router()
 
-const { getAllNews, getSingleNews, createNews, editNews, deleteNews} = require('../controllers/news.controller')
+const { getAllNews, getSingleNews, createNews, editNews, deleteNews, getNewsCount} = require('../controllers/news.controller')
 const { tokenAuth } = require('../middlewares/tokenCheck')
 
 
 module.exports = (app) => {
     Router.get('/news', getAllNews)
+    Router.get('/news/count', getNewsCount)
     Router.get('/news/:id', getSingleNews)
+
 
     Router.post('/news', tokenAuth, createNews)
     Router.put('/news/:id', tokenAuth, editNews)

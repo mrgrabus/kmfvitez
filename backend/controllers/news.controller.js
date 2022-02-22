@@ -61,10 +61,10 @@ const deleteNews = async (req, res, next) => {
   }
 };
 
-const getCount = async (req, res, next) => {
+const getNewsCount = async (req, res, next) => {
   try {
-    const count = await db.News.findAll();
-    res.send(count);
+    const { count, rows } = await db.News.findAndCountAll();
+    res.send({ count: count});
   } catch (error) {
     res.send(error);
   }
@@ -73,7 +73,7 @@ const getCount = async (req, res, next) => {
 module.exports = {
   getAllNews,
   getSingleNews,
-  getCount,
+  getNewsCount,
   createNews,
   editNews,
   deleteNews,

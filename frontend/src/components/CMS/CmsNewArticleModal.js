@@ -3,7 +3,7 @@ import axios from "axios";
 import { Col, Form, Modal, Row, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import pen from "../../assets/Img/pen-tool.svg";
-import upload from "../../assets/Img/upload.svg";
+import DragAndDrop from "../UI/DragAndDrop";
 
 const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
   const [selectedRadio, setSelectedRadio] = useState('1')
@@ -181,13 +181,7 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
               </Form>
             </Col>
             <Col lg={5}>
-              <div className="d-flex flex-column align-items-center">
-                <img src={upload} alt="upload" className={styles.upload} />
-                <p className={styles.uploadText}>Drag and drop photos</p>
-                <p className={styles.uploadInfo}>
-                  JPG and PNG images - max 2MB
-                </p>
-              </div>
+              <DragAndDrop />
             </Col>
           </Row>
         </Modal.Body>

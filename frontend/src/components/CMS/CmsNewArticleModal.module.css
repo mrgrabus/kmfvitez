@@ -38,7 +38,7 @@
     font-size: 20px;
 }
 .mainModal{
-    min-width: 75%;
+    min-width: 90%;
 }
 .switchField {
   padding: 40px;
@@ -110,6 +110,7 @@
 }
 .bodyRow2{
   margin-top: 30px !important;
+  overflow: scroll;
 }
 .form{
   margin-left: 40px;
@@ -120,18 +121,6 @@
 }
 .formLabel{
   font-size: 20px;
-}
-.upload{
-  width: 50%;
-}
-.uploadText{
-  font-size: 23px;
-  font-weight: 700;
-  line-height: .5;
-}
-.uploadInfo{
-  font-size: 15px;
-  line-height: .2;
 }
 .footer{
   display: flex;
