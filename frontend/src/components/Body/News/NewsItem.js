@@ -17,7 +17,7 @@ const NewsItem = ({ title, image, date }) => {
           <img src={rm} alt="clock" />
           <p>Read more...</p>
           <img src={clock} alt="clock" />
-          <p>{moment(date).format("MMM Do YY")} </p>
+          <p>{moment(date).startOf('hour').fromNow()} </p>
         </div>
       </div>
     </div>

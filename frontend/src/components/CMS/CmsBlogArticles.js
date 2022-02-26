@@ -17,13 +17,13 @@ const CmsBlogArticles = () => {
       />
       <div className={styles.content}>
         <Row className={styles.headingDiv}>
-          <Col lg={5} className={styles.heading}>
+          <Col xs={3} lg={5} className={styles.heading}>
             <p className={styles.title1}>Title</p>
           </Col>
-          <Col lg={4} className={styles.heading}>
+          <Col xs={3} lg={4} className={styles.heading}>
             <p>Status</p>
           </Col>
-          <Col lg={3} className={`${styles.heading}`}>
+          <Col xs={6} lg={3} className={`${styles.heading}`}>
             <button
               className={`${styles.btn}`}
               onClick={() => {

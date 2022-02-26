@@ -64,7 +64,8 @@ const deleteNews = async (req, res, next) => {
 const getNewsCount = async (req, res, next) => {
   try {
     const { count, rows } = await db.News.findAndCountAll();
-    res.send({ count: count});
+    const matches = await db.matches.count();
+    res.send({ count: count, matches: matches });
   } catch (error) {
     res.send(error);
   }

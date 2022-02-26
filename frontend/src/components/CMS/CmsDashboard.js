@@ -25,7 +25,7 @@ const CmsDashboard = () => {
       </div>
       <div className="d-flex justify-content-between align-center ps-3 pe-3 pt-4">
         <DashboardCard count={data?.count} text="Articles Published"/>
-        <DashboardCard count={data?.count} text="Matches Created"/>
+        <DashboardCard count={data?.matches} text="Matches Created"/>
       </div>
     </div>
   );

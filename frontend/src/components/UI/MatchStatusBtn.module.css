@@ -1,0 +1,21 @@
+.statusActive {
+  all: unset;
+  border: 2px solid #095b48;
+  padding: 5px 30px;
+  border-radius: 50px;
+  color: #095b48;
+}
+.statusInactive {
+  all: unset;
+  border: 2px solid rgb(255, 119, 119);
+  color: rgb(255, 119, 119);
+  padding: 5px 30px;
+  border-radius: 50px;
+}
+.statusSuperActive {
+  all: unset;
+  border: 2px solid rgb(173, 32, 255);
+  color: rgb(173, 32, 255);
+  padding: 5px 30px;
+  border-radius: 50px;
+}

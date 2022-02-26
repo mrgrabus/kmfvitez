@@ -26,3 +26,41 @@
 .heading button img {
   margin-right: 5px;
 }
+.tabela{
+  color: #101010 !important;
+  font-size: 18px;
+  text-align: center;
+}
+.thead th{
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+  vertical-align: middle;
+}
+.tbody{
+  border-top: 1px solid rgba(0, 0, 0, 0.151) !important;
+  padding: 20px !important;
+}
+.tbody td{
+  border: 0px solid transparent;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  vertical-align: middle;
+}
+.dropdown {
+  all: unset !important;
+}
+.dropdown:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.dots {
+  width: 100% !important;
+  text-align: center !important;
+  font-size: 25px !important;
+  color: #dddddd;
+}
+.ddtitle {
+  all: unset !important;
+  margin-left: 15px !important;
+  color: #095b48 !important;
+}
