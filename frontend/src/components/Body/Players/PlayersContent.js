@@ -7,18 +7,22 @@ import { useEffect, useState } from "react";
 import _ from "lodash";
 
 const PlayersContent = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   const [loader, setLoader] = useState(true);
   const apiCall = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/api/players");
-      const responseData = await response.json();
-      const podaci = _.groupBy(responseData, "position.name");
-      setData(podaci);
-      setLoader(false);
-    } catch (error) {
-      console.log(error);
-    }
+    const varijabla = [];
+    fetch("http://localhost:5000/api/players")
+      .then((response) => {
+        return response.json();
+      })
+      .then((parseData) => {
+        const podaci = _.groupBy(parseData, "position.name");
+        for (const key in podaci) {
+          varijabla.push(podaci[key])
+        }
+        setData(varijabla);
+        setLoader(false);
+      });
   };
   useEffect(() => {
     apiCall();
@@ -27,22 +31,25 @@ const PlayersContent = () => {
     <h1>loading</h1>
   ) : (
     <Container className={styles.wrapper}>
-      {data?.length > 0 && data?.map((element) => (
+      {data?.length > 0 &&
+        data?.map((element) => (
           <>
-          {console.log(element?.id)}
-            <p className={styles.categoryName}>{element}</p>
-            {data[element]?.map((item) => (
-              <Row className={styles.row}>
+          {console.log(element)}
+          <p className={styles.categoryName}>{element[0].position.name}</p>
+          <Row className={styles.row}>
+          { element?.map((item) => (
                 <Col lg={4}>
                   <Link to={item?.id.toString()}>
                     <PlayersContentItem
                       firstName={item?.firstName}
                       lastName={item?.lastName}
+                      position={element[0].position.name}
+                      number={item?.id}
                     />
                   </Link>
-                </Col>
-              </Row>
-            ))}
+                </Col>  
+          )) }
+          </Row>
           </>
         ))}
       <CountdownTimer />

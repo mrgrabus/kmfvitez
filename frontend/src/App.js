@@ -28,7 +28,7 @@ function App() {
         <Route path="/cms/blog" element={<CmsArticles />}></Route>
         <Route path="/cms/dashboard" element={<CmsHome />}></Route>
         <Route path="/cms/matches" element={<CmsMatches />}></Route>
-        <Route path='*' element={<NotFound />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
   );

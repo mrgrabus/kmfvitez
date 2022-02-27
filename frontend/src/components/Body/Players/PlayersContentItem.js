@@ -2,7 +2,7 @@ import styles from "./PlayersContentItem.module.css";
 import placeholder from "../../../assets/Img/Players/playerholder.jpg";
 import hero from "../../../assets/Img/Players/hero.png";
 
-const PlayersContentItem = ({firstName, lastName}) => {
+const PlayersContentItem = ({firstName, lastName, position, number}) => {
   
   return (
     <div className={styles.imageHolder}>
@@ -11,7 +11,7 @@ const PlayersContentItem = ({firstName, lastName}) => {
       <img src={placeholder} alt="placeholder" />
       <div className={styles.itemName}>
         <p className={styles.text}>
-          1 <span>{firstName}</span> {lastName} <br /> Goalkeeper
+          {number} <span>{firstName}</span> {lastName} <br /> {position.charAt(0).toUpperCase() + position.slice(1, -1)}
         </p>
       </div>
     </div>

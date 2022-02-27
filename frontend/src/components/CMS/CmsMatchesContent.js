@@ -2,7 +2,7 @@ import styles from "./CmsMatchesContent.module.css";
 import match from "../../assets/Img/match-w.svg";
 import React, { useEffect, useState } from "react";
 import dots from "../../assets/Img/dots.svg";
-import CmsNewArticleModal from "./CmsNewArticleModal";
+import CmsNewMatchModal from "./CmsNewMatchModal";
 import { Dropdown, Table } from "react-bootstrap";
 import MatchStatusBtn from "../UI/MatchStatusBtn";
 import axios from "axios";
@@ -49,10 +49,10 @@ const CmsMatchesContent = () => {
   ));
   useEffect(() => {
     apiCall();
-  }, [deleteData]);
+  }, []);
   return (
     <>
-      <CmsNewArticleModal
+      <CmsNewMatchModal
         open={show}
         onClose={() => {
           setShow(false);

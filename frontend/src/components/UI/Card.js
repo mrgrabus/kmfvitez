@@ -2,10 +2,11 @@ import styles from "./Card.module.css";
 import fks from "../../assets/Grbovi/FK_Sarajevo 1.png";
 import kmf from "../../assets/Grbovi/KMF Grb.png";
 import clock from '../../assets/Img/clock.svg'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ModalReminder from "./ModalReminder";
 
 const Card = (props) => {
+  
   const [show, setShow] = useState(false);
   const reminderModalHandler = () => {
     setShow(true);

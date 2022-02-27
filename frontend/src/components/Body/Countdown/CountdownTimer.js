@@ -21,6 +21,7 @@ const CountdownTimer = () => {
       console.log(error);
     }
   };
+  let date = moment(data?.date).format();
   useEffect(() => {
     apiCall();
   }, []);
@@ -36,7 +37,7 @@ const CountdownTimer = () => {
         <div className={styles.cdTimer}>
           <p className={styles.nm}>NEXT MATCH</p>
           <p className={styles.demo}>
-            <Countdown date={moment(data?.date).format()} />
+            <Countdown date={date} />
             <p className={styles.d}>Days / Hour / Min / Sec</p>
           </p>
         </div>

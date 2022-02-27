@@ -41,7 +41,7 @@ const PlayerItem = (props) => {
             <p className={styles.number}>{data?.id}</p>
           </div>
           <div className={styles.profile}>
-            <p>Striker</p>
+            <p>{data?.position.name}</p>
             <h1>
               {data?.firstName} {data?.lastName}
             </h1>
