@@ -35,7 +35,7 @@ const NavigationBar = () => {
       <Container>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className={`d-flex justify-content-space-evenly ${styles.nav}`}>
+          <Nav className={`d-flex justify-content-space-between ${styles.nav}`}>
             <NavLink
               to="/home"
               className={(navData) =>

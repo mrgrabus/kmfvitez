@@ -28,7 +28,7 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
         {
           title: data.title,
           text: data.text,
-          image: "fsfgsaas",
+          image: data.image,
           status: selectedRadio,
         },
         {
@@ -109,7 +109,7 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
                 type="radio"
                 id="switch_left"
                 name="switchToggle"
-                value="1"
+                value={"1"}
                 onChange={handleRadioClick}
                 checked={isRadioSelected('1')}
               />

@@ -1,8 +1,39 @@
 const db = require("../models");
 
+// image upload
+const multer = require("multer");
+const path = require("path");
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: "5000000" },
+  fileFilter: (req, file, cb) => {
+    const fileTypes = /jpeg|jpg|png/;
+    const mimType = fileTypes.test(file.mimetype);
+    const extname = fileTypes.test(path.extname(file.originalname));
+
+    if (mimType && extname) {
+      return cb(null, true);
+    }
+    cb("Error upload image");
+  },
+}).single("image");
+
 const getAllNews = async (req, res, next) => {
   try {
-    const news = await db.News.findAll();
+    const news = await db.News.findAll({
+      limit: 10,
+      order: [["createdAt", "DESC"]],
+    });
     if (news) {
       res.send(news);
     }
@@ -21,15 +52,15 @@ const getSingleNews = async (req, res, next) => {
 };
 
 const createNews = async (req, res, next) => {
-  const { title, text, image, status } = req?.body;
   try {
-    const news = await db.News.create({
-      title,
-      text,
-      image,
-      status,
-    });
-    res.send(news);
+    let info = {
+      title: req.body.title,
+      text: req.body.text,
+      status: req.body.status,
+      image: req.file.path,
+    };
+    const article = await db.News.create(info);
+    res.status(200).send(article);
   } catch (err) {
     res.send(err);
   }
@@ -78,4 +109,5 @@ module.exports = {
   createNews,
   editNews,
   deleteNews,
+  upload,
 };

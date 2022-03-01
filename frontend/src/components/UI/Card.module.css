@@ -38,9 +38,10 @@
 .dayWrapper {
   margin: 0;
   padding: 0;
+  margin-top: 8px;
 }
 .day {
-  line-height: 0.8;
+  line-height: 0.7;
   font-family: rpl;
   margin: 0;
   padding: 0;

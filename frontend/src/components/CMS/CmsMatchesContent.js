@@ -6,7 +6,7 @@ import CmsNewMatchModal from "./CmsNewMatchModal";
 import { Dropdown, Table } from "react-bootstrap";
 import MatchStatusBtn from "../UI/MatchStatusBtn";
 import axios from "axios";
-import moment from 'moment'
+import moment from "moment";
 
 const CmsMatchesContent = () => {
   const [show, setShow] = useState(false);
@@ -54,6 +54,8 @@ const CmsMatchesContent = () => {
     <>
       <CmsNewMatchModal
         open={show}
+        edit
+        matchId={matchToEdit}
         onClose={() => {
           setShow(false);
         }}
@@ -89,7 +91,7 @@ const CmsMatchesContent = () => {
                 <td>
                   {item?.isHome === false ? "KMF Vitez" : item?.team.teamName}
                 </td>
-                <td>{moment(item?.date).format('lll')}</td>
+                <td>{moment(item?.date).format("lll")}</td>
                 <td>{item?.location}</td>
                 <td>
                   <MatchStatusBtn type={item?.status} />
@@ -108,8 +110,9 @@ const CmsMatchesContent = () => {
                       <Dropdown.Item
                         href="#/edit"
                         onClick={() => {
-                          setShow(!show);
+                          console.log("test", item?.id)
                           setMatchToEdit(item?.id);
+                          setShow(!show);
                         }}
                       >
                         Edit

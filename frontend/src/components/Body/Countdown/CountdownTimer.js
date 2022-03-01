@@ -5,7 +5,8 @@ import fks from "../../../assets/Grbovi/cd-fks.png";
 import kmf from "../../../assets/Grbovi/cd-kmf.png";
 
 import styles from "./CountdownTimer.module.css";
-import moment from "moment";
+import moment from "moment/min/moment-with-locales";
+moment.locale("bs");
 
 
 const CountdownTimer = () => {

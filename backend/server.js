@@ -19,6 +19,9 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json({limit: '50mb'}));
 
+// static images folder
+app.use('/uploads', express.static('./uploads'))
+
 app.use(cors())
 require('./routes')(app)
 

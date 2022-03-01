@@ -2,6 +2,10 @@
     margin-top: 20px;
     border-top: 1px solid #c4c4c441;
 }
+.bg{
+    padding-top: 10px;
+    background-color: #0a0a0a;
+}
 .crInfo{
     color: white;
     display: flex;

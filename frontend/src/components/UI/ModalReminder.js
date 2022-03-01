@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Form, Button, Modal } from "react-bootstrap";
 import styles from "./ModalReminder.module.css";
 
-const ModalReminder = (props) => {
+const ModalReminder = (props, { onClose }) => {
   const [show, setShow] = useState(true);
   const [mail, setMail] = useState("");
   const handleClose = () => {
@@ -15,7 +15,7 @@ const ModalReminder = (props) => {
         .catch(err => console.error(err))
     }
     sendEmail();
-    console.log("sve uredu");
+    onClose();
   };
   
   return (

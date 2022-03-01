@@ -7,7 +7,7 @@ const History = () => {
   return (
     <Container fluid className={`ps-0 pe-0 ${styles.history}`}>
       <div className={styles.historyBg}>
-        <div className={styles.historyContent}>
+        <div className={`${styles.historyContent} top-50 start-50 translate-middle`}>
           <h1>Historija kluba</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit

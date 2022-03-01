@@ -39,7 +39,6 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
           },
         }
       );
-      console.log(data);
       onClose();
     } catch (err) {
       console.log(err);
@@ -74,13 +73,14 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
   const editData = async () => {
     let token = localStorage.getItem("userToken");
     try {
+      console.log("test");
       await axios.put(
-        `http://localhost:5000/api/news/${matchId}`,
+        `http://localhost:5000/api/matches/${matchId}`,
         {
-          date: data.title,
-          location: data.text,
+          date: data.date,
+          location: data.location,
           status: selectedRadio,
-          isHome: selectedRadio,
+          isHome: data.isHome,
           teamId: data.teamId,
         },
         {
@@ -96,6 +96,7 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
   };
 
   useEffect(() => {
+    console.log(matchId)
     getTeams();
     if (edit) {
       getNewsData();
@@ -173,7 +174,7 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
                     value={data.teamId}
                     onChange={(e) => {
                       setData({ ...data, teamId: e.target.value });
-                      console.log(e.target.value)
+                      console.log(e.target.value);
                     }}
                   >
                     {teamData.map((item) => (

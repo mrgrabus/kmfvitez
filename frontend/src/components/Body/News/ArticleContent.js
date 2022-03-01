@@ -34,7 +34,9 @@ const ArticleContent = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className={styles.bg}>
+    <div>
+      <div className={styles.overlay}></div>
+      <img src={`http://localhost:5000/${data?.image}`}className={styles.bg}/>
       <NavigationBar />
       <Container fluid className={styles.div2}>
         <div

@@ -4,7 +4,7 @@ import footerGrb from "../../assets/Img/footer_grb.png";
 
 const Footer = () => {
   return (
-    <Container fluid className="ps-0 pe-0">
+    <Container fluid className={`ps-0 pe-0 ${styles.bg}`}>
       <Container className={styles.wrapper}>
         <div className={styles.crLogo}>
           <img src={footerGrb} alt="kmf vitez"></img>

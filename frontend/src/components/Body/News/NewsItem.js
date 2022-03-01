@@ -1,15 +1,16 @@
 import styles from "./NewsItem.module.css";
 import img1 from "../../../assets/Img/News/img1.png";
-import moment from "moment";
+import moment from "moment/min/moment-with-locales";
 import clock from "../../../assets/Img/clock2.svg";
 import rm from "../../../assets/Img/readmore.svg";
+moment.locale("bs");
 
 const NewsItem = ({ title, image, date }) => {
   return (
     <div className={styles.newsCard}>
       <div className={styles.layer}></div>
       <div className={styles.slika}>
-        <img src={img1} alt="news"></img>
+        <img src={`http://localhost:5000/${image}`} alt="news"></img>
       </div>
       <div className={styles.newsContent}>
         <h3>{title}</h3>
@@ -17,7 +18,7 @@ const NewsItem = ({ title, image, date }) => {
           <img src={rm} alt="clock" />
           <p>Read more...</p>
           <img src={clock} alt="clock" />
-          <p>{moment(date).startOf('hour').fromNow()} </p>
+          <p>{moment(date).startOf("hour").fromNow()} </p>
         </div>
       </div>
     </div>

@@ -20,8 +20,21 @@ const Carousel = () => {
     for (const key in responseData) {
       varijabla.push(responseData[key]);
     }
-    setData(varijabla);
+    setData(varijabla.reverse());
   };
+  const slides = [];
+  data.map((item) =>
+    slides.push(
+      <SwiperSlide key={item.id}>
+        <Card
+          location={item.location}
+          isHome={item.isHome}
+          teamName={item.team.teamName}
+          date={item.date}
+        />
+      </SwiperSlide>
+    )
+  );
   useEffect(() => {
     fetchData();
   }, []);
@@ -29,6 +42,7 @@ const Carousel = () => {
     <div
       className={`${styles.wrapper} container position-absolute top-50 start-50 translate-middle`}
     >
+      {slides.length ? (
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
@@ -45,16 +59,11 @@ const Carousel = () => {
           }}
           className="mySwiper"
         >
-          {data.length > 0 && data.map((item) => {
-            <SwiperSlide>
-              <Card team={item.teamName} />;
-            </SwiperSlide>;
-          })}
+          {slides}
         </Swiper>
+      ) : null}
     </div>
   );
 };
-
-
 
 export default Carousel;

@@ -4,7 +4,7 @@ const getAllMatches = async (req, res, next) => {
   try {
     const matches = await db.matches.findAll({
       include: { all: true },
-      limit: 9
+      limit: 9,
     });
     if (matches) {
       res.send(matches);
@@ -19,12 +19,22 @@ const getFeatureMatches = async (req, res, next) => {
     const matches = await db.matches.findAll({
       include: { all: true },
       limit: 3,
-    })
+      order: [["date", "DESC"]],
+    });
     res.send(matches);
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
+
+const getSingleMatch = async (req, res, next) => {
+  try {
+    const match = await db.matches.findByPk(req?.params?.id);
+    res.send(match);
+  } catch (err) {
+    res.send(err);
+  }
+};
 
 const getSuperMatch = async (req, res, next) => {
   try {
@@ -64,6 +74,25 @@ const createMatch = async (req, res, next) => {
   }
 };
 
+const editMatch = async (req, res, next) => {
+  const { date, location, status, teamId, isHome } = req?.body;
+  try {
+    const match = await db.matches.update(
+      {
+        date,
+        location,
+        status,
+        teamId,
+        isHome,
+      },
+      { where: { id: req?.params?.id } }
+    );
+    res.send(match);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 const deleteMatch = async (req, res, next) => {
   try {
     const match = await db.matches.findByPk(req?.params?.id);
@@ -77,8 +106,10 @@ const deleteMatch = async (req, res, next) => {
 module.exports = {
   getAllMatches,
   getSuperMatch,
+  getSingleMatch,
   deleteMatch,
   createMatch,
+  editMatch,
   getTeams,
-  getFeatureMatches
+  getFeatureMatches,
 };
