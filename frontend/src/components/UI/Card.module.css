@@ -25,7 +25,7 @@
   color: #ffffff;
   align-items: center;
 }
-.vrijeme{
+.vrijeme {
   font-family: ps;
   font-weight: 700;
 }
@@ -60,9 +60,9 @@
   padding: 15px;
   align-items: center;
 }
-.clock{
-    font-size: 20px;
-    margin-right: 20px;
+.clock {
+  font-size: 20px;
+  margin-right: 20px;
 }
 .tekmaDetails {
   text-align: center;
@@ -108,13 +108,16 @@
   justify-content: center;
   margin-bottom: 20px;
 }
-.buttonContainer button{
-    font-family: ps;
-    background-color: #095B48;
-    border: none;
-    border-radius: 10px !important;
-    padding: 10px 50px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-  }
+.buttonContainer button {
+  font-family: ps;
+  background-color: #095b48;
+  border: none;
+  border-radius: 10px !important;
+  padding: 10px 50px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.grb{
+  max-width: 100px;
+}

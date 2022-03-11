@@ -3,6 +3,7 @@ import axios from "axios";
 import { Col, Form, Modal, Row, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import pen from "../../assets/Img/match.svg";
+import moment from "moment";
 
 const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
   const [selectedRadio, setSelectedRadio] = useState("1");
@@ -13,7 +14,7 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
     setSelectedRadio(e.target.value);
   };
   const [data, setData] = useState({
-    date: "",
+    date: "2020-02-02 00:00:00",
     location: "",
     status: "1",
     isHome: "false",
@@ -45,7 +46,7 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
     }
   };
   const submitHandler = () => {
-    if (data.date === "" || data.location === "") return;
+    if (data?.date === "" || data?.location === "") return;
     submitData();
   };
 
@@ -73,7 +74,6 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
   const editData = async () => {
     let token = localStorage.getItem("userToken");
     try {
-      console.log("test");
       await axios.put(
         `http://localhost:5000/api/matches/${matchId}`,
         {
@@ -96,12 +96,11 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
   };
 
   useEffect(() => {
-    console.log(matchId)
     getTeams();
     if (edit) {
       getNewsData();
     }
-  }, []);
+  }, [edit, matchId]);
 
   if (!open) return null;
   return (
@@ -113,7 +112,7 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
         }}
         centered
         dialogClassName={styles.mainModal}
-        onHide={onClose}
+        // onHide={onClose}
       >
         <div className={styles.header}>
           <div className={styles.headerContent}>
@@ -171,14 +170,13 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
                   <Form.Label className={styles.formLabel}>Team</Form.Label>
                   <Form.Select
                     aria-label="Default select example"
-                    value={data.teamId}
+                    value={data?.teamId}
                     onChange={(e) => {
                       setData({ ...data, teamId: e.target.value });
-                      console.log(e.target.value);
                     }}
                   >
                     {teamData.map((item) => (
-                      <option value={item?.teamId}>{item?.teamName}</option>
+                      <option value={item?.id}>{item?.teamName}</option>
                     ))}
                   </Form.Select>
                 </Form.Group>
@@ -206,7 +204,7 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
               <p>Date and Time</p>
               <input
                 type="datetime-local"
-                value={data.date}
+                value={moment(data?.date).format("YYYY-MM-DDThh:mm")}
                 onChange={(e) => setData({ ...data, date: e.target.value })}
               />
               <p>Location</p>

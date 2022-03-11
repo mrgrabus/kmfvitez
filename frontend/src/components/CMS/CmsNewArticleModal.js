@@ -6,13 +6,14 @@ import pen from "../../assets/Img/pen-tool.svg";
 import DragAndDrop from "../UI/DragAndDrop";
 
 const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
-  const [selectedRadio, setSelectedRadio] = useState('1')
-  const isRadioSelected = value => {
-    if(selectedRadio === value) return true;
-  }
-  const handleRadioClick = e => {
-    setSelectedRadio(e.target.value)
-  }
+  const [selectedRadio, setSelectedRadio] = useState("1");
+  const isRadioSelected = (value) => {
+    if (selectedRadio === value) return true;
+  };
+  const handleRadioClick = (e) => {
+    setSelectedRadio(e.target.value);
+    setData({ ...data, status: e.target.value })
+  };
   const [data, setData] = useState({
     image: "",
     text: "",
@@ -22,21 +23,18 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
 
   const submitData = async () => {
     let token = localStorage.getItem("userToken");
+    const formData = new FormData();
+    formData.append("image", data.image);
+    formData.append("title", data.title);
+    formData.append("text", data.text);
+    formData.append("status", selectedRadio);
     try {
-      await axios.post(
-        `http://localhost:5000/api/news`,
-        {
-          title: data.title,
-          text: data.text,
-          image: data.image,
-          status: selectedRadio,
+      await axios.post(`http://localhost:5000/api/news`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
         },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      });
       onClose();
     } catch (err) {
       console.log("naki error", err);
@@ -59,21 +57,17 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
 
   const editData = async () => {
     let token = localStorage.getItem("userToken");
+    // const formData = new FormData();
+    // // formData.append("image", data.image);
+    // formData.append("title", data.title);
+    // formData.append("text", data.text);
+    // formData.append("status", selectedRadio);
     try {
-      await axios.put(
-        `http://localhost:5000/api/news/${newsId}`,
-        {
-          title: data.title,
-          text: data.text,
-          image: "fsfgsaas",
-          status: selectedRadio,
+      await axios.put(`http://localhost:5000/api/news/${newsId}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      });
       onClose();
     } catch (err) {
       console.log(err);
@@ -111,7 +105,7 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
                 name="switchToggle"
                 value={"1"}
                 onChange={handleRadioClick}
-                checked={isRadioSelected('1')}
+                checked={isRadioSelected("1")}
               />
               <label htmlFor="switch_left">Publish</label>
               <input
@@ -120,7 +114,7 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
                 name="switchToggle"
                 value="2"
                 onChange={handleRadioClick}
-                checked={isRadioSelected('2')}
+                checked={isRadioSelected("2")}
               />
               <label htmlFor="switch_right">Draft</label>
               <input
@@ -129,7 +123,7 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
                 name="switchToggle"
                 value="3"
                 onChange={handleRadioClick}
-                checked={isRadioSelected('3')}
+                checked={isRadioSelected("3")}
               />
               <label htmlFor="switch_schedule">Schedule</label>
             </form>
@@ -181,7 +175,17 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
               </Form>
             </Col>
             <Col lg={5}>
-              <DragAndDrop />
+              {/* <DragAndDrop /> */}
+              <input
+                type="file"
+                name="image"
+                onChange={(e) => setData({ ...data, image: e.target.files[0] })}
+              />
+              {data?.image.length > 0 && (
+                <div className={styles.imagePreview}>
+                  <img src={`http://localhost:5000/${data?.image}`} />
+                </div>
+              )}
             </Col>
           </Row>
         </Modal.Body>

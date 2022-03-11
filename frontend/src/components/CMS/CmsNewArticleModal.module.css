@@ -153,3 +153,32 @@
   background-color: #EAEAEA !important;
   border: 1px solid rgba(0, 0, 0, 0.2) !important;
 }
+.imagePreview{
+  display: flex;
+  justify-content: center;
+}
+.imagePreview img{
+  width: 200px;
+}
+.playerControl{
+  width: 45%;
+}
+.upload {
+  max-width: 40%;
+}
+.uploadText {
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 0.5;
+}
+.uploadInfo {
+  font-size: 15px;
+  line-height: 0.2;
+}
+
+.dropContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

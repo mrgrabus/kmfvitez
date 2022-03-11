@@ -67,13 +67,12 @@ const createNews = async (req, res, next) => {
 };
 
 const editNews = async (req, res, next) => {
-  const { title, text, image, status } = req?.body;
+  const { title, text, status } = req?.body;
   try {
     const news = await db.News.update(
       {
         title,
         text,
-        image,
         status,
       },
       { where: { id: req?.params?.id } }
@@ -96,7 +95,8 @@ const getNewsCount = async (req, res, next) => {
   try {
     const { count, rows } = await db.News.findAndCountAll();
     const matches = await db.matches.count();
-    res.send({ count: count, matches: matches });
+    const players = await db.player.count();
+    res.send({ count: count, matches: matches, player: players });
   } catch (error) {
     res.send(error);
   }

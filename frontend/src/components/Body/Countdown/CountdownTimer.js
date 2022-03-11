@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Countdown from "react-countdown";
 
-import fks from "../../../assets/Grbovi/cd-fks.png";
 import kmf from "../../../assets/Grbovi/cd-kmf.png";
 
 import styles from "./CountdownTimer.module.css";
 import moment from "moment/min/moment-with-locales";
 moment.locale("bs");
-
 
 const CountdownTimer = () => {
   const [data, setData] = useState();
@@ -22,7 +20,7 @@ const CountdownTimer = () => {
       console.log(error);
     }
   };
-  let date = moment(data?.date).format();
+  const date = moment(data?.date).format();
   useEffect(() => {
     apiCall();
   }, []);
@@ -30,7 +28,15 @@ const CountdownTimer = () => {
     <div className={`container ${styles.countdown}`}>
       <div className={styles.cdContent}>
         <div className={styles.cdLogo}>
-          <img src={kmf} alt="kmf vitez" />
+          {data?.isHome ? (
+            <img src={kmf} alt="kmf vitez" />
+          ) : (
+            <img
+              className={styles.grb}
+              src={`http://localhost:5000/${data?.team.grb}`}
+              alt="kmf vitez"
+            />
+          )}
         </div>
         <div className={styles.cdNametag}>
           <p>{data?.isHome ? "KMF Vitez" : data?.team.teamName}</p>
@@ -46,7 +52,15 @@ const CountdownTimer = () => {
           <p>{data?.isHome ? data?.team.teamName : "KMF Vitez"}</p>
         </div>
         <div className={styles.cdLogo}>
-          <img src={fks} alt="fk sarajevo" />
+          {data?.isHome ? (
+            <img
+              className={styles.grb}
+              src={`http://localhost:5000/${data?.team.grb}`}
+              alt="kmf vitez"
+            />
+          ) : (
+            <img src={kmf} alt="kmf vitez" />
+          )}
         </div>
       </div>
     </div>

@@ -27,42 +27,46 @@
 //   return Players;
 // };
 
-module.exports = (sequelize, DataTypes ) => {
-  const Player = sequelize.define('player', {
-      id: {
-          primaryKey: true,
-          type: DataTypes.INTEGER,
-          autoIncrement: true
-      },
-      firstName: {
-          allowNull: true,
-          type: DataTypes.STRING
-      },
-      lastName: {
-        allowNull: true,
-        type: DataTypes.STRING
-      },
-      facebookLink: {
-        allowNull: true,
-        type: DataTypes.STRING
-      },
-      instagramLinkg: {
-        allowNull: true,
-        type: DataTypes.STRING
-      },
-      description: {
-        allowNull: true,
-        type: DataTypes.STRING
-      },
-      placeOfBirth: {
-        allowNull: true,
-        type: DataTypes.STRING
-      },
-  })
+module.exports = (sequelize, DataTypes) => {
+  const Player = sequelize.define("player", {
+    id: {
+      primaryKey: true,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+    },
+    firstName: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    lastName: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    facebookLink: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    instagramLinkg: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    description: {
+      allowNull: true,
+      type: DataTypes.TEXT,
+    },
+    placeOfBirth: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    image: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+  });
 
-  Player.associate = ( models ) => {
-      models.player.belongsTo(models.position)
-      models.position.hasOne(models.player)
-  }
+  Player.associate = (models) => {
+    models.player.belongsTo(models.position);
+    models.position.hasOne(models.player);
+  };
   return Player;
-}
+};

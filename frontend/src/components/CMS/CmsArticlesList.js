@@ -36,7 +36,7 @@ const CmsArticlesList = () => {
   };
   useEffect(() => {
     apiCall();
-  }, []);
+  }, [show]);
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <a
       href=""
@@ -65,7 +65,7 @@ const CmsArticlesList = () => {
       {data.map((article) => (
         <Row className={styles.listDiv}>
           <Col xs={7} md={5} className={styles.heading}>
-            <div className="d-flex flex-column">
+            <div className="d-flex flex-column my-auto">
               <p className={styles.title}>{article.title}</p>
               <p className={styles.timestamp}>
                 {moment(article?.createdAt).format("MMMM Do YYYY")}
@@ -86,8 +86,8 @@ const CmsArticlesList = () => {
                 <Dropdown.Item
                   href="#/edit"
                   onClick={() => {
-                    setShow(!show);
                     setArticleToEdit(article?.id);
+                    setShow(!show);
                   }}
                 >
                   Edit

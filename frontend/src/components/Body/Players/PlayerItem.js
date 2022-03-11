@@ -45,11 +45,9 @@ const PlayerItem = (props) => {
             <h1>
               {data?.firstName} {data?.lastName}
             </h1>
-            <p>Vitez, Bosna i Hercegovina</p>
+            <p>{data?.placeOfBirth}</p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-              convallis, ligula eget posuere accumsan, justo felis varius dui,
-              sed blandit.
+              {data?.description}
             </p>
             <div className={styles.icons}>
             <img src={fb} className={styles.icon} onClick={() => {

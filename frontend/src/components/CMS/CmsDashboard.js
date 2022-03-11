@@ -20,12 +20,28 @@ const CmsDashboard = () => {
     <div className={styles.content}>
       <div className="pt-5 ps-3">
         <h3>
-          <span className={styles.hello}>Hi Admin,</span> your dashboard is all set
+          <span className={styles.hello}>Hi Admin,</span> your dashboard is all
+          set
         </h3>
       </div>
       <div className="d-flex justify-content-between align-center ps-3 pe-3 pt-4">
-        <DashboardCard count={data?.count} text="Articles Published" type="article"/>
-        <DashboardCard count={data?.matches} text="Matches Created" type="matches"/>
+        <DashboardCard
+          count={data?.count}
+          text="Articles Published"
+          type="article"
+        />
+        <DashboardCard
+          count={data?.matches}
+          text="Matches Created"
+          type="matches"
+        />
+      </div>
+      <div className="d-flex justify-content-between align-center ps-3 pe-3 pt-4">
+        <DashboardCard
+          count={data?.player}
+          text="Players Created"
+          type="players"
+        />
       </div>
     </div>
   );

@@ -15,9 +15,9 @@ module.exports = (app) => {
   Router.get("/news", getAllNews);
   Router.get("/news/count", getNewsCount);
   Router.get("/news/:id", getSingleNews);
-
+  
   Router.post("/news", upload, createNews);
-  Router.put("/news/:id", tokenAuth, editNews);
+  Router.put("/news/:id", editNews);
   Router.delete("/news/:id", tokenAuth, deleteNews);
 
   app.use("/api", Router);

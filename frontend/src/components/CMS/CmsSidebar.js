@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Nav } from "react-bootstrap";
 import styles from "./CmsSidebar.module.css";
 import pen from "../../assets/Img/pen-gray.svg";
@@ -7,10 +7,15 @@ import image from "../../assets/Img/imageframe.svg";
 import trash from "../../assets/Img/trash.svg";
 import match from "../../assets/Img/match.svg";
 import players from "../../assets/Img/player.svg";
+import positions from "../../assets/Img/position.svg";
+import teams from "../../assets/Img/teams.svg";
 
 import { NavLink } from "react-router-dom";
 
 const Sidebar = (props) => {
+  useEffect(() => {
+    document.title = "KMF Vitez | CMS";
+  }, []);
   return (
     <div>
       <Nav className={`d-none d-md-block bg-light ${styles.sidebar}`}>
@@ -69,6 +74,28 @@ const Sidebar = (props) => {
           <div className="d-flex align-items-center ps-0 p-2">
             <img src={players} alt="match" className="pe-3" />
             <span className="pt-1">Players</span>
+          </div>
+        </NavLink>
+        <NavLink
+          to="/cms/positions"
+          className={(navData) =>
+            navData.isActive ? styles.Active : styles.navLink
+          }
+        >
+          <div className="d-flex align-items-center ps-0 p-2">
+            <img src={positions} alt="match" className="pe-3" />
+            <span className="pt-1">Positions</span>
+          </div>
+        </NavLink>
+        <NavLink
+          to="/cms/teams"
+          className={(navData) =>
+            navData.isActive ? styles.Active : styles.navLink
+          }
+        >
+          <div className="d-flex align-items-center ps-0 p-2">
+            <img src={teams} alt="teams" className="pe-3" />
+            <span className="pt-1">Teams</span>
           </div>
         </NavLink>
         <NavLink

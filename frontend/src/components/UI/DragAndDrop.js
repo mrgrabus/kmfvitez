@@ -132,6 +132,7 @@ const DragAndDrop = () => {
       const formData = new FormData();
       formData.append("image", validFiles[i]);
       formData.append("key", "");
+      formData.append("name", selectedFiles[0].name)
       axios
         .post("http://localhost:5000/api/news/upload", formData, {
           onUploadProgress: (progressEvent) => {

@@ -1,22 +1,19 @@
 import styles from "./CmsMatchesContent.module.css";
-import match from "../../assets/Img/match-w.svg";
+import player from "../../assets/Img/player.svg";
 import React, { useEffect, useState } from "react";
 import dots from "../../assets/Img/dots.svg";
-import CmsNewMatchModal from "./CmsNewMatchModal";
+import CmsNewPlayerModal from "./CmsNewPlayerModal";
 import { Dropdown, Table } from "react-bootstrap";
-import MatchStatusBtn from "../UI/MatchStatusBtn";
 import axios from "axios";
-import moment from "moment";
 
-const CmsMatchesContent = () => {
+const CmsPlayersContent = () => {
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
   const [matchToEdit, setMatchToEdit] = useState(null);
-  const [isEdit, setIsEdit] = useState(null);
 
   const apiCall = async () => {
     try {
-      const fetchData = await fetch("http://localhost:5000/api/matches/");
+      const fetchData = await fetch("http://localhost:5000/api/players/");
       const data = await fetchData.json();
       setData(data);
     } catch (error) {
@@ -26,7 +23,7 @@ const CmsMatchesContent = () => {
   const deleteData = async () => {
     let token = localStorage.getItem("userToken");
     try {
-      await axios.delete(`http://localhost:5000/api/matches/${matchToEdit}`, {
+      await axios.delete(`http://localhost:5000/api/player/${matchToEdit}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -50,13 +47,13 @@ const CmsMatchesContent = () => {
   ));
   useEffect(() => {
     apiCall();
-  }, [show]);
+  }, [matchToEdit]);
   return (
     <>
-      <CmsNewMatchModal
-        edit={isEdit}
-        matchId={matchToEdit}
+      <CmsNewPlayerModal
         open={show}
+        edit
+        newsId={matchToEdit}
         onClose={() => {
           setShow(false);
         }}
@@ -65,11 +62,9 @@ const CmsMatchesContent = () => {
         <Table responsive="lg" className={styles.tabela}>
           <thead>
             <tr className={styles.thead}>
-              <th>Home Team</th>
-              <th>Away Team</th>
-              <th>Date Time</th>
-              <th>Location</th>
-              <th>Status</th>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Position</th>
               <th className={styles.tddd}>
                 <button
                   className={styles.btn}
@@ -78,7 +73,7 @@ const CmsMatchesContent = () => {
                   }}
                 >
                   <div className="d-flex">
-                    <img src={match} alt="match" />
+                    <img src={player} alt="player" className={styles.picon} />
                     <span>Create new</span>
                   </div>
                 </button>
@@ -89,15 +84,18 @@ const CmsMatchesContent = () => {
             {data.map((item) => (
               <tr key={item?.id}>
                 <td>
-                  {item?.isHome === true ? "KMF Vitez" : item?.team.teamName}
+                  <div className="d-flex justify-content-center">
+                    <div className={styles.imagePreview}>
+                      <img src={`http://localhost:5000/${item?.image}`} />
+                    </div>
+                  </div>
                 </td>
                 <td>
-                  {item?.isHome === false ? "KMF Vitez" : item?.team.teamName}
+                  {item?.firstName} {item?.lastName}
                 </td>
-                <td>{moment(item?.date).format("lll")}</td>
-                <td>{item?.location}</td>
                 <td>
-                  <MatchStatusBtn type={item?.status} />
+                  {item?.position.name.charAt(0).toUpperCase() +
+                    item?.position.name.slice(1, -1)}
                 </td>
                 <td className={styles.tddd}>
                   <Dropdown>
@@ -112,19 +110,18 @@ const CmsMatchesContent = () => {
                       <Dropdown.Divider />
                       <Dropdown.Item
                         href="#/edit"
-                        onClick={async () => {
-                          await setIsEdit(true);
-                          await setMatchToEdit(item?.id);
-                          await setShow(!show);
+                        onClick={() => {
+                          setMatchToEdit(item?.id);
+                          setShow(!show);
                         }}
                       >
                         Edit
                       </Dropdown.Item>
                       <Dropdown.Item
                         href="#/delete"
-                        onClick={async () => {
-                          await setMatchToEdit(item?.id);
-                          await deleteData();
+                        onClick={() => {
+                          setMatchToEdit(item?.id);
+                          deleteData();
                         }}
                       >
                         Delete
@@ -141,4 +138,4 @@ const CmsMatchesContent = () => {
   );
 };
 
-export default CmsMatchesContent;
+export default CmsPlayersContent;

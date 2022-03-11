@@ -1,0 +1,47 @@
+.wrapper {
+  margin-top: 100px;
+}
+.box {
+  aspect-ratio: 1/1;
+  width: 100%;
+  background-color: #363636;
+  border-radius: 20px;
+  margin-top: 10px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+.info {
+  position: absolute;
+  padding-left: 15px;
+  width: 100%;
+  background-color: #02020275;
+  bottom: 0;
+}
+.box img {
+  position: absolute;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.box img:hover {
+  transform: scale(1.5);
+  transition: 1.25s;
+  transition-timing-function: ease-in-out;
+}
+.title {
+  margin-top: 10px;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 0;
+}
+.price {
+  margin-bottom: 10px;
+  line-height: 1;
+  font-size: 15px;
+  color: #fff;
+}
+.col {
+  margin-bottom: 15px;
+}

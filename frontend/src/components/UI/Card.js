@@ -7,7 +7,7 @@ import ModalReminder from "./ModalReminder";
 import moment from "moment/min/moment-with-locales";
 moment.locale("bs");
 
-const Card = ({ location, isHome, teamName, date }) => {
+const Card = ({ location, isHome, teamName, date, grb }) => {
   const [show, setShow] = useState(false);
   const reminderModalHandler = () => {
     setShow(!show);
@@ -35,7 +35,15 @@ const Card = ({ location, isHome, teamName, date }) => {
         </div>
         <div className={styles.teamsLogos}>
           <div>
-            <img src={kmf} alt="kmf vitez" />
+            {isHome ? (
+              <img src={kmf} alt="kmf vitez" />
+            ) : (
+              <img
+                className={styles.grb}
+                src={`http://localhost:5000/${grb}`}
+                alt="kmf vitez"
+              />
+            )}
           </div>
           <div className={styles.tekmaDetails}>
             <p>PRVA LIGA</p>
@@ -43,7 +51,15 @@ const Card = ({ location, isHome, teamName, date }) => {
             <p>{location.toUpperCase()}</p>
           </div>
           <div>
-            <img src={fks} alt="fk sarajevo" />
+            {isHome ? (
+              <img
+                className={styles.grb}
+                src={`http://localhost:5000/${grb}`}
+                alt="kmf vitez"
+              />
+            ) : (
+              <img src={kmf} alt="kmf vitez" />
+            )}
           </div>
         </div>
         <div className={styles.teamNames}>

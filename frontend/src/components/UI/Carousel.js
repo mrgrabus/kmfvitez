@@ -31,6 +31,7 @@ const Carousel = () => {
           isHome={item.isHome}
           teamName={item.team.teamName}
           date={item.date}
+          grb={item.team.grb}
         />
       </SwiperSlide>
     )
