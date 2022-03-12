@@ -37,7 +37,19 @@ const News = () => {
         autoplay={{ delay: 3000 }}
         loop={true}
         className={styles.swiper}
-        slidesPerView={4}
+        // slidesPerView={4}
+        breakpoints={{
+          320: {
+            navigation: { hiddenClass },
+            slidesPerView: 2,
+          },
+          640: {
+            slidesPerView: 2,
+          },
+          1281: {
+            slidesPerView: 4,
+          },
+        }}      
       >
         {data.length > 0 &&
           data.map((element) =>

@@ -1,5 +1,4 @@
 import styles from "./NewsItem.module.css";
-import img1 from "../../../assets/Img/News/img1.png";
 import moment from "moment/min/moment-with-locales";
 import clock from "../../../assets/Img/clock2.svg";
 import rm from "../../../assets/Img/readmore.svg";

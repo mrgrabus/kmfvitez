@@ -21,7 +21,7 @@ const History = () => {
             platea dictumst. Donec ultricies quam et turpis feugiat, vel
             convallis ipsum vulputate.
           </p>
-          <MainButton txt="Learn more" />
+          <MainButton txt="Learn more"/>
         </div>
         <img
           className={styles.historySlika}

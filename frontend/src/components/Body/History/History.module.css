@@ -36,3 +36,18 @@
   font-weight: 700;
   border-radius: 30px;
 } */
+@media (max-width: 576px) {
+  .historyContent p {
+    font-size: 17px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 16px; /* fallback */
+    max-height: 32px; /* fallback */
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+  }
+  .history{
+    margin-top: 0 !important;
+  }
+}

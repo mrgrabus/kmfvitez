@@ -7,12 +7,15 @@ import { Dropdown, Table } from "react-bootstrap";
 import MatchStatusBtn from "../UI/MatchStatusBtn";
 import axios from "axios";
 import moment from "moment";
+import Pagination from "../UI/Pagination";
 
 const CmsMatchesContent = () => {
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
   const [matchToEdit, setMatchToEdit] = useState(null);
   const [isEdit, setIsEdit] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(9);
 
   const apiCall = async () => {
     try {
@@ -51,6 +54,15 @@ const CmsMatchesContent = () => {
   useEffect(() => {
     apiCall();
   }, [show]);
+
+  // Get current posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = data.slice(indexOfFirstPost, indexOfLastPost);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <>
       <CmsNewMatchModal
@@ -86,7 +98,7 @@ const CmsMatchesContent = () => {
             </tr>
           </thead>
           <tbody className={styles.tbody}>
-            {data.map((item) => (
+            {currentPosts.map((item) => (
               <tr key={item?.id}>
                 <td>
                   {item?.isHome === true ? "KMF Vitez" : item?.team.teamName}
@@ -95,7 +107,7 @@ const CmsMatchesContent = () => {
                   {item?.isHome === false ? "KMF Vitez" : item?.team.teamName}
                 </td>
                 <td>{moment(item?.date).format("lll")}</td>
-                <td>{item?.location}</td>
+                <td className={styles.location}>{item?.location}</td>
                 <td>
                   <MatchStatusBtn type={item?.status} />
                 </td>
@@ -136,6 +148,13 @@ const CmsMatchesContent = () => {
             ))}
           </tbody>
         </Table>
+        <div className="d-flex justify-content-center w-100">
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={data.length}
+            paginate={paginate}
+          />
+        </div>
       </div>
     </>
   );

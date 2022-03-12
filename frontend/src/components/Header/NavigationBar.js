@@ -33,7 +33,7 @@ const NavigationBar = () => {
       }}
     >
       <Container>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" className={styles.hamburger}/>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className={`d-flex justify-content-space-between ${styles.nav}`}>
             <NavLink

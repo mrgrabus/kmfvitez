@@ -2,22 +2,19 @@ import styles from "./CmsMatchesContent.module.css";
 import player from "../../assets/Img/player.svg";
 import React, { useEffect, useState } from "react";
 import dots from "../../assets/Img/dots.svg";
-import CmsNewPlayerModal from "./CmsNewPlayerModal";
 import { Dropdown, Table } from "react-bootstrap";
 import axios from "axios";
-import Pagination from "../UI/Pagination";
+import CmsNewTeamModal from "./CmsNewTeamModal";
 
-const CmsPlayersContent = () => {
+const CmsTeamsContent = () => {
   const [show, setShow] = useState(false);
-  const [isEdit, setIsEdit] = useState(false);
   const [data, setData] = useState([]);
+  const [isEdit, setIsEdit] = useState(false);
   const [matchToEdit, setMatchToEdit] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(5);
 
   const apiCall = async () => {
     try {
-      const fetchData = await fetch("http://localhost:5000/api/players/");
+      const fetchData = await fetch("http://localhost:5000/api/teams/");
       const data = await fetchData.json();
       setData(data);
     } catch (error) {
@@ -27,7 +24,7 @@ const CmsPlayersContent = () => {
   const deleteData = async () => {
     let token = localStorage.getItem("userToken");
     try {
-      await axios.delete(`http://localhost:5000/api/player/${matchToEdit}`, {
+      await axios.delete(`http://localhost:5000/api/teams/${matchToEdit}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -52,18 +49,9 @@ const CmsPlayersContent = () => {
   useEffect(() => {
     apiCall();
   }, [matchToEdit, show]);
-
-  // Get current posts
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = data.slice(indexOfFirstPost, indexOfLastPost);
-
-  // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   return (
     <>
-      <CmsNewPlayerModal
+      <CmsNewTeamModal
         open={show}
         edit={isEdit}
         newsId={matchToEdit}
@@ -75,9 +63,8 @@ const CmsPlayersContent = () => {
         <Table responsive="lg" className={styles.tabela}>
           <thead>
             <tr className={styles.thead}>
-              <th>Picture</th>
-              <th>Name</th>
-              <th>Position</th>
+              <th>Grb</th>
+              <th>Team Name</th>
               <th className={styles.tddd}>
                 <button
                   className={styles.btn}
@@ -95,21 +82,17 @@ const CmsPlayersContent = () => {
             </tr>
           </thead>
           <tbody className={styles.tbody}>
-            {currentPosts.map((item) => (
+            {data.map((item) => (
               <tr key={item?.id}>
                 <td>
                   <div className="d-flex justify-content-center">
                     <div className={styles.imagePreview}>
-                      <img src={`http://localhost:5000/${item?.image}`} />
+                      <img src={`http://localhost:5000/${item?.grb}`} />
                     </div>
                   </div>
                 </td>
                 <td>
-                  {item?.firstName} {item?.lastName}
-                </td>
-                <td>
-                  {item?.position.name.charAt(0).toUpperCase() +
-                    item?.position.name.slice(1, -1)}
+                  {item?.teamName}
                 </td>
                 <td className={styles.tddd}>
                   <Dropdown>
@@ -148,16 +131,9 @@ const CmsPlayersContent = () => {
             ))}
           </tbody>
         </Table>
-        <div className="d-flex justify-content-center w-100">
-          <Pagination
-            postsPerPage={postsPerPage}
-            totalPosts={data.length}
-            paginate={paginate}
-          />
-        </div>
       </div>
     </>
   );
 };
 
-export default CmsPlayersContent;
+export default CmsTeamsContent;

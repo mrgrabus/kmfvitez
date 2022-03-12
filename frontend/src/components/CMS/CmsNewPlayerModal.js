@@ -186,9 +186,9 @@ const CmsNewPlayerModal = ({ open, onClose, edit, newsId }) => {
                     </Form.Label>
                     <Form.Select
                       aria-label="Default select example"
-                      value={data?.teamId}
+                      value={data?.positionId}
                       onChange={(e) => {
-                        setData({ ...data, teamId: e.target.value });
+                        setData({ ...data, positionId: e.target.value });
                       }}
                     >
                       {positionData.map((item) => (

@@ -38,7 +38,7 @@ const PlayersContent = () => {
           <p className={styles.categoryName}>{element[0].position.name}</p>
           <Row className={styles.row}>
           { element?.map((item) => (
-                <Col lg={4}>
+                <Col lg={4} xs={12} sm={6} md={4}>
                   <Link to={item?.id.toString()}>
                     <PlayersContentItem
                       firstName={item?.firstName}

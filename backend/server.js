@@ -21,8 +21,9 @@ app.use(
 app.use(bodyParser.json({ limit: "50mb" }));
 
 // static images folder
-app.use("/uploads", express.static("./uploads"));
+app.use("/uploads/", express.static("./uploads/"));
 app.use("/uploads/players", express.static("./uploads/players"));
+app.use("/uploads/grbovi", express.static("./uploads/grbovi"));
 
 
 app.use(cors());

@@ -42,6 +42,11 @@ const CmsDashboard = () => {
           text="Players Created"
           type="players"
         />
+        <DashboardCard
+          count={data?.team}
+          text="Teams Created"
+          type="teams"
+        />
       </div>
     </div>
   );

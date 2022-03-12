@@ -6,7 +6,7 @@ const path = require("path");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads");
+    cb(null, "uploads/news");
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);
@@ -96,7 +96,8 @@ const getNewsCount = async (req, res, next) => {
     const { count, rows } = await db.News.findAndCountAll();
     const matches = await db.matches.count();
     const players = await db.player.count();
-    res.send({ count: count, matches: matches, player: players });
+    const teams = await db.teams.count();
+    res.send({ count: count, matches: matches, player: players , team: teams});
   } catch (error) {
     res.send(error);
   }

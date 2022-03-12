@@ -2,7 +2,7 @@
   background-color: #fff;
   height: calc(100vh - 80px);
   padding: 0 !important;
-  overflow: scroll;
+  overflow: hidden;
 }
 .btn {
   all: unset;
@@ -27,21 +27,21 @@
 .heading button img {
   margin-right: 5px;
 }
-.tabela{
+.tabela {
   color: #101010 !important;
   font-size: 18px;
   text-align: center;
 }
-.thead th{
+.thead th {
   padding-top: 30px !important;
   padding-bottom: 30px !important;
   vertical-align: middle;
 }
-.tbody{
+.tbody {
   border-top: 1px solid rgba(0, 0, 0, 0.151) !important;
   padding: 20px !important;
 }
-.tbody td{
+.tbody td {
   border: 0px solid transparent;
   padding-top: 20px !important;
   padding-bottom: 20px !important;
@@ -69,11 +69,19 @@
   aspect-ratio: 1/1;
   width: 70px;
 }
-.imagePreview img{
+.imagePreview img {
   text-align: center;
   width: 100%;
 }
-.picon{
-  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(241deg) brightness(107%) contrast(101%);
+.picon {
+  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(241deg)
+    brightness(107%) contrast(101%);
   margin-right: 5px;
+}
+.location {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 5px;
+  height: 1.2em;
+  white-space: nowrap;
 }

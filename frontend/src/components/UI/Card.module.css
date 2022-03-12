@@ -7,7 +7,6 @@
   border-top-right-radius: 30px;
   overflow: hidden;
 }
-
 .headerClass {
   height: 55px;
   width: 100%;
@@ -120,4 +119,9 @@
 }
 .grb{
   max-width: 100px;
+}
+@media (max-width: 576px) {
+  .gameCard {
+    width: 300px;
+  }
 }

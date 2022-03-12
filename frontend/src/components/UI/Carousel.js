@@ -51,14 +51,22 @@ const Carousel = () => {
           centeredSlides={true}
           slidesPerView={3}
           initialSlide={1}
-          coverflowEffect={{
-            rotate: 5,
-            stretch: 20,
-            depth: 100,
-            modifier: 2,
-            slideShadows: true,
-          }}
           className="mySwiper"
+          breakpoints={{
+            320: {
+              slidesPerView: 3,
+            },
+            1280: {
+              slidesPerView: 3,
+              coverflowEffect: {
+                rotate: 5,
+                stretch: 20,
+                depth: 100,
+                modifier: 2,
+                slideShadows: true,
+              },
+            },
+          }}
         >
           {slides}
         </Swiper>

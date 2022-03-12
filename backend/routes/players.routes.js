@@ -18,7 +18,7 @@ module.exports = (app) => {
   Router.get("/player/:id", getSinglePlayer);
 
   Router.post("/player/", upload, createPlayer);
-  Router.put("/player/", upload, editPlayer);
+  Router.put("/player/:id", upload, editPlayer);
   Router.delete("/player/:id", tokenAuth, deletePlayer);
 
   app.use("/api", Router);

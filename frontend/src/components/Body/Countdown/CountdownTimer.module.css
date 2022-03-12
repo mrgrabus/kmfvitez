@@ -9,7 +9,7 @@
 }
 .cdTimer p {
   line-height: 0.8;
-  padding: 0 ;
+  padding: 0;
   margin: 0 !important;
 }
 .cdContent {
@@ -18,10 +18,10 @@
   justify-content: space-between;
   align-items: center;
 }
-.nm{
+.nm {
   font-size: 20px;
 }
-.d{
+.d {
   font-size: 16px;
   font-family: ps;
   padding: 5px !important;
@@ -41,6 +41,28 @@
   font-family: rpl;
   font-size: 40px;
 }
-.grb{
+.grb {
   width: 70px;
+}
+
+@media (max-width: 576px) {
+  .cdNametag p {
+    font-size: 15px;
+  }
+  .nm {
+    font-size: 15px;
+  }
+  .d {
+    font-size: 13px;
+  }
+  .demo {
+    font-size: 35px;
+  }
+  .cdLogo {
+    margin-top: 5px;
+    padding-left: 0px;
+  }
+  .cdTimer {
+    margin-top: 10px;
+  }
 }

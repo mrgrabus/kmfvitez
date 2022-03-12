@@ -4,7 +4,6 @@ const getAllMatches = async (req, res, next) => {
   try {
     const matches = await db.matches.findAll({
       include: { all: true },
-      limit: 9,
     });
     if (matches) {
       res.send(matches);
