@@ -38,16 +38,26 @@
 } */
 @media (max-width: 576px) {
   .historyContent p {
-    font-size: 17px;
+    font-size: 18px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    line-height: 16px; /* fallback */
-    max-height: 32px; /* fallback */
-    -webkit-line-clamp: 3; /* number of lines to show */
+    line-height: 25px; /* fallback */
+    max-height: 118px; /* fallback */
+    -webkit-line-clamp: 5; /* number of lines to show */
     -webkit-box-orient: vertical;
   }
-  .history{
+  .history {
     margin-top: 0 !important;
+    height: 350px;
+  }
+  .historyBg {
+    height: 350px;
+    object-fit: fill !important;
+  }
+  .historySlika {
+    width: 100%;
+    object-fit: fill;
+    height: 350px;
   }
 }

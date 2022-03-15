@@ -1,37 +1,51 @@
-.wrapper{
-    margin-top: 20px;
-    border-top: 1px solid #c4c4c441;
+.wrapper {
+  margin-top: 20px;
+  border-top: 1px solid #c4c4c441;
 }
-.bg{
-    padding-top: 10px;
-    background-color: #0a0a0a;
+.bg {
+  padding-top: 10px;
+  background-color: #0a0a0a;
 }
-.crInfo{
-    color: white;
-    display: flex;
-    justify-content: space-between;
+.crInfo {
+  color: white;
+  display: flex;
+  justify-content: space-between;
 }
-.crInfo p{
-    margin-top: 20px;
-    font-weight: 700;
+.crInfo p {
+  margin-top: 20px;
+  font-weight: 700;
 }
-.crInfo p span{
-    font-weight: 400;
+.crInfo p span {
+  font-weight: 400;
 }
-.crLogo{
-    padding-top: 20px;
-    display: flex;
-    align-items: center;
+.crLogo {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
 }
-.crLogo p{
-    font-weight: 700;
-    padding-top: 10px;
-    padding-left: 20px;
-    font-size: 30px;
-    color: white;
+.crLogo p {
+  font-weight: 700;
+  padding-top: 10px;
+  padding-left: 20px;
+  font-size: 30px;
+  color: white;
 }
 .crColor {
-    background-color: #095B48;
-    height: 25px;
-    width: 100%;
+  background-color: #095b48;
+  height: 25px;
+  width: 100%;
+}
+.arrow {
+  display: flex;
+  justify-content: center;
+}
+.arrow img {
+  width: 50px;
+  filter: invert(16%) sepia(11%) saturate(13%) hue-rotate(314deg)
+    brightness(90%) contrast(84%);
+}
+.arrow img:hover {
+  filter: invert(11%) sepia(98%) saturate(3980%) hue-rotate(165deg)
+    brightness(93%) contrast(93%);
+  cursor: pointer;
 }

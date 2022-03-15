@@ -8,6 +8,7 @@ import MatchStatusBtn from "../UI/MatchStatusBtn";
 import axios from "axios";
 import moment from "moment";
 import Pagination from "../UI/Pagination";
+import { ToastContainer, toast } from "react-toastify";
 
 const CmsMatchesContent = () => {
   const [show, setShow] = useState(false);
@@ -51,6 +52,18 @@ const CmsMatchesContent = () => {
       {children}
     </a>
   ));
+  const notify = () => {
+    toast.success("Item submitted successfully !", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   useEffect(() => {
     apiCall();
   }, [show]);
@@ -71,6 +84,9 @@ const CmsMatchesContent = () => {
         open={show}
         onClose={() => {
           setShow(false);
+        }}
+        isSuccessful={() => {
+          notify();
         }}
       />
       <div className={styles.content}>
@@ -148,6 +164,18 @@ const CmsMatchesContent = () => {
             ))}
           </tbody>
         </Table>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
         <div className="d-flex justify-content-center w-100">
           <Pagination
             postsPerPage={postsPerPage}

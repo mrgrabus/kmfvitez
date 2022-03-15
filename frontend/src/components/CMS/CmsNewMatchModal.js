@@ -4,8 +4,7 @@ import { Col, Form, Modal, Row, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import pen from "../../assets/Img/match.svg";
 import moment from "moment";
-
-const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
+const CmsNewMatchModal = ({ open, onClose, edit, matchId, isSuccessful }) => {
   const [selectedRadio, setSelectedRadio] = useState("1");
   const isRadioSelected = (value) => {
     if (selectedRadio === value) return true;
@@ -41,6 +40,7 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
         }
       );
       onClose();
+      isSuccessful();
     } catch (err) {
       console.log(err);
     }
@@ -89,6 +89,7 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId }) => {
           },
         }
       );
+      isSuccessful();
       onClose();
     } catch (err) {
       console.log(err);

@@ -5,7 +5,11 @@
   background-color: rgb(255, 255, 255);
 }
 .cdTimer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  flex-direction: column;
 }
 .cdTimer p {
   line-height: 0.8;
@@ -19,11 +23,13 @@
   align-items: center;
 }
 .nm {
+  padding-top: 5px !important;
   font-size: 20px;
 }
 .d {
   font-size: 16px;
   font-family: ps;
+  padding-bottom: 0px !important;
   padding: 5px !important;
 }
 .cdLogo {

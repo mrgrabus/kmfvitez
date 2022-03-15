@@ -1,23 +1,44 @@
 .sponsors {
   position: relative;
-  margin-top: 150px;
+  margin-top: 200px;
   height: 300px;
 }
+.row {
+  display: flex;
+  align-items: center;
+}
 .sponsors p {
-  color: #095b48
+  color: #095b48;
 }
 .sponsorItem {
   text-align: center;
 }
-
+.sponsorDiv {
+  display: flex;
+  vertical-align: middle;
+}
+.sponsorItem img {
+  padding-bottom: 25px;
+  filter: invert(41%) sepia(0%) saturate(1349%) hue-rotate(272deg)
+    brightness(97%) contrast(93%);
+}
 .sponsorItem img:hover {
+  filter: invert(99%) sepia(2%) saturate(1%) hue-rotate(304deg) brightness(105%)
+    contrast(100%);
+}
+.imgDiv:hover {
+  height: 100%;
   border-bottom: 2px solid #095b48;
 }
 @media (max-width: 576px) {
   .sponsors {
-    margin-top: 150px;
+    margin-top: 50px;
+    margin-bottom: 100px;
   }
-  .sponsorItem img{
+  .sponsorItem {
+    margin-bottom: 50px;
+  }
+  .sponsorItem img {
     width: 80%;
   }
 }

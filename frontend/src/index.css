@@ -20,7 +20,6 @@ code {
 ::-webkit-scrollbar {
   display: none;
 }
-
 .swiper-button-next {
   z-index: 100;
   background-image: url(./arrow.png);
@@ -42,6 +41,10 @@ code {
 }
 .swiper-button-prev::after {
   display: none;
+}
+
+:root {
+  --toastify-color-success: #095B48 !important;
 }
 
 @font-face {

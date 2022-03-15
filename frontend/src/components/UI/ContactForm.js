@@ -3,8 +3,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faAt, faPhone } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ContactForm.module.css";
 import MainButton from "./MainButton";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactForm = () => {
+  const formHandler = (e) => {
+    e.preventDefault();
+  };
+  const notify = () => {
+    toast.success("Form submitted successfully !", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
   return (
     <Container fluid className={styles.bgElement}>
       <Container>
@@ -19,7 +35,7 @@ const ContactForm = () => {
             nisl odio vel enim.
           </p>
         </div>
-        <Form className={styles.form}>
+        <Form className={styles.form} onSubmit={formHandler}>
           <Row>
             <Col lg={6}>
               <div className={styles.formContent}>
@@ -64,7 +80,21 @@ const ContactForm = () => {
                   className={styles.formControl}
                 ></input>
               </div>
-              <MainButton txt="Send" />
+              <div onClick={notify}>
+                <MainButton txt="Send" />
+              </div>
+              <ToastContainer
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+              />
             </Col>
           </Row>
         </Form>

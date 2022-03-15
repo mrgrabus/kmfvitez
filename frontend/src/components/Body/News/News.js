@@ -40,22 +40,28 @@ const News = () => {
         // slidesPerView={4}
         breakpoints={{
           320: {
-            navigation: { hiddenClass },
-            slidesPerView: 2,
+            slidesPerView: 1,
           },
           640: {
             slidesPerView: 2,
           },
           1281: {
             slidesPerView: 4,
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
           },
-        }}      
+        }}
       >
         {data.length > 0 &&
           data.map((element) =>
             element.status === "1" ? (
               <SwiperSlide>
-                <Link to={`/news/${element.id.toString()}`} style={{all: "unset"}}>
+                <Link
+                  to={`/news/${element.id.toString()}`}
+                  style={{ all: "unset" }}
+                >
                   <NewsItem
                     title={element.title}
                     text={element.text}

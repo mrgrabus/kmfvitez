@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import pen from "../../assets/Img/pen-tool.svg";
 import DragAndDrop from "../UI/DragAndDrop";
 
-const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
+const CmsNewArticleModal = ({ open, onClose, edit, newsId, isSuccessful }) => {
   const [selectedRadio, setSelectedRadio] = useState("1");
   const isRadioSelected = (value) => {
     if (selectedRadio === value) return true;
@@ -35,6 +35,7 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
           "Content-Type": "multipart/form-data",
         },
       });
+      isSuccessful();
       onClose();
     } catch (err) {
       console.log("naki error", err);
@@ -57,17 +58,13 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId }) => {
 
   const editData = async () => {
     let token = localStorage.getItem("userToken");
-    // const formData = new FormData();
-    // // formData.append("image", data.image);
-    // formData.append("title", data.title);
-    // formData.append("text", data.text);
-    // formData.append("status", selectedRadio);
     try {
       await axios.put(`http://localhost:5000/api/news/${newsId}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
+      isSuccessful();
       onClose();
     } catch (err) {
       console.log(err);

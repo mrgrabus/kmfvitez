@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
 
 const ArticleContent = () => {
+
   const { articleId } = useParams();
   const [data, setData] = useState();
   const apiCall = async () => {
@@ -36,7 +37,7 @@ const ArticleContent = () => {
   return (
     <div>
       <div className={styles.overlay}></div>
-      <img src={`http://localhost:5000/${data?.image}`}className={styles.bg}/>
+      <img src={`http://localhost:5000/${data?.image}`} className={styles.bg} />
       <NavigationBar />
       <Container fluid className={styles.div2}>
         <div

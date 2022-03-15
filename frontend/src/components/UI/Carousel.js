@@ -55,6 +55,13 @@ const Carousel = () => {
           breakpoints={{
             320: {
               slidesPerView: 3,
+              coverflowEffect: {
+                rotate: 5,
+                stretch: 20,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+              },
             },
             1280: {
               slidesPerView: 3,

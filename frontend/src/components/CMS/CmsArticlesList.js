@@ -7,6 +7,7 @@ import StatusButton from "../UI/StatusButton";
 import CmsNewArticleModal from "./CmsNewArticleModal";
 import axios from "axios";
 import moment from "moment";
+import { toast, ToastContainer } from "react-toastify";
 
 const CmsArticlesList = () => {
   const [data, setData] = useState([]);
@@ -34,6 +35,17 @@ const CmsArticlesList = () => {
       console.log(err);
     }
   };
+  const notify = () => {
+    toast.success("Item submitted successfully !", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
   useEffect(() => {
     apiCall();
   }, [show]);
@@ -59,6 +71,9 @@ const CmsArticlesList = () => {
           onClose={() => {
             apiCall();
             setShow(false);
+          }}
+          isSuccessful={() => {
+            notify();
           }}
         />
       )}
@@ -104,6 +119,18 @@ const CmsArticlesList = () => {
               </Dropdown.Menu>
             </Dropdown>
           </Col>
+          <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
         </Row>
       ))}
     </div>
