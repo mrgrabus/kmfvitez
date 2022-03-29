@@ -45,7 +45,7 @@ const News = () => {
           640: {
             slidesPerView: 2,
           },
-          1281: {
+          1280: {
             slidesPerView: 4,
             navigation: {
               nextEl: ".swiper-button-next",

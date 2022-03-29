@@ -17,12 +17,20 @@
   margin-top: 50px;
   font-family: ps;
 }
+
 .formControl {
   width: 100% !important;
   font-size: 18px !important;
   font-family: ps !important;
   border-bottom: 1px solid #fff !important;
   color: white !important;
+}
+.formValid {
+  border-bottom: 2px solid #e74c3c !important;
+}
+.formValid::placeholder {
+  color: #e74c3c !important;
+
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
