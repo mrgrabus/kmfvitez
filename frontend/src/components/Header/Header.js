@@ -9,26 +9,26 @@ const Header = (props) => {
   if (props.type === "home") {
     return (
       <Container fluid className="ps-0 pe-0 position-relative">
+        <NavigationBar />
         <Carousel />
         <BgImg />
-        <NavigationBar />
         <SocialIcons />
       </Container>
     );
   } else if (props.type === "article") {
     return (
       <Container fluid className="ps-0 pe-0 position-relative">
+        <NavigationBar />
         <BgImg type="article"/>
         <Heading title={props.title} type="article"/>
-        <NavigationBar />
       </Container>
     );
   } else {
     return (
       <Container fluid className="ps-0 pe-0 position-relative">
+        <NavigationBar />
         <BgImg />
         <Heading title={props.type} />
-        <NavigationBar />
         <SocialIcons />
       </Container>
     );

@@ -1,8 +1,7 @@
 import styles from "./Card.module.css";
-import fks from "../../assets/Grbovi/FK_Sarajevo 1.png";
 import kmf from "../../assets/Grbovi/KMF Grb.png";
 import clock from "../../assets/Img/clock.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ModalReminder from "./ModalReminder";
 import moment from "moment/min/moment-with-locales";
 moment.locale("bs");
@@ -14,7 +13,13 @@ const Card = ({ location, isHome, teamName, date, grb }) => {
   };
   return (
     <>
-      <ModalReminder show={show} />
+      <ModalReminder
+        open={show}
+        onClose={() => {
+          setShow(false);
+        }}
+        date={moment(date).format("MMMM Do YYYY")}
+      />
       <div className={styles.gameCard}>
         <div className={styles.headerClass}>
           <div className={styles.time}>
@@ -40,7 +45,7 @@ const Card = ({ location, isHome, teamName, date, grb }) => {
             ) : (
               <img
                 className={styles.grb}
-                src={`http://localhost:5000/${grb}`}
+                src={`http://167.235.50.89:5000/${grb}`}
                 alt="kmf vitez"
               />
             )}
@@ -54,7 +59,7 @@ const Card = ({ location, isHome, teamName, date, grb }) => {
             {isHome ? (
               <img
                 className={styles.grb}
-                src={`http://localhost:5000/${grb}`}
+                src={`http://167.235.50.89:5000/${grb}`}
                 alt="kmf vitez"
               />
             ) : (

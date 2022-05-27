@@ -8,7 +8,7 @@ const CMSHeader = () => {
   const clickHandler = () => {
     try {
       localStorage.removeItem("userToken");
-      navigate("/login");
+      navigate("/login/");
     } catch (error) {
       console.log(error);
     }

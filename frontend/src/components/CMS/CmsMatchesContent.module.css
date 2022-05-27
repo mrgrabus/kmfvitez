@@ -85,3 +85,20 @@
   height: 1.2em;
   white-space: nowrap;
 }
+/* .btn {
+  all: unset !important;
+  padding: 7px 25px !important;
+  border-radius: 5px !important;
+  background-color: #095b48 !important;
+  color: #fff !important;
+  outline: none !important;
+  box-shadow: none !important;
+  font-weight: 700 !important;
+}
+.btn:focus{
+  outline: none !important;
+  box-shadow: none !important;
+}
+.btn:hover{
+  cursor: pointer !important;
+} */

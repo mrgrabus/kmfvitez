@@ -1,11 +1,11 @@
 import { Container } from "react-bootstrap";
 import styles from "./Footer.module.css";
-import footerGrb from "../../assets/Img/footer_grb.png";
+// import footerGrb from "../../assets/Img/footer_grb.png";
+import footerGrb from "../../assets/Img/kmfgrb.png";
 import arrow from "../../assets/Img/arrowup.svg";
 
 const Footer = () => {
   const clickHandler = () => {
-    console.log("test")
     window.scrollTo(0, 0);
   };
   return (

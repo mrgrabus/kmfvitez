@@ -5,4 +5,5 @@ module.exports = (app) => {
   require("./news.routes")(app);
   require("./matches.routes")(app);
   require("./teams.routes")(app);
+  require("./position.routes")(app);
 };

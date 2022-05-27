@@ -72,15 +72,25 @@ const getSinglePlayer = async (req, res, next) => {
 };
 
 const editPlayer = async (req, res, next) => {
-  const { firstName, 
+  const {
+    firstName,
     lastName,
-     facebookLink, instagramLinkg, description, placeOfBirth, positionId } = req?.body;
+    facebookLink,
+    instagramLinkg,
+    description,
+    placeOfBirth,
+    positionId,
+  } = req?.body;
   try {
     const player = await db.player.update(
       {
-        firstName, 
-    lastName,
-     facebookLink, instagramLinkg, description, placeOfBirth, positionId
+        firstName,
+        lastName,
+        facebookLink,
+        instagramLinkg,
+        description,
+        placeOfBirth,
+        positionId,
       },
       { where: { id: req?.params?.id } }
     );
@@ -109,6 +119,7 @@ const getPosition = async (req, res, next) => {
   }
 };
 
+
 module.exports = {
   getAllPlayers,
   getSinglePlayer,
@@ -116,5 +127,5 @@ module.exports = {
   deletePlayer,
   createPlayer,
   editPlayer,
-  upload
+  upload,
 };

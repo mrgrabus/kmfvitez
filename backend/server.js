@@ -3,11 +3,9 @@ const cors = require("cors");
 const http = require("http");
 const sgMail = require("@sendgrid/mail");
 const { sequelize } = require("./models");
+const schedule = require("node-schedule");
 
 var bodyParser = require("body-parser");
-
-//sendgrid api key
-sgMail.setApiKey("vas sendgrid api key");
 
 const app = express();
 const server = http.createServer(app);
@@ -25,7 +23,6 @@ app.use("/uploads/", express.static("./uploads/"));
 app.use("/uploads/players", express.static("./uploads/players"));
 app.use("/uploads/grbovi", express.static("./uploads/grbovi"));
 
-
 app.use(cors());
 require("./routes")(app);
 
@@ -33,20 +30,26 @@ require("./routes")(app);
 //     console.log(req?.body)
 // })
 
+sgMail.setApiKey(
+  "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"
+);
+
 app.get("/send-email", (req, res) => {
   //Get Variables from query string in the search bar
-  const { recipient } = req.query;
+  const { recipient, scheduleTime, date } = req.query;
 
   //Sendgrid Data Requirements
-  const msg = {
-    to: recipient,
-    from: "edin.grabus.off@gmail.com",
-    subject: "Obavijest o utakmici KMF Vitez",
-    text: "Demo",
-  };
-
-  //Send Email
-  sgMail.send(msg).then((msg) => console.log(msg));
+  const job = schedule.scheduleJob(scheduleTime, function () {
+    const msg = {
+      to: recipient,
+      from: "edin.grabus.off@gmail.com",
+      subject: `Obavijest - Utakmica KMF Vitez ${date}`,
+      text: `${date} Utakmica KMF Vitez`,
+    };
+    //Send Email
+    // console.log(msg);
+    // sgMail.send(msg).then((msg) => console.log(msg));
+  });
 });
 
 server.listen(process.env.PORT || 5000, () => {

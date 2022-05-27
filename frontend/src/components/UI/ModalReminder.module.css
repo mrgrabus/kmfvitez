@@ -14,3 +14,10 @@
 .gray{
   background-color: #797979 !important;
 }
+.datetime {
+  width: 100%;
+  text-align: center;
+  padding: 5px 0px;
+  border: 1px solid rgba(2, 2, 2, 0.199);
+  border-radius: 3px;
+}

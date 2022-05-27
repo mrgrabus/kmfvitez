@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./Login.module.css";
-import grb from "../../assets/Img/kmf_grb.png";
+// import grb from "../../assets/Img/kmf_grb.png";
+import grb from "../../assets/Img/kmfgrb.png";
 import user from "../../assets/Img/user.svg";
 import key from "../../assets/Img/key.svg";
 import { toast, ToastContainer } from "react-toastify";
@@ -56,7 +57,7 @@ const Login = () => {
   const sendData = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "http://167.235.50.89:5000/api/auth/login",
         {
           email: data[0].value,
           password: data[1].value,
@@ -98,7 +99,7 @@ const Login = () => {
     <Container fluid className={`position-relative vh-100 ${styles.bg}`}>
       <div className="position-absolute top-50 start-50 translate-middle">
         <div className="d-flex justify-content-center mb-5">
-          <img src={grb} alt="kmf grb" />
+          <img src={grb} alt="kmf grb" className={styles.grb} />
         </div>
         {data.map((elem, index) => (
           <div className={styles.form}>
@@ -111,14 +112,19 @@ const Login = () => {
               placeholder={`${elem.name}`}
               onChange={(e) => valueChangeHandler(e.target.value, index)}
               value={elem.value}
-              className={`${styles.formInput} ${elem?.invalid ? styles.invalid : ''}`}
+              className={`${styles.formInput} ${
+                elem?.invalid ? styles.invalid : ""
+              }`}
             />
             {elem?.invalid && (
               <p className={styles.invalidP}>{`${elem.name} is invalid`}</p>
             )}
           </div>
         ))}
-        <button className={styles.btn} onClick={checkDataHandler}>
+        <button
+          className={styles.btn}
+          onClick={checkDataHandler}
+        >
           Login
           <FontAwesomeIcon
             icon={faArrowRight}

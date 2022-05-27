@@ -15,7 +15,7 @@ const Carousel = () => {
   const [data, setData] = useState([]);
   const fetchData = async () => {
     const varijabla = [];
-    const response = await fetch("http://localhost:5000/api/matches/feature");
+    const response = await fetch("http://167.235.50.89:5000/api/matches/feature");
     const responseData = await response.json();
     for (const key in responseData) {
       varijabla.push(responseData[key]);

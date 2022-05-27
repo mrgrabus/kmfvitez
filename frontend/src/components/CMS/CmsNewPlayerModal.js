@@ -52,7 +52,7 @@ const CmsNewPlayerModal = ({ open, onClose, edit, newsId }) => {
     formData.append("placeOfBirth", data.placeOfBirth);
     formData.append("positionId", data.positionId);
     try {
-      await axios.post(`http://localhost:5000/api/player`, formData, {
+      await axios.post(`http://167.235.50.89:5000/api/player`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -71,7 +71,7 @@ const CmsNewPlayerModal = ({ open, onClose, edit, newsId }) => {
   const getNewsData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/player/${newsId}`
+        `http://167.235.50.89:5000/api/player/${newsId}`
       );
       const data = await response.json();
       setData({ ...data });
@@ -81,7 +81,7 @@ const CmsNewPlayerModal = ({ open, onClose, edit, newsId }) => {
   };
   const getPosition = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/player/position");
+      const response = await fetch("http://167.235.50.89:5000/api/player/position");
       const position = await response.json();
       setPositionData(position);
     } catch (error) {
@@ -92,7 +92,7 @@ const CmsNewPlayerModal = ({ open, onClose, edit, newsId }) => {
   const editData = async () => {
     let token = localStorage.getItem("userToken");
     try {
-      await axios.put(`http://localhost:5000/api/player/${newsId}`, data, {
+      await axios.put(`http://167.235.50.89:5000/api/player/${newsId}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -258,7 +258,7 @@ const CmsNewPlayerModal = ({ open, onClose, edit, newsId }) => {
                   </>
                 ) : (
                   <div className={styles.imagePreview}>
-                    <img src={`http://localhost:5000/${data?.image}`} />
+                    <img src={`http://167.235.50.89:5000/${data?.image}`} />
                   </div>
                 )}
               </div>

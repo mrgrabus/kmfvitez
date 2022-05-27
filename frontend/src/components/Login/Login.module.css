@@ -12,6 +12,9 @@
   border-radius: 5px;
   color: #fff;
 }
+.grb {
+  width: 170px;
+}
 .btn {
   margin-top: 20px;
   background-color: rgba(255, 255, 255, 0) !important;
@@ -39,7 +42,7 @@
   background-image: url("../../assets/Img/ellipse.png");
   background-position: left bottom;
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: 30%;
 }
 .loginIcons {
   top: 25px;
@@ -55,4 +58,9 @@
 }
 .invalid {
   border: 1px solid #e74c3c !important;
+}
+@media (max-width: 800px) {
+  .bg {
+    background-size: 0;
+  }
 }

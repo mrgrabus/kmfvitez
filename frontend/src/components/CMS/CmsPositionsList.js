@@ -1,25 +1,45 @@
 import styles from "./CmsMatchesContent.module.css";
-import player from "../../assets/Img/player.svg";
 import React, { useEffect, useState } from "react";
 import dots from "../../assets/Img/dots.svg";
 import CmsNewPlayerModal from "./CmsNewPlayerModal";
-import { Dropdown, Table } from "react-bootstrap";
+import { Accordion, Dropdown, Table } from "react-bootstrap";
 import axios from "axios";
 import Pagination from "../UI/Pagination";
 
-const CmsPlayersContent = () => {
+const CmsPositionsList = () => {
   const [show, setShow] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [data, setData] = useState([]);
+  const [submitData, setSubmitData] = useState([]);
   const [matchToEdit, setMatchToEdit] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
 
   const apiCall = async () => {
     try {
-      const fetchData = await fetch("http://167.235.50.89:5000/api/players/");
+      const fetchData = await fetch(
+        "http://167.235.50.89:5000/api/player/position/"
+      );
       const data = await fetchData.json();
       setData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    let token = localStorage.getItem("userToken");
+    try {
+      await axios.post(
+        `http://167.235.50.89:5000/api/player/position`,
+        submitData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
     } catch (error) {
       console.log(error);
     }
@@ -72,44 +92,40 @@ const CmsPlayersContent = () => {
         }}
       />
       <div className={styles.content}>
+        <Accordion>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>Add New Position</Accordion.Header>
+            <Accordion.Body>
+              <form onSubmit={submitHandler}>
+                <div className="d-flex justify-content-between align-center">
+                  <input
+                    type="text"
+                    placeholder="Position name"
+                    className="w-100 me-3"
+                    value={submitData}
+                    onChange={(e) => {
+                      setSubmitData(e.target.value);
+                    }}
+                  />
+                  <button className={styles.btn}>Add</button>
+                </div>
+              </form>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
         <Table responsive="lg" className={styles.tabela}>
           <thead>
             <tr className={styles.thead}>
-              <th>Picture</th>
-              <th>Name</th>
-              <th>Position</th>
-              <th className={styles.tddd}>
-                <button
-                  className={styles.btn}
-                  onClick={() => {
-                    setIsEdit(false);
-                    setShow(true);
-                  }}
-                >
-                  <div className="d-flex">
-                    <img src={player} alt="player" className={styles.picon} />
-                    <span>Create new</span>
-                  </div>
-                </button>
-              </th>
+              <th>Id</th>
+              <th>Position Name</th>
             </tr>
           </thead>
           <tbody className={styles.tbody}>
             {currentPosts.map((item) => (
               <tr key={item?.id}>
+                <td>{item?.id}</td>
                 <td>
-                  <div className="d-flex justify-content-center">
-                    <div className={styles.imagePreview}>
-                      <img src={`http://167.235.50.89:5000/${item?.image}`} />
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  {item?.firstName} {item?.lastName}
-                </td>
-                <td>
-                  {item?.position.name.charAt(0).toUpperCase() +
-                    item?.position.name.slice(1, -1)}
+                  {item?.name.charAt(0).toUpperCase() + item?.name.slice(1)}
                 </td>
                 <td className={styles.tddd}>
                   <Dropdown>
@@ -160,4 +176,4 @@ const CmsPlayersContent = () => {
   );
 };
 
-export default CmsPlayersContent;
+export default CmsPositionsList;

@@ -20,7 +20,7 @@ const CmsMatchesContent = () => {
 
   const apiCall = async () => {
     try {
-      const fetchData = await fetch("http://localhost:5000/api/matches/");
+      const fetchData = await fetch("http://167.235.50.89:5000/api/matches/");
       const data = await fetchData.json();
       setData(data);
     } catch (error) {
@@ -30,7 +30,7 @@ const CmsMatchesContent = () => {
   const deleteData = async () => {
     let token = localStorage.getItem("userToken");
     try {
-      await axios.delete(`http://localhost:5000/api/matches/${matchToEdit}`, {
+      await axios.delete(`http://167.235.50.89:5000/api/matches/${matchToEdit}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

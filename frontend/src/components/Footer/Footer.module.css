@@ -23,6 +23,9 @@
   display: flex;
   align-items: center;
 }
+.crLogo img {
+  width: 100px;
+}
 .crLogo p {
   font-weight: 700;
   padding-top: 10px;

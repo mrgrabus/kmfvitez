@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "admin",
+    "password": "kmfvitez",
     "database": "kmf_vitez",
-    "host": "localhost",
+    "host": "167.235.50.89",
     "dialect": "mysql"
   },
   "test": {

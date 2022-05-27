@@ -11,7 +11,7 @@ const PlayersContent = () => {
   const [loader, setLoader] = useState(true);
   const apiCall = async () => {
     const varijabla = [];
-    fetch("http://localhost:5000/api/players")
+    fetch("http://167.235.50.89:5000/api/players")
       .then((response) => {
         return response.json();
       })
@@ -34,7 +34,6 @@ const PlayersContent = () => {
       {data?.length > 0 &&
         data?.map((element) => (
           <>
-          {console.log(element)}
           <p className={styles.categoryName}>{element[0].position.name}</p>
           <Row className={styles.row}>
           { element?.map((item) => (

@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import PlayerItem from "./components/Body/Players/PlayerItem";
 import News from "./pages/News";
@@ -13,27 +14,59 @@ import CmsMatches from "./pages/CmsMatches";
 import CmsHome from "./pages/CmsHome";
 import CmsPlayers from "./pages/CmsPlayers";
 import CmsTeams from "./pages/CmsTeams";
-import { useEffect, useState } from "react";
+import CmsPositions from "./pages/CmsPositions";
+
+import jwt_decode from "jwt-decode";
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
   const checkAuth = () => {
-    const storedData = localStorage.getItem("userToken");
-    if (storedData) setIsAuth(true);
+    const token = localStorage.getItem("userToken");
+    if (token) {
+      try {
+        let decodedToken = jwt_decode(token);
+        let currentDate = new Date();
+        // JWT exp is in seconds
+        if (decodedToken.exp * 1000 < currentDate.getTime()) {
+          setIsAuth(false);
+        } else {
+          setIsAuth(true);
+        }
+      } catch (error) {
+        setIsAuth(false);
+      }
+    } else {
+      setIsAuth(false);
+    }
+  };
+  const LoginRoute = (props) => {
+    if (isAuth) {
+      return <Navigate to="/cms" replace />;
+    }
+    return props.children;
   };
   const ProtectedRoute = (props) => {
-    checkAuth();
     if (!isAuth) {
       return <Navigate to="/login" replace />;
     }
     return props.children;
   };
+  useEffect(() => {
+    checkAuth();
+  }, []);
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        <Route
+          path="/login/"
+          element={
+            <LoginRoute>
+              <Login />
+            </LoginRoute>
+          }
+        />
         <Route path="/players" element={<Players />}></Route>
         <Route path="/players/:playerId" element={<PlayerItem />} />
         <Route path="/news" element={<News />}></Route>
@@ -92,6 +125,14 @@ function App() {
           element={
             <ProtectedRoute>
               <CmsTeams />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cms/positions"
+          element={
+            <ProtectedRoute>
+              <CmsPositions />
             </ProtectedRoute>
           }
         />

@@ -12,7 +12,7 @@ const CountdownTimer = () => {
   const apiCall = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/matches/supermatch"
+        "http://167.235.50.89:5000/api/matches/supermatch"
       );
       const responseData = await response.json();
       setData(responseData);
@@ -33,7 +33,7 @@ const CountdownTimer = () => {
           ) : (
             <img
               className={styles.grb}
-              src={`http://localhost:5000/${data?.team.grb}`}
+              src={`http://167.235.50.89:5000/${data?.team.grb}`}
               alt="kmf vitez"
             />
           )}
@@ -44,7 +44,7 @@ const CountdownTimer = () => {
         <div className={styles.cdTimer}>
           <p className={styles.nm}>NEXT MATCH</p>
           <p className={styles.demo}>
-            <Countdown date={date} />
+            {data && <Countdown date={date} />}
             <p className={styles.d}>Days / Hour / Min / Sec</p>
           </p>
         </div>
@@ -55,7 +55,7 @@ const CountdownTimer = () => {
           {data?.isHome ? (
             <img
               className={styles.grb}
-              src={`http://localhost:5000/${data?.team.grb}`}
+              src={`http://167.235.50.89:5000/${data?.team.grb}`}
               alt="kmf vitez"
             />
           ) : (
