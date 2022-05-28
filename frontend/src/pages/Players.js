@@ -9,11 +9,11 @@ const Players = () => {
     document.title = "KMF Vitez | Players";
   }, []);
   return (
-    <>
+    <div className="overflow-hidden vw-100">
       <Header type="players" />
       <PlayersContent />
       <Footer />
-    </>
+    </div>
   );
 };
 

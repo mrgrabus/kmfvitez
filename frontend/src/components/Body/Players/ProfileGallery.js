@@ -4,13 +4,13 @@ import styles from "./ProfileGallery.module.css";
 const ProfileGallery = () => {
   return (
       <Row>
-        <Col lg={4}>
+        <Col md={4} className="p-2">
           <div className={styles.card}></div>
         </Col>
-        <Col lg={4}>
+        <Col md={4} className="p-2">
           <div className={styles.card}></div>
         </Col>
-        <Col lg={4}>
+        <Col md={4} className="p-2">
           <div className={styles.card}></div>
         </Col>
       </Row>

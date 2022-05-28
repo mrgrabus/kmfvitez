@@ -34,8 +34,8 @@ const PlayerItem = (props) => {
   return (
     <>
       <NavigationBar />
-      <div className="position-relative vh-100">
-        <Container className="top-50 start-50 translate-middle position-absolute d-flex justify-content-center ps-0 pe-0">
+      <div className={`position-relative ${styles.wrapper}`}>
+        <Container className={`${styles.mobile} ${styles.desktop}`}>
           <div className={styles.div}>
             <img src={hero} alt="hero"></img>
             <p className={styles.number}>{data?.id}</p>
@@ -63,7 +63,7 @@ const PlayerItem = (props) => {
           </div>
         </Container>
       </div>
-      <ProfileGallery />
+      <ProfileGallery/>
       <Footer />
     </>
   );

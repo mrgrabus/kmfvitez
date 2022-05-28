@@ -33,7 +33,7 @@ const NavigationBar = () => {
 
   return (
     <>
-      <Container>
+      <Container className="ps-0 pe-0">
         <div className={`${styles.navbarContainer}`}>
           <div
             className={`${styles.navbar} ${
@@ -100,55 +100,57 @@ const NavigationBar = () => {
         </div>
 
         {/* Responsive navbar  */}
-        <div className={styles.responsiveNav}>
-          <div className={styles.responsiveLogoBurger}>
-            <NavLink to="/home" className={styles.logo}>
-              KMF VITEZ
-            </NavLink>
-            <div className={styles.burger}>
-              <img src={menu} onClick={changeClasses} alt="burger" />
+        <div className={styles.sticky}>
+          <div className={styles.responsiveNav}>
+            <div className={styles.responsiveLogoBurger}>
+              <NavLink to="/home" className={styles.logo}>
+                KMF VITEZ
+              </NavLink>
+              <div className={styles.burger}>
+                <img src={menu} onClick={changeClasses} alt="burger" />
+              </div>
             </div>
-          </div>
 
-          <div
-            className={
-              toggleClass
-                ? `${styles.responsiveItems} ${styles.navOpen}`
-                : `${styles.responsiveItems} ${styles.navClose}`
-            }
-          >
-            <NavLink
-              to="/home"
-              className={(navData) =>
-                navData.isActive ? styles.Active : styles.navLink
+            <div
+              className={
+                toggleClass
+                  ? `${styles.responsiveItems} ${styles.navOpen}`
+                  : `${styles.responsiveItems} ${styles.navClose}`
               }
             >
-              Home
-            </NavLink>
-            <NavLink
-              to="/players"
-              className={(navData) =>
-                navData.isActive ? styles.Active : styles.navLink
-              }
-            >
-              Players
-            </NavLink>
-            <NavLink
-              to="/shop"
-              className={(navData) =>
-                navData.isActive ? styles.Active : styles.navLink
-              }
-            >
-              Shop
-            </NavLink>
-            <NavLink
-              to="/news"
-              className={(navData) =>
-                navData.isActive ? styles.Active : styles.navLink
-              }
-            >
-              News
-            </NavLink>
+              <NavLink
+                to="/home"
+                className={(navData) =>
+                  navData.isActive ? styles.Active : styles.navLink
+                }
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="/players"
+                className={(navData) =>
+                  navData.isActive ? styles.Active : styles.navLink
+                }
+              >
+                Players
+              </NavLink>
+              <NavLink
+                to="/shop"
+                className={(navData) =>
+                  navData.isActive ? styles.Active : styles.navLink
+                }
+              >
+                Shop
+              </NavLink>
+              <NavLink
+                to="/news"
+                className={(navData) =>
+                  navData.isActive ? styles.Active : styles.navLink
+                }
+              >
+                News
+              </NavLink>
+            </div>
           </div>
         </div>
 

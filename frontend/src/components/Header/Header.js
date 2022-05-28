@@ -6,11 +6,13 @@ import Carousel from "../UI/Carousel";
 import Heading from "./Heading";
 
 const Header = (props) => {
+  var w = window.innerWidth;
   if (props.type === "home") {
     return (
       <Container fluid className="ps-0 pe-0 position-relative">
         <NavigationBar />
-        <Carousel />
+        {w > 500 ? <Carousel /> : <Heading title={"KMF Vitez"} />}
+        {/* <Carousel/> */}
         <BgImg />
         <SocialIcons />
       </Container>

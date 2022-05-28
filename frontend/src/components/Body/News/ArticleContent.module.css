@@ -56,6 +56,9 @@
   height: auto;
   width: 65%;
 }
+.lWrapper {
+  padding: 30px;
+}
 .bgTextOverlay {
   background-image: url("../../../assets/Img/bgImg.png");
   background-size: cover;
@@ -68,6 +71,9 @@
 .articleText {
   font-size: 20px;
 }
+.articleWrapper {
+  padding: 20px;
+}
 .timestamp {
   font-size: 20px;
   color: rgb(168, 168, 168);
@@ -79,4 +85,18 @@
 }
 .shareBtn:hover {
   color: #000;
+}
+@media (max-width: 576px) {
+  .lWrapper {
+    padding: 15px;
+  }
+  .bgTextOverlay {
+    font-size: 50px;
+  }
+  .articleWrapper {
+    padding: 10px;
+  }
+  .leftDiv {
+    width: 90%;
+  }
 }

@@ -60,3 +60,17 @@ input[type=number] {
 .bgElement {
   margin-top: 50px;
 }
+
+@media (max-width: 576px) {
+ .formInfo p:nth-child(1){
+   line-height: .9;
+ }
+ .formInfo p:nth-child(2){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+          line-clamp: 2; 
+  -webkit-box-orient: vertical;
+ }
+}

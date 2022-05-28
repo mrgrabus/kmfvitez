@@ -26,41 +26,43 @@ const CountdownTimer = () => {
   }, []);
   return (
     <div className={`container ${styles.countdown}`}>
-      <div className={styles.cdContent}>
-        <div className={styles.cdLogo}>
-          {data?.isHome ? (
-            <img src={kmf} alt="kmf vitez" />
-          ) : (
-            <img
-              className={styles.grb}
-              src={`http://167.235.50.89:5000/${data?.team.grb}`}
-              alt="kmf vitez"
-            />
-          )}
-        </div>
-        <div className={styles.cdNametag}>
-          <p>{data?.isHome ? "KMF Vitez" : data?.team.teamName}</p>
-        </div>
-        <div className={styles.cdTimer}>
-          <p className={styles.nm}>NEXT MATCH</p>
-          <p className={styles.demo}>
-            {data && <Countdown date={date} />}
-            <p className={styles.d}>Days / Hour / Min / Sec</p>
-          </p>
-        </div>
-        <div className={styles.cdNametag}>
-          <p>{data?.isHome ? data?.team.teamName : "KMF Vitez"}</p>
-        </div>
-        <div className={styles.cdLogo}>
-          {data?.isHome ? (
-            <img
-              className={styles.grb}
-              src={`http://167.235.50.89:5000/${data?.team.grb}`}
-              alt="kmf vitez"
-            />
-          ) : (
-            <img src={kmf} alt="kmf vitez" />
-          )}
+      <div className={styles.wrapper}>
+        <div className={styles.cdContent}>
+          <div className={styles.cdLogo}>
+            {data?.isHome ? (
+              <img src={kmf} alt="kmf vitez" />
+            ) : (
+              <img
+                className={styles.grb}
+                src={`http://167.235.50.89:5000/${data?.team.grb}`}
+                alt="kmf vitez"
+              />
+            )}
+          </div>
+          <div className={styles.cdNametag}>
+            <p>{data?.isHome ? "KMF Vitez" : data?.team.teamName}</p>
+          </div>
+          <div className={styles.cdTimer}>
+            <p className={styles.nm}>NEXT MATCH</p>
+            <p className={styles.demo}>
+              {data && <Countdown date={date} />}
+              <p className={styles.d}>Days / Hour / Min / Sec</p>
+            </p>
+          </div>
+          <div className={styles.cdNametag}>
+            <p>{data?.isHome ? data?.team.teamName : "KMF Vitez"}</p>
+          </div>
+          <div className={styles.cdLogo}>
+            {data?.isHome ? (
+              <img
+                className={styles.grb}
+                src={`http://167.235.50.89:5000/${data?.team.grb}`}
+                alt="kmf vitez"
+              />
+            ) : (
+              <img src={kmf} alt="kmf vitez" />
+            )}
+          </div>
         </div>
       </div>
     </div>

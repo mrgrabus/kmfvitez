@@ -3,6 +3,17 @@
   /* border-radius: 10px; */
   height: 80px;
   background-color: rgb(255, 255, 255);
+  position: relative;
+}
+.wrapper {
+  position: absolute;
+  width: 95%;
+  margin-left: auto;
+margin-right: auto;
+left: 0;
+  right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .cdTimer {
   display: flex;
@@ -12,7 +23,7 @@
   flex-direction: column;
 }
 .cdTimer p {
-  line-height: 0.8;
+  /* line-height: 0.8; */
   padding: 0;
   margin: 0 !important;
 }
@@ -30,7 +41,7 @@
   font-size: 16px;
   font-family: ps;
   padding-bottom: 0px !important;
-  padding: 5px !important;
+  /* padding: 5px !important; */
 }
 .cdLogo {
   padding-left: 20px;
@@ -40,7 +51,7 @@
   font-size: 30px;
 }
 .demo {
-  line-height: 1;
+  line-height: .7;
   padding: 0;
   margin: 0;
   text-align: center;
@@ -65,10 +76,40 @@
     font-size: 35px;
   }
   .cdLogo {
-    margin-top: 5px;
+    /* margin-top: 5px; */
     padding-left: 0px;
   }
   .cdTimer {
-    margin-top: 10px;
+    /* margin-top: 10px; */
   }
 }
+
+@media (max-width: 476px) {
+  .countdown {
+    
+    width: 95%;
+    margin: auto;
+  }
+  .cdNametag p {
+    font-size: 12px;
+  }
+  .nm {
+    font-size: 12px;
+  }
+  .d {
+    font-size: 10px;
+  }
+  .demo {
+    font-size: 25px;
+  }
+  .cdLogo {
+    /* margin-top: 5px; */
+    padding-left: 0px;
+  }
+  .cdLogo img {
+    width: 45px;
+  }
+  .cdTimer {
+    /* margin-top: 10px; */
+  }
+ }

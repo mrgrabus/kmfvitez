@@ -47,7 +47,7 @@ const ArticleContent = () => {
       </Container>
 
       <div className={styles.leftDiv}>
-        <div className="p-5">
+        <div className={styles.lWrapper}>
           <div className="d-flex justify-content-between">
             <p className={styles.timestamp}>{date}</p>
             <a href="#" className={styles.shareBtn}>
@@ -56,7 +56,7 @@ const ArticleContent = () => {
             </a>
           </div>
           <h1 className={styles.bgTextOverlay}>{data?.title}</h1>
-          <div className="p-5">
+          <div className={styles.articleWrapper}>
             <p className={styles.articleText}>{data?.text}</p>
           </div>
         </div>
