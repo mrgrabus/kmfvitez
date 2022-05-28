@@ -78,7 +78,7 @@ const CmsArticlesList = () => {
         />
       )}
       {data.map((article) => (
-        <Row className={styles.listDiv}>
+        <Row className={styles.listDiv} key={article?.id}>
           <Col xs={7} md={5} className={styles.heading}>
             <div className="d-flex flex-column my-auto">
               <p className={styles.title}>{article.title}</p>

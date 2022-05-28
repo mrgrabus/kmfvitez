@@ -120,7 +120,16 @@
 .grb{
   max-width: 100px;
 }
+@media (max-width: 1367px) {
+  .dayWrapper {
+    margin-top: 0;
+  }
+  .time{
+    margin-top: 10px;
+  }
+}
 @media (max-width: 576px) {
+
   .gameCard {
     width: 450px;
   }

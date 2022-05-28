@@ -2,9 +2,12 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import styles from "./NavigationBar.module.css";
 import grb from "../../assets/Img/kmf_grb.png";
-import menu from "../../assets/Img/menu.svg";
+import menu from "../../assets/Img/menu2.svg";
 import arrowup from "../../assets/Img/arrow-up-circle.svg";
 import { useEffect, useRef, useState } from "react";
+
+import fb from "../../assets/Img/fb.svg";
+import ig from "../../assets/Img/ig.svg";
 
 const NavigationBar = () => {
   const [toggleClass, setClass] = useState(false);
@@ -104,7 +107,8 @@ const NavigationBar = () => {
           <div className={styles.responsiveNav}>
             <div className={styles.responsiveLogoBurger}>
               <NavLink to="/home" className={styles.logo}>
-                KMF VITEZ
+                <img src={grb} />
+                <span>KMF</span>VITEZ
               </NavLink>
               <div className={styles.burger}>
                 <img src={menu} onClick={changeClasses} alt="burger" />
@@ -150,6 +154,10 @@ const NavigationBar = () => {
               >
                 News
               </NavLink>
+              <div className={styles.navLogoDiv}>
+                <img src={ig} />
+                <img src={fb} />
+              </div>
             </div>
           </div>
         </div>
