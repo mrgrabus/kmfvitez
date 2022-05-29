@@ -63,7 +63,7 @@ const PlayerItem = (props) => {
           </div>
         </Container>
       </div>
-      <ProfileGallery/>
+      {/* <ProfileGallery/> */}
       <Footer />
     </>
   );

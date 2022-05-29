@@ -44,20 +44,23 @@
     display: -webkit-box;
     line-height: 25px; /* fallback */
     max-height: 118px; /* fallback */
-    -webkit-line-clamp: 5; /* number of lines to show */
+    -webkit-line-clamp: 10; /* number of lines to show */
     -webkit-box-orient: vertical;
   }
+  .historyContent {
+    width: 90%;
+  }
   .history {
-    margin-top: 0 !important;
-    height: 350px;
+    margin-top: 0;
+    height: 450px;
   }
   .historyBg {
-    height: 350px;
-    object-fit: fill !important;
+    height: 450px;
+    object-fit: cover;
   }
   .historySlika {
     width: 100%;
-    object-fit: fill;
-    height: 350px;
+    object-fit: cover;
+    height: 450px;
   }
 }

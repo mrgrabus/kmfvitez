@@ -127,7 +127,6 @@ const ContactForm = () => {
                   className={styles.icon}
                 />
                 <input
-                  type="text"
                   placeholder={` Your phone number`}
                   value={formData.phoneNumber}
                   onChange={(e) => {
@@ -158,7 +157,7 @@ const ContactForm = () => {
                   }`}
                 ></input>
               </div>
-              <div>
+              <div className="d-flex justify-content-center">
                 <MainButton txt="Send" />
               </div>
               <ToastContainer

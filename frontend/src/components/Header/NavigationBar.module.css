@@ -132,8 +132,11 @@
     justify-content: center;
   }
   .navLogoDiv img {
-    width: 70px;
-    padding: 15px;
+    width: 30px;
+    margin: 10px;
+  }
+  .navLogoDiv p {
+    color: #fff;
   }
 }
 @media (max-width: 500px) {

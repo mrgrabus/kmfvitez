@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 
 import fb from "../../assets/Img/fb.svg";
 import ig from "../../assets/Img/ig.svg";
+import tw from "../../assets/Img/tw.svg";
 
 const NavigationBar = () => {
   const [toggleClass, setClass] = useState(false);
@@ -157,6 +158,11 @@ const NavigationBar = () => {
               <div className={styles.navLogoDiv}>
                 <img src={ig} />
                 <img src={fb} />
+                <img src={tw} />
+              </div>
+              <div className={styles.navLogoDiv}>
+              <p>KMFVitez (C) 2022</p>
+                
               </div>
             </div>
           </div>

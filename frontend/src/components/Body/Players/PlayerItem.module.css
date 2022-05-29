@@ -48,12 +48,18 @@
 }
 @media (max-width: 1367px) {
     .number {
-        bottom: -350px;
+        bottom: -449px;
         font-size: 800px;
+    }
+    .profile {
+        margin-top: -70px;
     }
     .div{
         z-index: -100;
         /* margin-top: -140px; */
+    }
+    .div img {
+        margin-top: -180px;
     }
     .desktop {
         margin-top: 140px;
@@ -61,7 +67,8 @@
 }
 @media (max-width: 576px) {
     .wrapper {
-        margin-bottom: 200px;
+        margin-bottom: 30px;
+        overflow-x: hidden;
     }
     .desktop {
         display: none;
@@ -72,6 +79,9 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+    }
+    .div img {
+        margin-top: 0;
     }
     .profile {
         margin-top: 20px;
