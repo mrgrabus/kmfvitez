@@ -19,7 +19,7 @@ const News = () => {
   const [data, setData] = useState([]);
   const apiCall = async () => {
     try {
-      const response = await fetch("http://167.235.50.89:5000/api/news");
+      const response = await fetch("http://165.22.86.104:5000/api/news");
       const data = await response.json();
       setData(data);
     } catch (error) {

@@ -57,7 +57,7 @@ const Login = () => {
   const sendData = async () => {
     try {
       const response = await axios.post(
-        "http://167.235.50.89:5000/api/auth/login",
+        "http://165.22.86.104:5000/api/auth/login",
         {
           email: data[0].value,
           password: data[1].value,

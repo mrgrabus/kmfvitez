@@ -29,7 +29,7 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId, isSuccessful }) => {
     formData.append("text", data.text);
     formData.append("status", selectedRadio);
     try {
-      await axios.post(`http://167.235.50.89:5000/api/news`, formData, {
+      await axios.post(`http://165.22.86.104:5000/api/news`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -48,7 +48,7 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId, isSuccessful }) => {
 
   const getNewsData = async () => {
     try {
-      const response = await fetch(`http://167.235.50.89:5000/api/news/${newsId}`);
+      const response = await fetch(`http://165.22.86.104:5000/api/news/${newsId}`);
       const data = await response.json();
       setData({ ...data });
     } catch (error) {
@@ -59,7 +59,7 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId, isSuccessful }) => {
   const editData = async () => {
     let token = localStorage.getItem("userToken");
     try {
-      await axios.put(`http://167.235.50.89:5000/api/news/${newsId}`, data, {
+      await axios.put(`http://165.22.86.104:5000/api/news/${newsId}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -180,7 +180,7 @@ const CmsNewArticleModal = ({ open, onClose, edit, newsId, isSuccessful }) => {
               />
               {data?.image.length > 0 && (
                 <div className={styles.imagePreview}>
-                  <img src={`http://167.235.50.89:5000/${data?.image}`} />
+                  <img src={`http://165.22.86.104:5000/${data?.image}`} />
                 </div>
               )}
             </Col>

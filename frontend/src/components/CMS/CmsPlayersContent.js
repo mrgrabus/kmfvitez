@@ -17,7 +17,7 @@ const CmsPlayersContent = () => {
 
   const apiCall = async () => {
     try {
-      const fetchData = await fetch("http://167.235.50.89:5000/api/players/");
+      const fetchData = await fetch("http://165.22.86.104:5000/api/players/");
       const data = await fetchData.json();
       setData(data);
     } catch (error) {
@@ -27,7 +27,7 @@ const CmsPlayersContent = () => {
   const deleteData = async () => {
     let token = localStorage.getItem("userToken");
     try {
-      await axios.delete(`http://167.235.50.89:5000/api/player/${matchToEdit}`, {
+      await axios.delete(`http://165.22.86.104:5000/api/player/${matchToEdit}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -100,7 +100,7 @@ const CmsPlayersContent = () => {
                 <td>
                   <div className="d-flex justify-content-center">
                     <div className={styles.imagePreview}>
-                      <img src={`http://167.235.50.89:5000/${item?.image}`} />
+                      <img src={`http://165.22.86.104:5000/${item?.image}`} />
                     </div>
                   </div>
                 </td>

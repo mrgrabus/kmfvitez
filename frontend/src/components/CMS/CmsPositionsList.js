@@ -18,7 +18,7 @@ const CmsPositionsList = () => {
   const apiCall = async () => {
     try {
       const fetchData = await fetch(
-        "http://167.235.50.89:5000/api/player/position/"
+        "http://165.22.86.104:5000/api/player/position/"
       );
       const data = await fetchData.json();
       setData(data);
@@ -31,7 +31,7 @@ const CmsPositionsList = () => {
     let token = localStorage.getItem("userToken");
     try {
       await axios.post(
-        `http://167.235.50.89:5000/api/player/position`,
+        `http://165.22.86.104:5000/api/player/position`,
         submitData,
         {
           headers: {
@@ -47,7 +47,7 @@ const CmsPositionsList = () => {
   const deleteData = async () => {
     let token = localStorage.getItem("userToken");
     try {
-      await axios.delete(`http://167.235.50.89:5000/api/player/${matchToEdit}`, {
+      await axios.delete(`http://165.22.86.104:5000/api/player/${matchToEdit}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

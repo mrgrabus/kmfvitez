@@ -13,7 +13,7 @@ const ArticleContent = () => {
   const apiCall = async () => {
     try {
       const response = await fetch(
-        `http://167.235.50.89:5000/api/news/${articleId}`
+        `http://165.22.86.104:5000/api/news/${articleId}`
       );
       const data = await response.json();
       setData(data);
@@ -36,7 +36,7 @@ const ArticleContent = () => {
   return (
     <div>
       <div className={styles.overlay}></div>
-      <img src={`http://167.235.50.89:5000/${data?.image}`} className={styles.bg} />
+      <img src={`http://165.22.86.104:5000/${data?.image}`} className={styles.bg} />
       <NavigationBar />
       <Container fluid className={styles.div2}>
         <div

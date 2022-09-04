@@ -11,7 +11,7 @@ const PlayersContent = () => {
   const [loader, setLoader] = useState(true);
   const apiCall = async () => {
     const varijabla = [];
-    fetch("http://167.235.50.89:5000/api/players")
+    fetch("http://165.22.86.104:5000/api/players")
       .then((response) => {
         return response.json();
       })

@@ -25,7 +25,7 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId, isSuccessful }) => {
     let token = localStorage.getItem("userToken");
     try {
       await axios.post(
-        `http://167.235.50.89:5000/api/matches`,
+        `http://165.22.86.104:5000/api/matches`,
         {
           date: data.date,
           location: data.location,
@@ -53,7 +53,7 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId, isSuccessful }) => {
   const getNewsData = async () => {
     try {
       const response = await fetch(
-        `http://167.235.50.89:5000/api/matches/${matchId}`
+        `http://165.22.86.104:5000/api/matches/${matchId}`
       );
       const data = await response.json();
       setData({ ...data });
@@ -63,7 +63,7 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId, isSuccessful }) => {
   };
   const getTeams = async () => {
     try {
-      const response = await fetch("http://167.235.50.89:5000/api/matches/teams");
+      const response = await fetch("http://165.22.86.104:5000/api/matches/teams");
       const teams = await response.json();
       setTeamData(teams);
     } catch (error) {
@@ -75,7 +75,7 @@ const CmsNewMatchModal = ({ open, onClose, edit, matchId, isSuccessful }) => {
     let token = localStorage.getItem("userToken");
     try {
       await axios.put(
-        `http://167.235.50.89:5000/api/matches/${matchId}`,
+        `http://165.22.86.104:5000/api/matches/${matchId}`,
         {
           date: data.date,
           location: data.location,

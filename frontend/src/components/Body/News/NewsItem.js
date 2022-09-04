@@ -9,7 +9,7 @@ const NewsItem = ({ title, image, date }) => {
     <div className={styles.newsCard}>
       <div className={styles.layer}></div>
       <div className={styles.slika}>
-        <img src={`http://167.235.50.89:5000/${image}`} alt="news"></img>
+        <img src={`http://165.22.86.104:5000/${image}`} alt="news"></img>
       </div>
       <div className={styles.newsContent}>
         <h3>{title}</h3>

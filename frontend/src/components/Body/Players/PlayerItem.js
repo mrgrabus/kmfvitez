@@ -18,7 +18,7 @@ const PlayerItem = (props) => {
   const apiCall = async () => {
     try {
       const response = await fetch(
-        `http://167.235.50.89:5000/api/player/${playerId}`
+        `http://165.22.86.104:5000/api/player/${playerId}`
       );
       const data = await response.json();
       setData(data);

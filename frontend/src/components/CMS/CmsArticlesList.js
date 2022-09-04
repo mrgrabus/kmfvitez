@@ -15,7 +15,7 @@ const CmsArticlesList = () => {
   const [articleToEdit, setArticleToEdit] = useState(null);
   const apiCall = async () => {
     try {
-      const response = await fetch("http://167.235.50.89:5000/api/news");
+      const response = await fetch("http://165.22.86.104:5000/api/news");
       const data = await response.json();
       setData(data);
     } catch (error) {
@@ -25,7 +25,7 @@ const CmsArticlesList = () => {
   const deleteData = async () => {
     let token = localStorage.getItem("userToken");
     try {
-      await axios.delete(`http://167.235.50.89:5000/api/news/${articleToEdit}`, {
+      await axios.delete(`http://165.22.86.104:5000/api/news/${articleToEdit}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

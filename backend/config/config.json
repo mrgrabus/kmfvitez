@@ -1,22 +1,22 @@
 {
   "development": {
     "username": "root",
-    "password": "kmfvitez",
-    "database": "kmf_vitez",
-    "host": "167.235.50.89",
+    "password": "Mojasifra32114#",
+    "database": "kmfvitez",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "Mojasifra32114#",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": null,
-    "database": "database_production",
+    "password": "Mojasifra32114#",
+    "database": "kmfvitez",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

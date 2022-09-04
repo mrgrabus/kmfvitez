@@ -8,7 +8,7 @@ const NewsPageContent = () => {
   const [data, setData] = useState([]);
   const fetchData = async () => {
     try {
-      const data = await fetch("http://167.235.50.89:5000/api/news");
+      const data = await fetch("http://165.22.86.104:5000/api/news");
       const response = await data.json();
       setData(response);
     } catch (error) {
@@ -26,7 +26,7 @@ const NewsPageContent = () => {
             <Col sm={4} className={styles.col}>
               <div className={styles.box}>
                 <img
-                  src={`http://167.235.50.89:5000/${item?.image}`}
+                  src={`http://165.22.86.104:5000/${item?.image}`}
                   alt="bgimage"
                 />
                 <div className={styles.info}>

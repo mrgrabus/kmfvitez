@@ -134,7 +134,7 @@ const DragAndDrop = () => {
       formData.append("key", "");
       formData.append("name", selectedFiles[0].name)
       axios
-        .post("http://167.235.50.89:5000/api/news/upload", formData, {
+        .post("http://165.22.86.104:5000/api/news/upload", formData, {
           onUploadProgress: (progressEvent) => {
             const uploadPercentage = Math.floor(
               (progressEvent.loaded / progressEvent.total) * 100

@@ -45,7 +45,7 @@ const Card = ({ location, isHome, teamName, date, grb }) => {
             ) : (
               <img
                 className={styles.grb}
-                src={`http://167.235.50.89:5000/${grb}`}
+                src={`http://165.22.86.104:5000/${grb}`}
                 alt="kmf vitez"
               />
             )}
@@ -59,7 +59,7 @@ const Card = ({ location, isHome, teamName, date, grb }) => {
             {isHome ? (
               <img
                 className={styles.grb}
-                src={`http://167.235.50.89:5000/${grb}`}
+                src={`http://165.22.86.104:5000/${grb}`}
                 alt="kmf vitez"
               />
             ) : (

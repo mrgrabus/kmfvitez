@@ -54,7 +54,7 @@ app.get("/send-email", (req, res) => {
 
 server.listen(process.env.PORT || 5000, () => {
   console.log("SERVER IS UP AND RUNNING");
-  // sequelize.sync({
-  //     alter: true
-  // })
+  sequelize.sync({
+      alter: true
+  })
 });

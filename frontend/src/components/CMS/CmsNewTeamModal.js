@@ -39,7 +39,7 @@ const CmsNewTeamModal = ({ open, onClose, edit, newsId }) => {
     formData.append("image", data.grb);
     formData.append("teamName", data.teamName);
     try {
-      await axios.post(`http://167.235.50.89:5000/api/teams`, formData, {
+      await axios.post(`http://165.22.86.104:5000/api/teams`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -57,7 +57,7 @@ const CmsNewTeamModal = ({ open, onClose, edit, newsId }) => {
 
   const getNewsData = async () => {
     try {
-      const response = await fetch(`http://167.235.50.89:5000/api/teams/${newsId}`);
+      const response = await fetch(`http://165.22.86.104:5000/api/teams/${newsId}`);
       const data = await response.json();
       setData({ ...data });
     } catch (error) {
@@ -68,7 +68,7 @@ const CmsNewTeamModal = ({ open, onClose, edit, newsId }) => {
   const editData = async () => {
     let token = localStorage.getItem("userToken");
     try {
-      await axios.put(`http://167.235.50.89:5000/api/teams/${newsId}`, data, {
+      await axios.put(`http://165.22.86.104:5000/api/teams/${newsId}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -159,7 +159,7 @@ const CmsNewTeamModal = ({ open, onClose, edit, newsId }) => {
                   </>
                 ) : (
                   <div className={styles.imagePreview}>
-                    <img src={`http://167.235.50.89:5000/${data?.grb}`} />
+                    <img src={`http://165.22.86.104:5000/${data?.grb}`} />
                   </div>
                 )}
               </div>
