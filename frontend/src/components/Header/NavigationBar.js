@@ -1,7 +1,8 @@
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import styles from "./NavigationBar.module.css";
-import grb from "../../assets/Img/kmf_grb.png";
+// import grb from "../../assets/Img/kmf_grb.png";
+import grb from "../../assets/Img/kmfgrb.png";
 import menu from "../../assets/Img/menu2.svg";
 import arrowup from "../../assets/Img/arrow-up-circle.svg";
 import { useEffect, useRef, useState } from "react";
@@ -69,7 +70,7 @@ const NavigationBar = () => {
                   }
                 >
                   <a>
-                    <img src={grb} alt="kmfvitez"></img>
+                    <img src={grb} alt="kmfvitez" className={styles.grbina}></img>
                   </a>
                 </NavLink>
               )}
